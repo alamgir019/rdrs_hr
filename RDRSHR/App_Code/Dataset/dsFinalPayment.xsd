@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsFinalPayment" targetNamespace="http://tempuri.org/dsFinalPayment.xsd" xmlns:mstns="http://tempuri.org/dsFinalPayment.xsd" xmlns="http://tempuri.org/dsFinalPayment.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsFinalPayment" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtFinalPayment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmpId" type="xs:string" minOccurs="0" />
+              <xs:element name="FullName" type="xs:string" minOccurs="0" />
+              <xs:element name="JobTitle" type="xs:string" minOccurs="0" />
+              <xs:element name="JoiningDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SEPERATEDATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SeparationType" type="xs:short" minOccurs="0" />
+              <xs:element name="Salary" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SalayUpto" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Bonus" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SalaryMinBonus" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BonusDays" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Gratuity" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GrPayDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LeaveEncash" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AnnualLeave" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PFAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="InWord" type="xs:string" minOccurs="0" />
+              <xs:element name="BasicSalary" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BONUSALLOW" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

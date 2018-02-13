@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RDRS_RDRSModelStoreContainer" CdmEntityContainer="RDRS_RDRSEntities">
+    <EntitySetMapping Name="UserInfoes">
+      <EntityTypeMapping TypeName="RDRS_RDRSModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="PrivPackID" ColumnName="PrivPackID" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="IsRestricted" ColumnName="IsRestricted" />
+          <ScalarProperty Name="ChangePassword" ColumnName="ChangePassword" />
+          <ScalarProperty Name="AccountDisabled" ColumnName="AccountDisabled" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewNames">
+      <EntityTypeMapping TypeName="RDRS_RDRSModel.ViewName">
+        <MappingFragment StoreEntitySet="ViewName">
+          <ScalarProperty Name="NodeLevel" ColumnName="NodeLevel" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="ShowToPage" ColumnName="ShowToPage" />
+          <ScalarProperty Name="ViewName1" ColumnName="ViewName" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="ViewId" ColumnName="ViewId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPrivs">
+      <EntityTypeMapping TypeName="RDRS_RDRSModel.UserPriv">
+        <MappingFragment StoreEntitySet="UserPrivs">
+          <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+          <ScalarProperty Name="GradeId" ColumnName="GradeId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="UpazillaId" ColumnName="UpazillaId" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+          <ScalarProperty Name="CCOId" ColumnName="CCOId" />
+          <ScalarProperty Name="HeadOfficeId" ColumnName="HeadOfficeId" />
+          <ScalarProperty Name="InterventionId" ColumnName="InterventionId" />
+          <ScalarProperty Name="DeletePerm" ColumnName="DeletePerm" />
+          <ScalarProperty Name="InsertPerm" ColumnName="InsertPerm" />
+          <ScalarProperty Name="ViewPerm" ColumnName="ViewPerm" />
+          <ScalarProperty Name="ViewId" ColumnName="ViewId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DivisionLists">
+      <EntityTypeMapping TypeName="RDRS_RDRSModel.DivisionList">
+        <MappingFragment StoreEntitySet="DivisionList">
+          <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DivisionShortName" ColumnName="DivisionShortName" />
+          <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GradeLists">
+      <EntityTypeMapping TypeName="RDRS_RDRSModel.GradeList">
+        <MappingFragment StoreEntitySet="GradeList">
+          <ScalarProperty Name="GradeType" ColumnName="GradeType" />
+          <ScalarProperty Name="BasicMax" ColumnName="BasicMax" />
+          <ScalarProperty Name="BasicMin" ColumnName="BasicMin" />
+          <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="GradeDesc" ColumnName="GradeDesc" />
+          <ScalarProperty Name="GradeName" ColumnName="GradeName" />
+          <ScalarProperty Name="GradeId" ColumnName="GradeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfficeLists">
+      <EntityTypeMapping TypeName="RDRS_RDRSModel.OfficeList">
+        <MappingFragment StoreEntitySet="OfficeList">
+          <ScalarProperty Name="IsPayLoc" ColumnName="IsPayLoc" />
+          <ScalarProperty Name="UpzID" ColumnName="UpzID" />
+          <ScalarProperty Name="DistID" ColumnName="DistID" />
+          <ScalarProperty Name="DivID" ColumnName="DivID" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="OfficeTypeID" ColumnName="OfficeTypeID" />
+          <ScalarProperty Name="OfficeTitle" ColumnName="OfficeTitle" />
+          <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectLists">
+      <EntityTypeMapping TypeName="RDRS_RDRSModel.ProjectList">
+        <MappingFragment StoreEntitySet="ProjectList">
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsProject" ColumnName="IsProject" />
+          <ScalarProperty Name="IsCore" ColumnName="IsCore" />
+          <ScalarProperty Name="IsBSal" ColumnName="IsBSal" />
+          <ScalarProperty Name="IsGSal" ColumnName="IsGSal" />
+          <ScalarProperty Name="IsInsurance" ColumnName="IsInsurance" />
+          <ScalarProperty Name="IsLE" ColumnName="IsLE" />
+          <ScalarProperty Name="IsEOC" ColumnName="IsEOC" />
+          <ScalarProperty Name="IsGratuity" ColumnName="IsGratuity" />
+          <ScalarProperty Name="IsPF" ColumnName="IsPF" />
+          <ScalarProperty Name="IncrementAfter" ColumnName="IncrementAfter" />
+          <ScalarProperty Name="IncrementMonth" ColumnName="IncrementMonth" />
+          <ScalarProperty Name="IncrementType" ColumnName="IncrementType" />
+          <ScalarProperty Name="WeekEndID" ColumnName="WeekEndID" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SectorLists">
+      <EntityTypeMapping TypeName="RDRS_RDRSModel.SectorList">
+        <MappingFragment StoreEntitySet="SectorList">
+          <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SectorAddress" ColumnName="SectorAddress" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

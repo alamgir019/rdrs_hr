@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RDRS_RDRSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="RDRS_RDRSModelStoreContainer">
+    <EntitySet Name="DivisionList" EntityType="RDRS_RDRSModel.Store.DivisionList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GradeList" EntityType="RDRS_RDRSModel.Store.GradeList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OfficeList" EntityType="RDRS_RDRSModel.Store.OfficeList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectList" EntityType="RDRS_RDRSModel.Store.ProjectList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SectorList" EntityType="RDRS_RDRSModel.Store.SectorList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserInfo" EntityType="RDRS_RDRSModel.Store.UserInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserPrivs" EntityType="RDRS_RDRSModel.Store.UserPrivs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ViewName" EntityType="RDRS_RDRSModel.Store.ViewName" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__OfficeLis__Paren__6DD8D0A9" Association="RDRS_RDRSModel.Store.FK__OfficeLis__Paren__6DD8D0A9">
+      <End Role="OfficeList" EntitySet="OfficeList" />
+      <End Role="OfficeList1" EntitySet="OfficeList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPrivs_DivisionList" Association="RDRS_RDRSModel.Store.FK_UserPrivs_DivisionList">
+      <End Role="DivisionList" EntitySet="DivisionList" />
+      <End Role="UserPrivs" EntitySet="UserPrivs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPrivs_ViewName" Association="RDRS_RDRSModel.Store.FK_UserPrivs_ViewName">
+      <End Role="ViewName" EntitySet="ViewName" />
+      <End Role="UserPrivs" EntitySet="UserPrivs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DivisionList">
+    <Key>
+      <PropertyRef Name="DivisionId" />
+    </Key>
+    <Property Name="DivisionId" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="DivisionName" Type="varchar" MaxLength="60" />
+    <Property Name="DivisionShortName" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="char" MaxLength="1" />
+    <Property Name="IsDeleted" Type="char" MaxLength="1" />
+    <Property Name="InsertedBy" Type="varchar" MaxLength="40" />
+    <Property Name="InsertedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="40" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="LastUpdatedFrom" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="GradeList">
+    <Key>
+      <PropertyRef Name="GradeId" />
+    </Key>
+    <Property Name="GradeId" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="GradeName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="GradeDesc" Type="varchar" MaxLength="100" />
+    <Property Name="IsDeleted" Type="char" MaxLength="1" />
+    <Property Name="IsActive" Type="char" MaxLength="1" />
+    <Property Name="InsertedBy" Type="varchar" MaxLength="40" />
+    <Property Name="InsertedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="40" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="LastUpdatedFrom" Type="varchar" MaxLength="40" />
+    <Property Name="BasicMin" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="BasicMax" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="GradeType" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="OfficeList">
+    <Key>
+      <PropertyRef Name="OfficeID" />
+    </Key>
+    <Property Name="OfficeID" Type="numeric" Nullable="false" Precision="6" />
+    <Property Name="OfficeTitle" Type="varchar" MaxLength="100" />
+    <Property Name="OfficeTypeID" Type="numeric" Precision="3" />
+    <Property Name="ParentID" Type="numeric" Precision="6" />
+    <Property Name="IsActive" Type="char" MaxLength="1" />
+    <Property Name="IsDeleted" Type="char" MaxLength="1" />
+    <Property Name="InsertedBy" Type="varchar" MaxLength="40" />
+    <Property Name="InsertedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="40" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="DivID" Type="numeric" Precision="5" />
+    <Property Name="DistID" Type="numeric" Precision="5" />
+    <Property Name="UpzID" Type="numeric" Precision="5" />
+    <Property Name="IsPayLoc" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ProjectList">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="ProjectName" Type="varchar" MaxLength="500" />
+    <Property Name="ProjectCode" Type="varchar" MaxLength="100" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="WeekEndID" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="IncrementType" Type="varchar" MaxLength="15" />
+    <Property Name="IncrementMonth" Type="numeric" Nullable="false" Precision="2" />
+    <Property Name="IncrementAfter" Type="numeric" Nullable="false" Precision="2" />
+    <Property Name="IsPF" Type="char" MaxLength="1" />
+    <Property Name="IsGratuity" Type="char" MaxLength="1" />
+    <Property Name="IsEOC" Type="char" MaxLength="1" />
+    <Property Name="IsLE" Type="char" MaxLength="1" />
+    <Property Name="IsInsurance" Type="char" MaxLength="1" />
+    <Property Name="IsGSal" Type="char" MaxLength="1" />
+    <Property Name="IsBSal" Type="char" MaxLength="1" />
+    <Property Name="IsCore" Type="char" MaxLength="1" />
+    <Property Name="IsProject" Type="char" MaxLength="1" />
+    <Property Name="IsActive" Type="char" MaxLength="1" />
+    <Property Name="IsDeleted" Type="char" MaxLength="1" />
+    <Property Name="InsertedBy" Type="varchar" MaxLength="40" />
+    <Property Name="InsertedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="40" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="LastUpdatedFrom" Type="varchar" MaxLength="40" />
+    <Property Name="ShortName" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="SectorList">
+    <Key>
+      <PropertyRef Name="SectorId" />
+    </Key>
+    <Property Name="SectorId" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="SectorName" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="ShortName" Type="varchar" MaxLength="20" />
+    <Property Name="SectorAddress" Type="varchar" MaxLength="250" />
+    <Property Name="IsActive" Type="char" MaxLength="1" />
+    <Property Name="IsDeleted" Type="char" MaxLength="1" />
+    <Property Name="InsertedBy" Type="varchar" MaxLength="40" />
+    <Property Name="InsertedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="40" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="LastUpdatedFrom" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="USERID" />
+    </Key>
+    <Property Name="USERID" Type="char" Nullable="false" MaxLength="15" />
+    <Property Name="PASSWORD" Type="char" Nullable="false" MaxLength="40" />
+    <Property Name="EmpId" Type="varchar" MaxLength="20" />
+    <Property Name="AccountDisabled" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="ChangePassword" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="IsRestricted" Type="char" MaxLength="1" />
+    <Property Name="IsAdmin" Type="char" MaxLength="1" />
+    <Property Name="PrivPackID" Type="int" />
+    <Property Name="IsDeleted" Type="char" MaxLength="1" />
+    <Property Name="InsertedBy" Type="varchar" MaxLength="40" />
+    <Property Name="InsertedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="40" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="LastUpdatedFrom" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="UserPrivs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="numeric" Nullable="false" />
+    <Property Name="UserId" Type="char" Nullable="false" MaxLength="15" />
+    <Property Name="ViewId" Type="int" Nullable="false" />
+    <Property Name="ViewPerm" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="InsertPerm" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="DeletePerm" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="InterventionId" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="HeadOfficeId" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="CCOId" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="ZoneId" Type="numeric" Precision="5" />
+    <Property Name="UnitId" Type="numeric" Precision="5" />
+    <Property Name="AreaId" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="BranchId" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="DistrictId" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="UpazillaId" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="ProjectId" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="GradeId" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="SectorId" Type="numeric" Nullable="false" Precision="5" />
+    <Property Name="InsertedBy" Type="varchar" MaxLength="40" />
+    <Property Name="InsertedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="40" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="LastUpdatedFrom" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="ViewName">
+    <Key>
+      <PropertyRef Name="ViewId" />
+    </Key>
+    <Property Name="ViewId" Type="int" Nullable="false" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="ViewName" Type="varchar" MaxLength="255" />
+    <Property Name="ShowToPage" Type="varchar" MaxLength="255" />
+    <Property Name="PageName" Type="varchar" MaxLength="255" />
+    <Property Name="NodeLevel" Type="int" />
+  </EntityType>
+  <Association Name="FK__OfficeLis__Paren__6DD8D0A9">
+    <End Role="OfficeList" Type="RDRS_RDRSModel.Store.OfficeList" Multiplicity="0..1" />
+    <End Role="OfficeList1" Type="RDRS_RDRSModel.Store.OfficeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfficeList">
+        <PropertyRef Name="OfficeID" />
+      </Principal>
+      <Dependent Role="OfficeList1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPrivs_DivisionList">
+    <End Role="DivisionList" Type="RDRS_RDRSModel.Store.DivisionList" Multiplicity="1" />
+    <End Role="UserPrivs" Type="RDRS_RDRSModel.Store.UserPrivs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DivisionList">
+        <PropertyRef Name="DivisionId" />
+      </Principal>
+      <Dependent Role="UserPrivs">
+        <PropertyRef Name="InterventionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPrivs_ViewName">
+    <End Role="ViewName" Type="RDRS_RDRSModel.Store.ViewName" Multiplicity="1" />
+    <End Role="UserPrivs" Type="RDRS_RDRSModel.Store.UserPrivs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ViewName">
+        <PropertyRef Name="ViewId" />
+      </Principal>
+      <Dependent Role="UserPrivs">
+        <PropertyRef Name="ViewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

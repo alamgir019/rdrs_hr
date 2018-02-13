@@ -1,0 +1,169 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+
+public sealed class UserAccess {
+
+    public List<ViewPermission> viewPerms { get; set; }
+	private UserAccess()
+	{
+        //viewPerm = new ViewPermission();
+	}
+    private static UserAccess access=null;
+
+    public static UserAccess Access {
+        get {
+            if (access==null){
+                access=new UserAccess();
+            }
+            return access;
+        }
+    }
+    public string UserId {get;set;}
+}
+public class ViewPermission
+    {
+        public decimal PageId{get;set;}
+        public string ViewPerm { get; set; }
+        public string InsertPerm { get; set; }
+        public string DeletePerm { get; set; }
+
+        public List<decimal?> InterventionIds { get; set; }
+        public List<decimal?> HeadOfficeIds { get; set; }
+        public List<decimal?> CCOIds { get; set; }
+        public List<decimal?> ZoneIds { get; set; }
+        public List<decimal?> UnitIds { get; set; }
+        public List<decimal?> AreaIds { get; set; }
+        public List<decimal?> BranchIds { get; set; }
+        public List<decimal?> DistrictIds { get; set; }
+        public List<decimal?> UpazillaIds { get; set; }
+        public List<decimal?> ProjectIds { get; set; }
+        public List<decimal?> GradeIds { get; set; }
+        public List<decimal?> SectorIds { get; set; }
+
+        public enum SelectionList
+        {
+            Intervention,
+            HeadOfficeId,
+            CCOId,
+            ZoneId,
+            UnitId,
+            AreaId,
+            BranchId,
+            DistrictId,
+            UpazillaId,
+            ProjectId,
+            GradeId,
+            SectorId
+        }
+        public DataTable ExistSelection(DataTable selections, Enum field, decimal pageid)
+        {
+            DataTable sublist = null;
+
+            ViewPermission pageView = UserAccess.Access.viewPerms.Find(vv => vv.PageId == pageid);
+            if (selections.Rows.Count==0)
+            {
+                return selections;
+            }
+            if (field.Equals(SelectionList.Intervention))
+            {
+                IEnumerable<DataRow> myBusinessObjectList = (from aselect in selections.AsEnumerable()
+                                            from intvn in pageView.InterventionIds 
+                                            where ((intvn==-1) || (aselect.Field<decimal>("DivisionId") ==  intvn))
+                                            select aselect).ToList();
+               sublist = myBusinessObjectList.CopyToDataTable();
+            }
+            else if (field.Equals(SelectionList.HeadOfficeId))
+            {
+                IEnumerable<DataRow> myBusinessObjectList = (from aselect in selections.AsEnumerable()
+                                                             from aid in pageView.HeadOfficeIds
+                                                             where ((aid == -1) || (aselect.Field<decimal>("OfficeID") == aid))
+                                                             select aselect).ToList();
+                sublist = myBusinessObjectList.CopyToDataTable();
+            }
+            else if (field.Equals(SelectionList.CCOId))
+            {
+                IEnumerable<DataRow> myBusinessObjectList = (from aselect in selections.AsEnumerable()
+                                                             from aid in pageView.CCOIds
+                                                             where ((aid == -1) || (aselect.Field<decimal>("OfficeID") == aid))
+                                                             select aselect).ToList();
+                sublist = myBusinessObjectList.CopyToDataTable();
+            }
+            else if (field.Equals(SelectionList.ZoneId))
+            {
+                IEnumerable<DataRow> myBusinessObjectList = (from aselect in selections.AsEnumerable()
+                                                             from aid in pageView.ZoneIds
+                                                             where ((aid == -1) || (aselect.Field<decimal>("OfficeID") == aid))
+                                                             select aselect).ToList();
+                sublist = myBusinessObjectList.CopyToDataTable();
+            }
+            else if (field.Equals(SelectionList.UnitId))
+            {
+                IEnumerable<DataRow> myBusinessObjectList = (from aselect in selections.AsEnumerable()
+                                                             from aid in pageView.UnitIds
+                                                             where ((aid == -1) || (aselect.Field<decimal>("OfficeID") == aid))
+                                                             select aselect).ToList();
+                sublist = myBusinessObjectList.CopyToDataTable();
+            }
+
+            else if (field.Equals(SelectionList.ProjectId))
+            {
+                IEnumerable<DataRow> myBusinessObjectList = (from aselect in selections.AsEnumerable()
+                                                             from aid in pageView.ProjectIds
+                                                             where ((aid == -1) || (aselect.Field<decimal>("ProjectId") == aid))
+                                                             select aselect).ToList();
+                sublist = myBusinessObjectList.CopyToDataTable();
+            }
+            else if (field.Equals(SelectionList.SectorId))
+            {
+                IEnumerable<DataRow> myBusinessObjectList = (from aselect in selections.AsEnumerable()
+                                                             from aid in pageView.SectorIds
+                                                             where ((aid == -1) || (aselect.Field<decimal>("SectorId") == aid))
+                                                             select aselect).ToList();
+                sublist = myBusinessObjectList.CopyToDataTable();
+            }
+            else if (field.Equals(SelectionList.DistrictId))
+            {
+                IEnumerable<DataRow> myBusinessObjectList = (from aselect in selections.AsEnumerable()
+                                                             from aid in pageView.DistrictIds
+                                                             where ((aid == -1) || (aselect.Field<decimal>("OfficeID") == aid))
+                                                             select aselect).ToList();
+                sublist = myBusinessObjectList.CopyToDataTable();
+            }
+            else if (field.Equals(SelectionList.UpazillaId))
+            {
+                IEnumerable<DataRow> myBusinessObjectList = (from aselect in selections.AsEnumerable()
+                                                             from aid in pageView.UpazillaIds
+                                                             where ((aid == -1) || (aselect.Field<decimal>("OfficeID") == aid))
+                                                             select aselect).ToList();
+                sublist = myBusinessObjectList.CopyToDataTable();
+            }
+            else if (field.Equals(SelectionList.GradeId))
+            {
+                IEnumerable<DataRow> myBusinessObjectList = (from aselect in selections.AsEnumerable()
+                                                             from aid in pageView.GradeIds
+                                                             where ((aid == -1) || (aselect.Field<decimal>("GradeID") == aid))
+                                                             select aselect).ToList();
+                sublist = myBusinessObjectList.CopyToDataTable();
+            }
+            else if (field.Equals(SelectionList.BranchId))
+            {
+                IEnumerable<DataRow> myBusinessObjectList = (from aselect in selections.AsEnumerable()
+                                                             from aid in pageView.BranchIds
+                                                             where ((aid == -1) || (aselect.Field<decimal>("OfficeID") == aid))
+                                                             select aselect).ToList();
+                sublist = myBusinessObjectList.CopyToDataTable();
+            }
+            else if (field.Equals(SelectionList.AreaId))
+            {
+                IEnumerable<DataRow> myBusinessObjectList = (from aselect in selections.AsEnumerable()
+                                                             from aid in pageView.AreaIds
+                                                             where ((aid == -1) || (aselect.Field<decimal>("OfficeID") == aid))
+                                                             select aselect).ToList();
+                sublist = myBusinessObjectList.CopyToDataTable();
+            }
+            return sublist;
+        }
+
+    }

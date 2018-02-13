@@ -1,0 +1,256 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
+public partial class Payroll_SOF_SOFEntry : System.Web.UI.Page
+{    
+    EmpInfoManager objEmpInfoMgr = new EmpInfoManager();
+    MasterTablesManager objMasMgr = new MasterTablesManager();
+    SOFManager objSOFMgr = new SOFManager();
+
+    DataTable dtEmpInfo = new DataTable();
+    DataTable dtSOF = new DataTable();
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            this.EntryMode(false);
+            Common.FillDropDownList_Nil(objSOFMgr.SelectCostCenterList(0), ddlCostCenter);
+            Common.FillDropDownList_Nil(objSOFMgr.SelectSponsorList(0), ddlSponsor);
+            Common.FillDropDownList_Nil(objSOFMgr.SelectSourceList(0), ddlSource);
+            Common.FillDropDownList_Nil(objMasMgr.SelectDepartmentCode(0), ddlProject);
+            this.OpenRecord();
+        }
+    }
+   
+    protected void EntryMode(bool IsUpdate)
+    {
+        if (IsUpdate == true)
+        {
+            btnSave.Text = "Update";
+            hfIsUpdate.Value = "Y";
+        }
+        else
+        {            
+            btnSave.Text = "Save";
+            hfIsUpdate.Value = "N";
+            this.ClearControls();
+        }
+    }
+
+    private void OpenRecord()
+    {
+        dtSOF = objSOFMgr.SelectSOFList(0);
+        grList.DataSource = dtSOF;
+        grList.DataBind();
+
+        foreach (GridViewRow gRow in grList.Rows)
+        {
+            gRow.Cells[1].Text = gRow.Cells[1].Text == "G" ? "Grant" : "Sponsorship";
+        }
+    }
+
+    protected void btnSave_Click(object sender, EventArgs e)
+    {
+        if (ValidateAndSave() == true)
+        {
+            this.SaveData("N");
+        }
+    }
+
+    protected bool ValidateAndSave()
+    {
+        try
+        {
+            if (ddlSource.SelectedIndex == 0)
+            {
+                lblMsg.Text = "Please Select Source & project.";
+                ddlSource.Focus();
+                return false;
+            }
+            return true;
+        }
+        catch (Exception ex)
+        {
+            lblMsg.Text = "";
+            throw (ex);
+        }
+    }
+
+    private void SaveData(string strDelete)
+    {
+        try
+        {
+            if (hfIsUpdate.Value == "N")
+                hfID.Value  = Common.getMaxId("SOFList", "SOFId");
+            else
+                hfID.Value = hfID.Value.ToString() ;
+
+            clsSOFSetup objSOF = new clsSOFSetup();
+                objSOF.SOFId = hfID.Value.ToString();
+                objSOF.SourceType = radGrant.Checked == true ? "G" : "S";
+                objSOF.SalSourceName = txtSalarySourceName.Text.Trim();
+                objSOF.SalSourceCode = txtSalarySourceCode.Text.Trim();
+                objSOF.CostCenterId = ddlCostCenter.SelectedValue.ToString();
+                objSOF.SponsorId = ddlSponsor.SelectedValue.ToString();
+                objSOF.SourceId = ddlSource.SelectedValue.ToString();
+                objSOF.DeptCode = ddlProject.SelectedValue.ToString();
+                objSOF.Salary = txtSalary.Text.Trim();
+                objSOF.Bonus = txtBonus.Text.Trim();
+                objSOF.PF = txtPF.Text.Trim();
+                objSOF.IT = txtIT.Text.Trim();
+                objSOF.PFLoan = txtPFLoan.Text.Trim();
+                objSOF.FringePF = txtFringePF.Text.Trim();
+                objSOF.Medical = txtMedical.Text.Trim();
+                objSOF.Gratuity = txtGratuity.Text.Trim();
+                objSOF.IsActive =chkInActive.Checked == true ? "N" : "Y";
+                objSOF.IsDeleted = "N";
+                objSOF.InsertedBy = Session["USERID"].ToString();
+                objSOF.InsertedDate = Common.SetDateTime(DateTime.Now.ToString());
+                objSOFMgr.InsertSOFList(objSOF, hfIsUpdate.Value, strDelete);
+
+                lblMsg.Text = Common.GetMessage(hfIsUpdate.Value.ToString(), strDelete);
+            this.EntryMode(false);
+            this.OpenRecord();
+        }
+        catch (Exception ex)
+        {
+            lblMsg.Text = "";
+            throw (ex);
+        }
+    }
+
+    protected void btnRefresh_Click(object sender, EventArgs e)
+    {
+        lblMsg.Text = "";
+        this.EntryMode(false);        
+    }
+
+    private void ClearControls()
+    {
+        radGrant.Checked = false;
+        radSponsorship.Checked = false;
+        txtSalarySourceName.Text = "";
+        txtSalarySourceCode.Text = "";
+        ddlCostCenter.SelectedIndex = -1;
+        ddlSponsor.SelectedIndex = -1;
+        ddlSource.SelectedIndex = -1;
+        ddlProject.SelectedIndex = -1;
+
+        txtSalary.Text = "";
+        txtBonus.Text = "";
+        txtPF.Text = "";
+        txtIT.Text = "";
+        txtPFLoan.Text = "";
+        txtFringePF.Text = "";
+        txtMedical.Text = "";
+        txtGratuity.Text = "";
+    }
+
+    protected void btnSalaryCopy_Click(object sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(txtSalary.Text) == false)
+        {
+            txtBonus.Text = txtSalary.Text;
+            txtPF.Text = txtSalary.Text;
+            txtIT.Text = txtSalary.Text;
+            txtPFLoan.Text = txtSalary.Text;
+        }
+    }
+
+    protected void btnFringeCopy_Click(object sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(txtFringePF.Text) == false)
+        {
+            txtMedical.Text = txtFringePF.Text;
+            txtGratuity.Text = txtFringePF.Text; 
+        }
+    }
+
+    protected void grList_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        GridView _gridView = (GridView)sender;
+        // Get the selected index and the command name
+        int _selectedIndex = int.Parse(e.CommandArgument.ToString());
+        string _commandName = e.CommandName;
+        _gridView.SelectedIndex = _selectedIndex;
+        switch (_commandName)
+        {
+            case ("DoubleClick"):
+                if (Common.CheckNullString(grList.SelectedRow.Cells[1].Text.Trim()) == "Grant")
+                    radGrant.Checked = true;
+                else
+                    radSponsorship.Checked = true;
+                txtSalarySourceName.Text = Common.CheckNullString(grList.SelectedRow.Cells[2].Text.Trim());
+                txtSalarySourceCode.Text = Common.CheckNullString(grList.SelectedRow.Cells[3].Text.Trim());
+
+                ddlCostCenter.SelectedValue = grList.DataKeys[_gridView.SelectedIndex].Values[1].ToString();
+                ddlSponsor.SelectedValue = grList.DataKeys[_gridView.SelectedIndex].Values[2].ToString();
+                ddlSource.SelectedValue = grList.DataKeys[_gridView.SelectedIndex].Values[3].ToString();
+                ddlProject.SelectedValue = grList.DataKeys[_gridView.SelectedIndex].Values[4].ToString();                
+
+                txtSalary.Text = Common.CheckNullString(grList.SelectedRow.Cells[4].Text.Trim());
+                txtBonus.Text = Common.CheckNullString(grList.SelectedRow.Cells[5].Text.Trim());
+                txtPF.Text = Common.CheckNullString(grList.SelectedRow.Cells[6].Text.Trim());
+                txtIT.Text = Common.CheckNullString(grList.SelectedRow.Cells[7].Text.Trim());
+                txtPFLoan.Text = Common.CheckNullString(grList.SelectedRow.Cells[8].Text.Trim());
+
+                txtFringePF.Text = Common.CheckNullString(grList.SelectedRow.Cells[9].Text.Trim());
+                txtMedical.Text = Common.CheckNullString(grList.SelectedRow.Cells[10].Text.Trim());
+                txtGratuity.Text = Common.CheckNullString(grList.SelectedRow.Cells[11].Text.Trim());
+                
+                hfID.Value = grList.DataKeys[_gridView.SelectedIndex].Values[0].ToString();
+                chkInActive.Checked = Common.CheckNullString(grList.SelectedRow.Cells[12].Text.Trim()) == "Y" ? false  : true ;
+                this.EntryMode(true);
+                break;
+        }
+    }
+
+    protected void ddlSource_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        this.GetSOFName(); 
+    }
+
+    protected void ddlProject_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        this.GetSOFName();
+    }
+
+    protected void txtSalary_TextChanged(object sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(txtSalary.Text.Trim()) == false)
+            this.GetSOFName();
+    }
+
+    protected void txtFringePF_TextChanged(object sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(txtFringePF.Text.Trim()) == false)
+            this.GetSOFName();
+    }
+
+    private void GetSOFName()
+    {
+        string strSOFName="";
+        if (ddlSource.SelectedIndex != -1)
+            strSOFName = ddlSource.SelectedItem.Text.Trim();
+
+        if (ddlProject.SelectedIndex != -1)
+            strSOFName = strSOFName + " - " + ddlProject.SelectedItem.Text.Trim();
+
+        if (string.IsNullOrEmpty(txtSalary.Text.Trim()) == false)
+            strSOFName = strSOFName + " - " + txtSalary.Text.Trim();
+
+        if (string.IsNullOrEmpty(txtFringePF.Text.Trim()) == false)
+            strSOFName = strSOFName + "  - " + txtFringePF.Text.Trim();   
+
+        txtSalarySourceName.Text = strSOFName;
+    }
+}
