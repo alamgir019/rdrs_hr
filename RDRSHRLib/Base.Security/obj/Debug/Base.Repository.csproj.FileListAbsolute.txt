@@ -1,0 +1,6 @@
+D:\Development\VS-2015\RDRSHR_Repo\RDRSHRLib\Base.Security\bin\Debug\Base.Repository.dll.config
+D:\Development\VS-2015\RDRSHR_Repo\RDRSHRLib\Base.Security\bin\Debug\Base.Repository.dll
+D:\Development\VS-2015\RDRSHR_Repo\RDRSHRLib\Base.Security\bin\Debug\Base.Repository.pdb
+D:\Development\VS-2015\RDRSHR_Repo\RDRSHRLib\Base.Security\obj\Debug\Base.Repository.dll
+D:\Development\VS-2015\RDRSHR_Repo\RDRSHRLib\Base.Security\obj\Debug\Base.Repository.pdb
+D:\Development\VS-2015\RDRSHR_Repo\RDRSHRLib\Base.Security\obj\Debug\Base.Repository.csprojResolveAssemblyReference.cache

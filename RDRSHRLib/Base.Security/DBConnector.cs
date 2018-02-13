@@ -2,9 +2,9 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
-using Base.Security.DATA;
+using Base.Repository.DATA;
 
-namespace Base.Security
+namespace Base.Repository
 { 
     public sealed class DBConnector
     {

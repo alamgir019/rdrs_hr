@@ -8,8 +8,8 @@
     <ProjectGuid>{27A78B56-511D-4A23-BF31-B624C36618E5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Base.Security</RootNamespace>
-    <AssemblyName>Base.Security</AssemblyName>
+    <RootNamespace>Base.Repository</RootNamespace>
+    <AssemblyName>Base.Repository</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,7 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\DEmployee.cs" />
+    <Compile Include="DAL\DLeave.cs" />
     <Compile Include="DAL\DUserPrivilege.cs" />
+    <Compile Include="DATA\Partial\EmpLeaveCTOEntitleLog.cs" />
     <Compile Include="DATA\Partial\UserPriv.cs" />
     <Compile Include="DATA\RDRS_RDRS.Designer.cs">
       <AutoGen>True</AutoGen>

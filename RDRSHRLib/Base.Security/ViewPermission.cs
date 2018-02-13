@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 
-namespace Base.Security
+namespace Base.Repository
 {
     public class ViewPermission
     {

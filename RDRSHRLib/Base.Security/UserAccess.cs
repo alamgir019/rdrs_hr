@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace Base.Security
+namespace Base.Repository
 {
 
     public sealed class UserAccess

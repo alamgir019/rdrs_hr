@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Base.Security.DATA;
+using Base.Repository.DATA;
 
-namespace Base.Security.DAL
+namespace Base.Repository.DAL
 {
     public class DUserPrivilege
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Base.Security.DATA
+namespace Base.Repository.DATA
 {
     public partial class UserPriv
     {
