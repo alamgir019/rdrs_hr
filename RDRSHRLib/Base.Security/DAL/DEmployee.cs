@@ -13,5 +13,6 @@ namespace Base.Repository.DAL
         {
             return context.proc_select_EmpInfo(empId).ToList();
         }
+
     }
 }
