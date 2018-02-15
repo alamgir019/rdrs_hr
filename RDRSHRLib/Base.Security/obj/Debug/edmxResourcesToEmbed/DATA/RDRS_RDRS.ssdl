@@ -25,6 +25,7 @@
     <Property Name="LEntitled" Type="numeric" Precision="5" Scale="2" />
     <Property Name="StartDate" Type="datetime" />
     <Property Name="EndDate" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
     <Property Name="InsertedBy" Type="varchar" MaxLength="40" />
     <Property Name="InsertedDate" Type="datetime" />
     <Property Name="UpdatedBy" Type="varchar" MaxLength="40" />
@@ -33,6 +34,26 @@
     <Property Name="EnjoyedStatus" Type="char" MaxLength="1" />
     <Property Name="LvAppId" Type="numeric" Precision="5" Scale="0" />
     <Property Name="LeaveEnjoyed" Type="numeric" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="EmpLeaveProfile">
+    <Key>
+      <PropertyRef Name="EmpId" />
+      <PropertyRef Name="LTypeID" />
+    </Key>
+    <Property Name="EmpId" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LTypeID" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="LCarryOverd" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="LEntitled" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="LCashed" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="LeaveEnjoyed" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="LeaveElapsed" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="InsertedBy" Type="varchar" MaxLength="40" />
+    <Property Name="InsertedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="40" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="LastUpdatedFrom" Type="varchar" MaxLength="40" />
+    <Property Name="lvOpening" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="lvPrevYearCarry" Type="numeric" Precision="5" Scale="0" />
   </EntityType>
   <EntityType Name="GradeList">
     <Key>
@@ -51,6 +72,18 @@
     <Property Name="BasicMin" Type="numeric" Precision="12" Scale="2" />
     <Property Name="BasicMax" Type="numeric" Precision="12" Scale="2" />
     <Property Name="GradeType" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="LeavePlan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="LTypeId" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="StardDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="Remarks" Type="varchar" MaxLength="200" />
+    <Property Name="IsActive" Type="char" MaxLength="1" />
+    <Property Name="EmpId" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="LeaveTypeList">
     <Key>
@@ -218,6 +251,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_EmpLeaveProfile_LeaveTypeList">
+    <End Role="LeaveTypeList" Type="Self.LeaveTypeList" Multiplicity="1" />
+    <End Role="EmpLeaveProfile" Type="Self.EmpLeaveProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveTypeList">
+        <PropertyRef Name="LTypeID" />
+      </Principal>
+      <Dependent Role="EmpLeaveProfile">
+        <PropertyRef Name="LTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_OfficeList_OfficeList">
     <End Role="OfficeList" Type="Self.OfficeList" Multiplicity="0..1" />
     <End Role="OfficeList1" Type="Self.OfficeList" Multiplicity="*" />
@@ -260,7 +305,9 @@
   <EntityContainer Name="RDRS_RDRSModelStoreContainer">
     <EntitySet Name="DivisionList" EntityType="Self.DivisionList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmpLeaveCTOEntitleLog" EntityType="Self.EmpLeaveCTOEntitleLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpLeaveProfile" EntityType="Self.EmpLeaveProfile" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GradeList" EntityType="Self.GradeList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeavePlan" EntityType="Self.LeavePlan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LeaveTypeList" EntityType="Self.LeaveTypeList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OfficeList" EntityType="Self.OfficeList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProjectList" EntityType="Self.ProjectList" Schema="dbo" store:Type="Tables" />
@@ -271,6 +318,10 @@
     <AssociationSet Name="FK__EmpLeaveC__LType__14A88507" Association="Self.FK__EmpLeaveC__LType__14A88507">
       <End Role="LeaveTypeList" EntitySet="LeaveTypeList" />
       <End Role="EmpLeaveCTOEntitleLog" EntitySet="EmpLeaveCTOEntitleLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpLeaveProfile_LeaveTypeList" Association="Self.FK_EmpLeaveProfile_LeaveTypeList">
+      <End Role="LeaveTypeList" EntitySet="LeaveTypeList" />
+      <End Role="EmpLeaveProfile" EntitySet="EmpLeaveProfile" />
     </AssociationSet>
     <AssociationSet Name="FK_OfficeList_OfficeList" Association="Self.FK_OfficeList_OfficeList">
       <End Role="OfficeList" EntitySet="OfficeList" />

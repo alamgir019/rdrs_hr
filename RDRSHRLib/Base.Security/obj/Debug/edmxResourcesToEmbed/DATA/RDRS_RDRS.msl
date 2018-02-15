@@ -364,6 +364,7 @@
     <EntitySetMapping Name="EmpLeaveCTOEntitleLogs">
       <EntityTypeMapping TypeName="RDRS_RDRSModel.EmpLeaveCTOEntitleLog">
         <MappingFragment StoreEntitySet="EmpLeaveCTOEntitleLog">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
           <ScalarProperty Name="LeaveEnjoyed" ColumnName="LeaveEnjoyed" />
           <ScalarProperty Name="LvAppId" ColumnName="LvAppId" />
           <ScalarProperty Name="EnjoyedStatus" ColumnName="EnjoyedStatus" />
@@ -378,6 +379,39 @@
           <ScalarProperty Name="LTypeId" ColumnName="LTypeId" />
           <ScalarProperty Name="EmpId" ColumnName="EmpId" />
           <ScalarProperty Name="LogId" ColumnName="LogId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpLeaveProfiles">
+      <EntityTypeMapping TypeName="RDRS_RDRSModel.EmpLeaveProfile">
+        <MappingFragment StoreEntitySet="EmpLeaveProfile">
+          <ScalarProperty Name="lvPrevYearCarry" ColumnName="lvPrevYearCarry" />
+          <ScalarProperty Name="lvOpening" ColumnName="lvOpening" />
+          <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="LeaveElapsed" ColumnName="LeaveElapsed" />
+          <ScalarProperty Name="LeaveEnjoyed" ColumnName="LeaveEnjoyed" />
+          <ScalarProperty Name="LCashed" ColumnName="LCashed" />
+          <ScalarProperty Name="LEntitled" ColumnName="LEntitled" />
+          <ScalarProperty Name="LCarryOverd" ColumnName="LCarryOverd" />
+          <ScalarProperty Name="LTypeID" ColumnName="LTypeID" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeavePlans">
+      <EntityTypeMapping TypeName="RDRS_RDRSModel.LeavePlan">
+        <MappingFragment StoreEntitySet="LeavePlan">
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StardDate" ColumnName="StardDate" />
+          <ScalarProperty Name="LTypeId" ColumnName="LTypeId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

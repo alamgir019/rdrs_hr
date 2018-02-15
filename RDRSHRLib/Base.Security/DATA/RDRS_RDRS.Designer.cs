@@ -23,6 +23,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("RDRS_RDRSModel", "FK_UserPrivs_DivisionList", "DivisionList", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Base.Repository.DATA.DivisionList), "UserPriv", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Base.Repository.DATA.UserPriv), true)]
 [assembly: EdmRelationshipAttribute("RDRS_RDRSModel", "FK__OfficeLis__Paren__6DD8D0A9", "OfficeList", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Base.Repository.DATA.OfficeList), "OfficeList1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Base.Repository.DATA.OfficeList), true)]
 [assembly: EdmRelationshipAttribute("RDRS_RDRSModel", "FK__EmpLeaveC__LType__14A88507", "LeaveTypeList", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Base.Repository.DATA.LeaveTypeList), "EmpLeaveCTOEntitleLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Base.Repository.DATA.EmpLeaveCTOEntitleLog), true)]
+[assembly: EdmRelationshipAttribute("RDRS_RDRSModel", "FK_EmpLeaveProfile_LeaveTypeList", "LeaveTypeList", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Base.Repository.DATA.LeaveTypeList), "EmpLeaveProfile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Base.Repository.DATA.EmpLeaveProfile), true)]
 
 #endregion
 
@@ -233,6 +234,38 @@ namespace Base.Repository.DATA
             }
         }
         private ObjectSet<EmpLeaveCTOEntitleLog> _EmpLeaveCTOEntitleLogs;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<EmpLeaveProfile> EmpLeaveProfiles
+        {
+            get
+            {
+                if ((_EmpLeaveProfiles == null))
+                {
+                    _EmpLeaveProfiles = base.CreateObjectSet<EmpLeaveProfile>("EmpLeaveProfiles");
+                }
+                return _EmpLeaveProfiles;
+            }
+        }
+        private ObjectSet<EmpLeaveProfile> _EmpLeaveProfiles;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<LeavePlan> LeavePlans
+        {
+            get
+            {
+                if ((_LeavePlans == null))
+                {
+                    _LeavePlans = base.CreateObjectSet<LeavePlan>("LeavePlans");
+                }
+                return _LeavePlans;
+            }
+        }
+        private ObjectSet<LeavePlan> _LeavePlans;
 
         #endregion
 
@@ -316,6 +349,22 @@ namespace Base.Repository.DATA
         public void AddToEmpLeaveCTOEntitleLogs(EmpLeaveCTOEntitleLog empLeaveCTOEntitleLog)
         {
             base.AddObject("EmpLeaveCTOEntitleLogs", empLeaveCTOEntitleLog);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the EmpLeaveProfiles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEmpLeaveProfiles(EmpLeaveProfile empLeaveProfile)
+        {
+            base.AddObject("EmpLeaveProfiles", empLeaveProfile);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the LeavePlans EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToLeavePlans(LeavePlan leavePlan)
+        {
+            base.AddObject("LeavePlans", leavePlan);
         }
 
         #endregion
@@ -1011,6 +1060,30 @@ namespace Base.Repository.DATA
         private Nullable<global::System.Decimal> _LeaveEnjoyed;
         partial void OnLeaveEnjoyedChanging(Nullable<global::System.Decimal> value);
         partial void OnLeaveEnjoyedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Remarks
+        {
+            get
+            {
+                return _Remarks;
+            }
+            set
+            {
+                OnRemarksChanging(value);
+                ReportPropertyChanging("Remarks");
+                _Remarks = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Remarks");
+                OnRemarksChanged();
+            }
+        }
+        private global::System.String _Remarks;
+        partial void OnRemarksChanging(global::System.String value);
+        partial void OnRemarksChanged();
 
         #endregion
 
@@ -1051,6 +1124,422 @@ namespace Base.Repository.DATA
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<LeaveTypeList>("RDRS_RDRSModel.FK__EmpLeaveC__LType__14A88507", "LeaveTypeList", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="RDRS_RDRSModel", Name="EmpLeaveProfile")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class EmpLeaveProfile : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new EmpLeaveProfile object.
+        /// </summary>
+        /// <param name="empId">Initial value of the EmpId property.</param>
+        /// <param name="lTypeID">Initial value of the LTypeID property.</param>
+        public static EmpLeaveProfile CreateEmpLeaveProfile(global::System.String empId, global::System.Decimal lTypeID)
+        {
+            EmpLeaveProfile empLeaveProfile = new EmpLeaveProfile();
+            empLeaveProfile.EmpId = empId;
+            empLeaveProfile.LTypeID = lTypeID;
+            return empLeaveProfile;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String EmpId
+        {
+            get
+            {
+                return _EmpId;
+            }
+            set
+            {
+                if (_EmpId != value)
+                {
+                    OnEmpIdChanging(value);
+                    ReportPropertyChanging("EmpId");
+                    _EmpId = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("EmpId");
+                    OnEmpIdChanged();
+                }
+            }
+        }
+        private global::System.String _EmpId;
+        partial void OnEmpIdChanging(global::System.String value);
+        partial void OnEmpIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal LTypeID
+        {
+            get
+            {
+                return _LTypeID;
+            }
+            set
+            {
+                if (_LTypeID != value)
+                {
+                    OnLTypeIDChanging(value);
+                    ReportPropertyChanging("LTypeID");
+                    _LTypeID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("LTypeID");
+                    OnLTypeIDChanged();
+                }
+            }
+        }
+        private global::System.Decimal _LTypeID;
+        partial void OnLTypeIDChanging(global::System.Decimal value);
+        partial void OnLTypeIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> LCarryOverd
+        {
+            get
+            {
+                return _LCarryOverd;
+            }
+            set
+            {
+                OnLCarryOverdChanging(value);
+                ReportPropertyChanging("LCarryOverd");
+                _LCarryOverd = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LCarryOverd");
+                OnLCarryOverdChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _LCarryOverd;
+        partial void OnLCarryOverdChanging(Nullable<global::System.Decimal> value);
+        partial void OnLCarryOverdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> LEntitled
+        {
+            get
+            {
+                return _LEntitled;
+            }
+            set
+            {
+                OnLEntitledChanging(value);
+                ReportPropertyChanging("LEntitled");
+                _LEntitled = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LEntitled");
+                OnLEntitledChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _LEntitled;
+        partial void OnLEntitledChanging(Nullable<global::System.Decimal> value);
+        partial void OnLEntitledChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> LCashed
+        {
+            get
+            {
+                return _LCashed;
+            }
+            set
+            {
+                OnLCashedChanging(value);
+                ReportPropertyChanging("LCashed");
+                _LCashed = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LCashed");
+                OnLCashedChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _LCashed;
+        partial void OnLCashedChanging(Nullable<global::System.Decimal> value);
+        partial void OnLCashedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> LeaveEnjoyed
+        {
+            get
+            {
+                return _LeaveEnjoyed;
+            }
+            set
+            {
+                OnLeaveEnjoyedChanging(value);
+                ReportPropertyChanging("LeaveEnjoyed");
+                _LeaveEnjoyed = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LeaveEnjoyed");
+                OnLeaveEnjoyedChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _LeaveEnjoyed;
+        partial void OnLeaveEnjoyedChanging(Nullable<global::System.Decimal> value);
+        partial void OnLeaveEnjoyedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> LeaveElapsed
+        {
+            get
+            {
+                return _LeaveElapsed;
+            }
+            set
+            {
+                OnLeaveElapsedChanging(value);
+                ReportPropertyChanging("LeaveElapsed");
+                _LeaveElapsed = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LeaveElapsed");
+                OnLeaveElapsedChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _LeaveElapsed;
+        partial void OnLeaveElapsedChanging(Nullable<global::System.Decimal> value);
+        partial void OnLeaveElapsedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String InsertedBy
+        {
+            get
+            {
+                return _InsertedBy;
+            }
+            set
+            {
+                OnInsertedByChanging(value);
+                ReportPropertyChanging("InsertedBy");
+                _InsertedBy = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("InsertedBy");
+                OnInsertedByChanged();
+            }
+        }
+        private global::System.String _InsertedBy;
+        partial void OnInsertedByChanging(global::System.String value);
+        partial void OnInsertedByChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> InsertedDate
+        {
+            get
+            {
+                return _InsertedDate;
+            }
+            set
+            {
+                OnInsertedDateChanging(value);
+                ReportPropertyChanging("InsertedDate");
+                _InsertedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("InsertedDate");
+                OnInsertedDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _InsertedDate;
+        partial void OnInsertedDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnInsertedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String UpdatedBy
+        {
+            get
+            {
+                return _UpdatedBy;
+            }
+            set
+            {
+                OnUpdatedByChanging(value);
+                ReportPropertyChanging("UpdatedBy");
+                _UpdatedBy = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("UpdatedBy");
+                OnUpdatedByChanged();
+            }
+        }
+        private global::System.String _UpdatedBy;
+        partial void OnUpdatedByChanging(global::System.String value);
+        partial void OnUpdatedByChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> UpdatedDate
+        {
+            get
+            {
+                return _UpdatedDate;
+            }
+            set
+            {
+                OnUpdatedDateChanging(value);
+                ReportPropertyChanging("UpdatedDate");
+                _UpdatedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UpdatedDate");
+                OnUpdatedDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _UpdatedDate;
+        partial void OnUpdatedDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnUpdatedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LastUpdatedFrom
+        {
+            get
+            {
+                return _LastUpdatedFrom;
+            }
+            set
+            {
+                OnLastUpdatedFromChanging(value);
+                ReportPropertyChanging("LastUpdatedFrom");
+                _LastUpdatedFrom = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LastUpdatedFrom");
+                OnLastUpdatedFromChanged();
+            }
+        }
+        private global::System.String _LastUpdatedFrom;
+        partial void OnLastUpdatedFromChanging(global::System.String value);
+        partial void OnLastUpdatedFromChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> lvOpening
+        {
+            get
+            {
+                return _lvOpening;
+            }
+            set
+            {
+                OnlvOpeningChanging(value);
+                ReportPropertyChanging("lvOpening");
+                _lvOpening = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("lvOpening");
+                OnlvOpeningChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _lvOpening;
+        partial void OnlvOpeningChanging(Nullable<global::System.Decimal> value);
+        partial void OnlvOpeningChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> lvPrevYearCarry
+        {
+            get
+            {
+                return _lvPrevYearCarry;
+            }
+            set
+            {
+                OnlvPrevYearCarryChanging(value);
+                ReportPropertyChanging("lvPrevYearCarry");
+                _lvPrevYearCarry = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("lvPrevYearCarry");
+                OnlvPrevYearCarryChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _lvPrevYearCarry;
+        partial void OnlvPrevYearCarryChanging(Nullable<global::System.Decimal> value);
+        partial void OnlvPrevYearCarryChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RDRS_RDRSModel", "FK_EmpLeaveProfile_LeaveTypeList", "LeaveTypeList")]
+        public LeaveTypeList LeaveTypeList
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LeaveTypeList>("RDRS_RDRSModel.FK_EmpLeaveProfile_LeaveTypeList", "LeaveTypeList").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LeaveTypeList>("RDRS_RDRSModel.FK_EmpLeaveProfile_LeaveTypeList", "LeaveTypeList").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<LeaveTypeList> LeaveTypeListReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LeaveTypeList>("RDRS_RDRSModel.FK_EmpLeaveProfile_LeaveTypeList", "LeaveTypeList");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<LeaveTypeList>("RDRS_RDRSModel.FK_EmpLeaveProfile_LeaveTypeList", "LeaveTypeList", value);
                 }
             }
         }
@@ -1400,6 +1889,207 @@ namespace Base.Repository.DATA
         private global::System.String _GradeType;
         partial void OnGradeTypeChanging(global::System.String value);
         partial void OnGradeTypeChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="RDRS_RDRSModel", Name="LeavePlan")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class LeavePlan : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new LeavePlan object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static LeavePlan CreateLeavePlan(global::System.Decimal id)
+        {
+            LeavePlan leavePlan = new LeavePlan();
+            leavePlan.ID = id;
+            return leavePlan;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Decimal _ID;
+        partial void OnIDChanging(global::System.Decimal value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> LTypeId
+        {
+            get
+            {
+                return _LTypeId;
+            }
+            set
+            {
+                OnLTypeIdChanging(value);
+                ReportPropertyChanging("LTypeId");
+                _LTypeId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LTypeId");
+                OnLTypeIdChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _LTypeId;
+        partial void OnLTypeIdChanging(Nullable<global::System.Decimal> value);
+        partial void OnLTypeIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> StardDate
+        {
+            get
+            {
+                return _StardDate;
+            }
+            set
+            {
+                OnStardDateChanging(value);
+                ReportPropertyChanging("StardDate");
+                _StardDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StardDate");
+                OnStardDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _StardDate;
+        partial void OnStardDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnStardDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> EndDate
+        {
+            get
+            {
+                return _EndDate;
+            }
+            set
+            {
+                OnEndDateChanging(value);
+                ReportPropertyChanging("EndDate");
+                _EndDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EndDate");
+                OnEndDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _EndDate;
+        partial void OnEndDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnEndDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Remarks
+        {
+            get
+            {
+                return _Remarks;
+            }
+            set
+            {
+                OnRemarksChanging(value);
+                ReportPropertyChanging("Remarks");
+                _Remarks = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Remarks");
+                OnRemarksChanged();
+            }
+        }
+        private global::System.String _Remarks;
+        partial void OnRemarksChanging(global::System.String value);
+        partial void OnRemarksChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.String _IsActive;
+        partial void OnIsActiveChanging(global::System.String value);
+        partial void OnIsActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String EmpId
+        {
+            get
+            {
+                return _EmpId;
+            }
+            set
+            {
+                OnEmpIdChanging(value);
+                ReportPropertyChanging("EmpId");
+                _EmpId = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("EmpId");
+                OnEmpIdChanged();
+            }
+        }
+        private global::System.String _EmpId;
+        partial void OnEmpIdChanging(global::System.String value);
+        partial void OnEmpIdChanged();
 
         #endregion
 
@@ -2059,6 +2749,28 @@ namespace Base.Repository.DATA
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EmpLeaveCTOEntitleLog>("RDRS_RDRSModel.FK__EmpLeaveC__LType__14A88507", "EmpLeaveCTOEntitleLog", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RDRS_RDRSModel", "FK_EmpLeaveProfile_LeaveTypeList", "EmpLeaveProfile")]
+        public EntityCollection<EmpLeaveProfile> EmpLeaveProfiles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EmpLeaveProfile>("RDRS_RDRSModel.FK_EmpLeaveProfile_LeaveTypeList", "EmpLeaveProfile");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EmpLeaveProfile>("RDRS_RDRSModel.FK_EmpLeaveProfile_LeaveTypeList", "EmpLeaveProfile", value);
                 }
             }
         }
