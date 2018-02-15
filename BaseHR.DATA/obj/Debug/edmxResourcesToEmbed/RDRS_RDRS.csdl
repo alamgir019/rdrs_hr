@@ -1,0 +1,700 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RDRS_RDRSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DivisionList">
+    <Key>
+      <PropertyRef Name="DivisionId" />
+    </Key>
+    <Property Name="DivisionId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="DivisionName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="DivisionShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="UserPrivs" Relationship="Self.FK_UserPrivs_DivisionList" FromRole="DivisionList" ToRole="UserPrivs" />
+  </EntityType>
+  <EntityType Name="EmpInfo">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ReligionId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="BloodGroupId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MotherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PreAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PrePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PreFax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PerAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PerFax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PerDistrictID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="PerCountryID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="OfficeExt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OfficeEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonalEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MailingAddrs" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="MarriageDate" Type="DateTime" Precision="3" />
+    <Property Name="ProffDegreeId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="SpecialSkillId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="IsSpectacled" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DrivingLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LicenseRenewDate" Type="DateTime" Precision="3" />
+    <Property Name="IsRelativeInSC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="RelationId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="TINNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PassportNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PassExpDate" Type="DateTime" Precision="3" />
+    <Property Name="Circle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PassportIssueOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NationalId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOBId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SkypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LandPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BMDCRegNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BMDCRegDate" Type="DateTime" Precision="3" />
+    <Property Name="IsMedical" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Nature" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="EmpTypeID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="DivisionId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="OfficeId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="ProjectID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="GradeId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="GradeLevelId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="JobTitleId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="DesigId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="DeptId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="ContractPurpose" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="WorkArea" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SalLocId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="BasicSalary" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="GrossSalary" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="BonusPakId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="AttnPolicyID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="LeavePakId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="JoiningDate" Type="DateTime" Precision="3" />
+    <Property Name="ProbationPeriod" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="ContractInterval" Type="Decimal" Precision="2" Scale="0" />
+    <Property Name="ContractEndDate" Type="DateTime" Precision="3" />
+    <Property Name="ConfirmationDate" Type="DateTime" Precision="3" />
+    <Property Name="IsServiceAgrmnt" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ServiceStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ServiceEndDate" Type="DateTime" Precision="3" />
+    <Property Name="WorkAreaType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsSeveranceBenefit" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SeveranceId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SeveranceReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RetirementDate" Type="DateTime" Precision="3" />
+    <Property Name="EmpStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SeparateTypeId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="SeparateDate" Type="DateTime" Precision="3" />
+    <Property Name="SeparateReason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="BankCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="RoutingNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BankAccNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SupervisorId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OtherBenefit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsMedicalEntmnt" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsOTEntmnt" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsChildEduAllow" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="EmpSignature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UploadCV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UploadDocument" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="PostingDate" Type="DateTime" Precision="3" />
+    <Property Name="DateInPosition" Type="DateTime" Precision="3" />
+    <Property Name="DateInGrade" Type="DateTime" Precision="3" />
+    <Property Name="ActionDate" Type="DateTime" Precision="3" />
+    <Property Name="SalPakId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="MPCId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="IsPayrollStaff" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="EmpPicLoc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ActionId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="AddResponseEndDate" Type="DateTime" Precision="3" />
+    <Property Name="WeekendId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="CardNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IsRoaster" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="WorkingDays" Type="Decimal" Precision="2" Scale="0" />
+    <Property Name="EduId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="IsNotRehirable" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NotRehireReason" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="EmpImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="EmpSignImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="RelativeInfo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="EmpNatureId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="Asset" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="SectorId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="UnitId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="ComponentId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="PosFuncId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="PostingDivId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="PostingDistId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="PostingPlaceId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="AppointType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SalSubLocId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="PerDivID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="PerUpzID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="PerPSID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="PreDivID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="PreDistrictID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="PreUpzID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="PrePSID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="HighDegSub" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SSMMRNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveSupervisorId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="OfficeTypeID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="SpouseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HighDegSubId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="OldEmpId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ThematicId" Type="Decimal" Precision="5" Scale="0" />
+    <NavigationProperty Name="EmpInfo1" Relationship="Self.FK_EmpInfo_EmpInfo" FromRole="EmpInfo" ToRole="EmpInfo1" />
+    <NavigationProperty Name="EmpInfo2" Relationship="Self.FK_EmpInfo_EmpInfo" FromRole="EmpInfo1" ToRole="EmpInfo" />
+    <NavigationProperty Name="EmpLeaveProfiles" Relationship="Self.FK_EmpLeaveProfile_EmpInfo" FromRole="EmpInfo" ToRole="EmpLeaveProfile" />
+  </EntityType>
+  <EntityType Name="EmpLeaveCTOEntitleLog">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="EmpId" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="LTypeId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="LEntitled" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LYear" Type="Decimal" Precision="4" Scale="0" />
+    <Property Name="EnjoyedStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LvAppId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="LeaveEnjoyed" Type="Decimal" Precision="5" Scale="2" />
+    <NavigationProperty Name="LeaveTypeList" Relationship="Self.FK__EmpLeaveC__LType__14A88507" FromRole="EmpLeaveCTOEntitleLog" ToRole="LeaveTypeList" />
+  </EntityType>
+  <EntityType Name="EmpLeaveProfile">
+    <Key>
+      <PropertyRef Name="EmpId" />
+      <PropertyRef Name="LTypeID" />
+    </Key>
+    <Property Name="EmpId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LTypeID" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="LCarryOverd" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="LEntitled" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="LCashed" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="LeaveEnjoyed" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="LeaveElapsed" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="lvOpening" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="lvPrevYearCarry" Type="Decimal" Precision="5" Scale="0" />
+    <NavigationProperty Name="EmpInfo" Relationship="Self.FK_EmpLeaveProfile_EmpInfo" FromRole="EmpLeaveProfile" ToRole="EmpInfo" />
+    <NavigationProperty Name="LeaveTypeList" Relationship="Self.FK_EmpLeaveProfile_LeaveTypeList" FromRole="EmpLeaveProfile" ToRole="LeaveTypeList" />
+  </EntityType>
+  <EntityType Name="GradeList">
+    <Key>
+      <PropertyRef Name="GradeId" />
+    </Key>
+    <Property Name="GradeId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="GradeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GradeDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="BasicMin" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="BasicMax" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="GradeType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LeavePlan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="LTypeId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="StardDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="EmpId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LeaveTypeList">
+    <Key>
+      <PropertyRef Name="LTypeID" />
+    </Key>
+    <Property Name="LTypeID" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="LTypeTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LeaveDesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="LAbbrName" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="LMunit" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LNature" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LeaveTTL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CarryToNextYear" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="NumberofDaysInCashAble" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="MaxDaysAllowablePerYear" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="MinValidationPeriodInMonth" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="MaxTotalAllowable" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="MaximumAllowed" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="MinimumAllowed" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="FiscalYrId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="IsOffdayCounted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Eligibility" Type="Decimal" Precision="2" Scale="0" />
+    <Property Name="NextLevInterval" Type="Decimal" Precision="2" Scale="0" />
+    <Property Name="TotalMatLev" Type="Decimal" Precision="2" Scale="0" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="EmpLeaveCTOEntitleLogs" Relationship="Self.FK__EmpLeaveC__LType__14A88507" FromRole="LeaveTypeList" ToRole="EmpLeaveCTOEntitleLog" />
+    <NavigationProperty Name="EmpLeaveProfiles" Relationship="Self.FK_EmpLeaveProfile_LeaveTypeList" FromRole="LeaveTypeList" ToRole="EmpLeaveProfile" />
+  </EntityType>
+  <EntityType Name="OfficeList">
+    <Key>
+      <PropertyRef Name="OfficeID" />
+    </Key>
+    <Property Name="OfficeID" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="OfficeTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OfficeTypeID" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="ParentID" Type="Decimal" Precision="6" Scale="0" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="DivID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="DistID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="UpzID" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="IsPayLoc" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="OfficeList1" Relationship="Self.FK_OfficeList_OfficeList" FromRole="OfficeList" ToRole="OfficeList1" />
+    <NavigationProperty Name="OfficeList2" Relationship="Self.FK_OfficeList_OfficeList" FromRole="OfficeList1" ToRole="OfficeList" />
+  </EntityType>
+  <EntityType Name="ProjectList">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ProjectName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="WeekEndID" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="IncrementType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="IncrementMonth" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="IncrementAfter" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="IsPF" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsGratuity" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsEOC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsInsurance" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsGSal" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsBSal" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsCore" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsProject" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="ShortName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SectorList">
+    <Key>
+      <PropertyRef Name="SectorId" />
+    </Key>
+    <Property Name="SectorId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="SectorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ShortName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SectorAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="USERID" />
+    </Key>
+    <Property Name="USERID" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="40" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="EmpId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AccountDisabled" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ChangePassword" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="IsRestricted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsAdmin" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="PrivPackID" Type="Int32" />
+    <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserPriv">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ViewId" Type="Int32" Nullable="false" />
+    <Property Name="ViewPerm" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="InsertPerm" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="DeletePerm" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="InterventionId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="HeadOfficeId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="CCOId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZoneId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="UnitId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="AreaId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="BranchId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="DistrictId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="UpazillaId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ProjectId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="GradeId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="SectorId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DivisionList" Relationship="Self.FK_UserPrivs_DivisionList" FromRole="UserPrivs" ToRole="DivisionList" />
+    <NavigationProperty Name="ViewName" Relationship="Self.FK_UserPrivs_ViewName" FromRole="UserPrivs" ToRole="ViewName" />
+  </EntityType>
+  <EntityType Name="ViewName">
+    <Key>
+      <PropertyRef Name="ViewId" />
+    </Key>
+    <Property Name="ViewId" Type="Int32" Nullable="false" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="ViewName1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ShowToPage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PageName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NodeLevel" Type="Int32" />
+    <NavigationProperty Name="UserPrivs" Relationship="Self.FK_UserPrivs_ViewName" FromRole="ViewName" ToRole="UserPrivs" />
+  </EntityType>
+  <Association Name="FK_UserPrivs_DivisionList">
+    <End Role="DivisionList" Type="Self.DivisionList" Multiplicity="1" />
+    <End Role="UserPrivs" Type="Self.UserPriv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DivisionList">
+        <PropertyRef Name="DivisionId" />
+      </Principal>
+      <Dependent Role="UserPrivs">
+        <PropertyRef Name="InterventionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpInfo_EmpInfo">
+    <End Role="EmpInfo" Type="Self.EmpInfo" Multiplicity="1" />
+    <End Role="EmpInfo1" Type="Self.EmpInfo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="EmpInfo">
+        <PropertyRef Name="EmpId" />
+      </Principal>
+      <Dependent Role="EmpInfo1">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpLeaveProfile_EmpInfo">
+    <End Role="EmpInfo" Type="Self.EmpInfo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmpLeaveProfile" Type="Self.EmpLeaveProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmpInfo">
+        <PropertyRef Name="EmpId" />
+      </Principal>
+      <Dependent Role="EmpLeaveProfile">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmpLeaveC__LType__14A88507">
+    <End Role="LeaveTypeList" Type="Self.LeaveTypeList" Multiplicity="0..1" />
+    <End Role="EmpLeaveCTOEntitleLog" Type="Self.EmpLeaveCTOEntitleLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveTypeList">
+        <PropertyRef Name="LTypeID" />
+      </Principal>
+      <Dependent Role="EmpLeaveCTOEntitleLog">
+        <PropertyRef Name="LTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpLeaveProfile_LeaveTypeList">
+    <End Role="LeaveTypeList" Type="Self.LeaveTypeList" Multiplicity="1" />
+    <End Role="EmpLeaveProfile" Type="Self.EmpLeaveProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveTypeList">
+        <PropertyRef Name="LTypeID" />
+      </Principal>
+      <Dependent Role="EmpLeaveProfile">
+        <PropertyRef Name="LTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfficeList_OfficeList">
+    <End Role="OfficeList" Type="Self.OfficeList" Multiplicity="0..1" />
+    <End Role="OfficeList1" Type="Self.OfficeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfficeList">
+        <PropertyRef Name="OfficeID" />
+      </Principal>
+      <Dependent Role="OfficeList1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPrivs_ViewName">
+    <End Role="ViewName" Type="Self.ViewName" Multiplicity="1" />
+    <End Role="UserPrivs" Type="Self.UserPriv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ViewName">
+        <PropertyRef Name="ViewId" />
+      </Principal>
+      <Dependent Role="UserPrivs">
+        <PropertyRef Name="ViewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RDRS_RDRSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DivisionLists" EntityType="Self.DivisionList" />
+    <EntitySet Name="EmpInfoes" EntityType="Self.EmpInfo" />
+    <EntitySet Name="EmpLeaveCTOEntitleLogs" EntityType="Self.EmpLeaveCTOEntitleLog" />
+    <EntitySet Name="EmpLeaveProfiles" EntityType="Self.EmpLeaveProfile" />
+    <EntitySet Name="GradeLists" EntityType="Self.GradeList" />
+    <EntitySet Name="LeavePlans" EntityType="Self.LeavePlan" />
+    <EntitySet Name="LeaveTypeLists" EntityType="Self.LeaveTypeList" />
+    <EntitySet Name="OfficeLists" EntityType="Self.OfficeList" />
+    <EntitySet Name="ProjectLists" EntityType="Self.ProjectList" />
+    <EntitySet Name="SectorLists" EntityType="Self.SectorList" />
+    <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+    <EntitySet Name="UserPrivs" EntityType="Self.UserPriv" />
+    <EntitySet Name="ViewNames" EntityType="Self.ViewName" />
+    <AssociationSet Name="FK_UserPrivs_DivisionList" Association="Self.FK_UserPrivs_DivisionList">
+      <End Role="DivisionList" EntitySet="DivisionLists" />
+      <End Role="UserPrivs" EntitySet="UserPrivs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpInfo_EmpInfo" Association="Self.FK_EmpInfo_EmpInfo">
+      <End Role="EmpInfo" EntitySet="EmpInfoes" />
+      <End Role="EmpInfo1" EntitySet="EmpInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpLeaveProfile_EmpInfo" Association="Self.FK_EmpLeaveProfile_EmpInfo">
+      <End Role="EmpInfo" EntitySet="EmpInfoes" />
+      <End Role="EmpLeaveProfile" EntitySet="EmpLeaveProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmpLeaveC__LType__14A88507" Association="Self.FK__EmpLeaveC__LType__14A88507">
+      <End Role="LeaveTypeList" EntitySet="LeaveTypeLists" />
+      <End Role="EmpLeaveCTOEntitleLog" EntitySet="EmpLeaveCTOEntitleLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpLeaveProfile_LeaveTypeList" Association="Self.FK_EmpLeaveProfile_LeaveTypeList">
+      <End Role="LeaveTypeList" EntitySet="LeaveTypeLists" />
+      <End Role="EmpLeaveProfile" EntitySet="EmpLeaveProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfficeList_OfficeList" Association="Self.FK_OfficeList_OfficeList">
+      <End Role="OfficeList" EntitySet="OfficeLists" />
+      <End Role="OfficeList1" EntitySet="OfficeLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPrivs_ViewName" Association="Self.FK_UserPrivs_ViewName">
+      <End Role="ViewName" EntitySet="ViewNames" />
+      <End Role="UserPrivs" EntitySet="UserPrivs" />
+    </AssociationSet>
+    <FunctionImport Name="proc_select_EmpInfo" ReturnType="Collection(RDRS_RDRSModel.proc_select_EmpInfo_Result)">
+      <Parameter Name="EmpId" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="proc_select_EmpInfo_Result">
+    <Property Type="String" Name="EmpId" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="30" />
+    <Property Type="Decimal" Name="ReligionId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="BloodGroupId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+    <Property Type="String" Name="FatherName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MotherName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PreAddress" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="PrePhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PreFax" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PerAddress" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="PerPhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PerFax" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="PerDistrictID" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="PerCountryID" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="String" Name="OfficeExt" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OfficeEmail" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PersonalEmail" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MailingAddrs" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="MaritalStatus" Nullable="true" MaxLength="30" />
+    <Property Type="DateTime" Name="MarriageDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="ProffDegreeId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="SpecialSkillId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="String" Name="IsSpectacled" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="DrivingLicense" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="LicenseRenewDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="IsRelativeInSC" Nullable="true" MaxLength="1" />
+    <Property Type="Decimal" Name="RelationId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="String" Name="TINNo" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PassportNo" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="PassExpDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Circle" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Zone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PassportIssueOffice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NationalId" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Nationality" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DOBId" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="SkypeId" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CellPhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LandPhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BMDCRegNo" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="BMDCRegDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="IsMedical" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="Nature" Nullable="true" MaxLength="1" />
+    <Property Type="Decimal" Name="EmpTypeID" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="DivisionId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="OfficeId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="ProjectID" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="GradeId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="GradeLevelId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="JobTitleId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="DesigId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="DeptId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="String" Name="ContractPurpose" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="WorkArea" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="SalLocId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="BasicSalary" Nullable="true" Precision="12" Scale="2" />
+    <Property Type="Decimal" Name="GrossSalary" Nullable="true" Precision="12" Scale="2" />
+    <Property Type="Decimal" Name="BonusPakId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="AttnPolicyID" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="LeavePakId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="DateTime" Name="JoiningDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="ProbationPeriod" Nullable="true" Precision="3" Scale="0" />
+    <Property Type="Decimal" Name="ContractInterval" Nullable="true" Precision="2" Scale="0" />
+    <Property Type="DateTime" Name="ContractEndDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ConfirmationDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="IsServiceAgrmnt" Nullable="true" MaxLength="1" />
+    <Property Type="DateTime" Name="ServiceStartDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ServiceEndDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="WorkAreaType" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="IsSeveranceBenefit" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="SeveranceId" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SeveranceReason" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="RetirementDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="EmpStatus" Nullable="true" MaxLength="1" />
+    <Property Type="Decimal" Name="SeparateTypeId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="DateTime" Name="SeparateDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="SeparateReason" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="BankCode" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="BankAccNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SupervisorId" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OtherBenefit" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Remarks" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="IsMedicalEntmnt" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="IsOTEntmnt" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="IsChildEduAllow" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="EmpSignature" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UploadCV" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UploadDocument" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IsDeleted" Nullable="true" MaxLength="1" />
+    <Property Type="DateTime" Name="PostingDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DateInPosition" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DateInGrade" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ActionDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="SalPakId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="MPCId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="String" Name="IsPayrollStaff" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="EmpPicLoc" Nullable="true" MaxLength="200" />
+    <Property Type="Decimal" Name="ActionId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="String" Name="InsertedBy" Nullable="true" MaxLength="40" />
+    <Property Type="DateTime" Name="InsertedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="40" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LastUpdatedFrom" Nullable="true" MaxLength="40" />
+    <Property Type="DateTime" Name="AddResponseEndDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="WeekendId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="String" Name="CardNo" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="IsRoaster" Nullable="true" MaxLength="1" />
+    <Property Type="Decimal" Name="WorkingDays" Nullable="true" Precision="2" Scale="0" />
+    <Property Type="Decimal" Name="EduId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="String" Name="IsNotRehirable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="NotRehireReason" Nullable="true" MaxLength="300" />
+    <Property Type="Binary" Name="EmpImage" Nullable="true" MaxLength="Max" />
+    <Property Type="Binary" Name="EmpSignImage" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="RelativeInfo" Nullable="true" MaxLength="150" />
+    <Property Type="Decimal" Name="EmpNatureId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="String" Name="Asset" Nullable="true" MaxLength="300" />
+    <Property Type="Decimal" Name="SectorId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="UnitId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="ComponentId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="PosFuncId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="PostingDivId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="PostingDistId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="PostingPlaceId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="String" Name="AppointType" Nullable="true" MaxLength="1" />
+    <Property Type="Decimal" Name="SalSubLocId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="PerDivID" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="PerUpzID" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="PerPSID" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="PreDivID" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="PreDistrictID" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="PreUpzID" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="PrePSID" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="String" Name="HighDegSub" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SSMMRNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LeaveSupervisorId" Nullable="true" MaxLength="40" />
+    <Property Type="Decimal" Name="OfficeTypeID" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="String" Name="SpouseName" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="HighDegSubId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="String" Name="OldEmpId" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="ThematicId" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="String" Name="TypeName" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="DivisionName" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="DeptName" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="GradeName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="JobTitleName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="DesigName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SalLocName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LPackName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IsOffdayCounted" Nullable="true" MaxLength="1" />
+    <Property Type="DateTime" Name="LeaveStartPeriod" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="LeaveEndPeriod" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>

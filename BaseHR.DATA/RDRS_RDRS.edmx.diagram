@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3172a7f2da8f4b05a49f6d266c84210f" Name="Diagram1">
+        <EntityTypeShape EntityType="RDRS_RDRSModel.DivisionList" Width="1.5" PointX="2.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RDRS_RDRSModel.EmpInfo" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RDRS_RDRSModel.EmpLeaveCTOEntitleLog" Width="1.5" PointX="3" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RDRS_RDRSModel.EmpLeaveProfile" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RDRS_RDRSModel.GradeList" Width="1.5" PointX="2.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RDRS_RDRSModel.LeavePlan" Width="1.5" PointX="4.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RDRS_RDRSModel.LeaveTypeList" Width="1.5" PointX="0.75" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="RDRS_RDRSModel.OfficeList" Width="1.5" PointX="7.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RDRS_RDRSModel.ProjectList" Width="1.5" PointX="7.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RDRS_RDRSModel.SectorList" Width="1.5" PointX="9.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RDRS_RDRSModel.UserInfo" Width="1.5" PointX="9.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RDRS_RDRSModel.UserPriv" Width="1.5" PointX="5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="RDRS_RDRSModel.ViewName" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="RDRS_RDRSModel.FK_UserPrivs_DivisionList" ManuallyRouted="false" />
+        <AssociationConnector Association="RDRS_RDRSModel.FK_EmpInfo_EmpInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="RDRS_RDRSModel.FK_EmpLeaveProfile_EmpInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="RDRS_RDRSModel.FK__EmpLeaveC__LType__14A88507" ManuallyRouted="false" />
+        <AssociationConnector Association="RDRS_RDRSModel.FK_EmpLeaveProfile_LeaveTypeList" ManuallyRouted="false" />
+        <AssociationConnector Association="RDRS_RDRSModel.FK_OfficeList_OfficeList" ManuallyRouted="false" />
+        <AssociationConnector Association="RDRS_RDRSModel.FK_UserPrivs_ViewName" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

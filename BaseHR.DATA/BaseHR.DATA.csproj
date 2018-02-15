@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{238B78B9-0E1A-46EE-95DA-B818BD2081C6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BaseHR.DATA</RootNamespace>
+    <AssemblyName>BaseHR.DATA</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>C:\Users\Shazzad\Documents\Visual Studio 2015\Projects\RDRSHR_Repo\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DivisionList.cs">
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmpInfo.cs">
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmpLeaveCTOEntitleLog.cs">
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmpLeaveProfile.cs">
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GradeList.cs">
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LeavePlan.cs">
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveTypeList.cs">
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OfficeList.cs">
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Partial\EmpLeaveCTOEntitleLog.cs" />
+    <Compile Include="Partial\UserPriv.cs" />
+    <Compile Include="proc_select_EmpInfo_Result.cs">
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectList.cs">
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RDRS_RDRS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RDRS_RDRS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RDRS_RDRS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RDRS_RDRS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RDRS_RDRS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SectorList.cs">
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.cs">
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserPriv.cs">
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewName.cs">
+      <DependentUpon>RDRS_RDRS.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="RDRS_RDRS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RDRS_RDRS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="RDRS_RDRS.edmx.diagram">
+      <DependentUpon>RDRS_RDRS.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RDRS_RDRS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RDRS_RDRS.edmx</DependentUpon>
+      <LastGenOutput>RDRS_RDRS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="RDRS_RDRS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RDRS_RDRS.edmx</DependentUpon>
+      <LastGenOutput>RDRS_RDRS.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
