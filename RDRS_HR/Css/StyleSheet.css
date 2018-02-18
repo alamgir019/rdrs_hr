@@ -946,7 +946,6 @@ th:315px;
 	border-bottom-width: 1px;
 	border-left-width: 2px;
 }
-.TextBoxAmt60 
 .TextBoxAmt60 {
 	text-align:right;
 	font-family:tahoma;
@@ -954,15 +953,6 @@ th:315px;
 	color:#09086e;
 }
 
-	width:80px;
-	border: #666666;
-	border-style: solid;
-	border-top-width: 2px;
-	border-right-width: 2px;
-	border-bottom-width: 1px;
-	border-left-width: 2px;
-	text-align:right;
-}
 .TextBoxAmt100 {
 	width:100px;
 	text-align:right;
@@ -1724,7 +1714,7 @@ html* masterloginbodycss {
 	float:right;
 	margin-right:10px;
 }
-.EmpLeaveProfStyle {
+.EmpMainDivStyle {
 	background:#FFF;
 	width:70%;
 	display: block;
@@ -1733,7 +1723,7 @@ html* masterloginbodycss {
 	margin:15px auto 0;
 	margin-bottom:15px;
 }
-#empLeaveProfiFrame {
+.divWithGridFrame {
 	margin: 10px 5px 5px 10px;
 	overflow: scroll;
 	border: gray 1px solid;
@@ -2103,7 +2093,7 @@ hite;
 	padding-bottom:10px;
 	margin-bottom:10px;
 }
-#PayrollConfigInner2 {
+.FormInner2 {
 	width:95%;
 	height:auto;
 	margin:0 auto;

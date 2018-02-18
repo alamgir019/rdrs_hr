@@ -247,8 +247,8 @@ public partial class index : System.Web.UI.Page
             Session["OFFICEID"] = "";
             Session["OFFICENAME"] = "";
             Session["SALARYLOC"] = "";
-            Session["PROGRAM"] = "";
-            Session["PROGRAMID"] = "";
+            //Session["PROGRAM"] = "";
+            //Session["PROGRAMID"] = "";
             Session["TEAM"] = "";
             Session["TEAMID"] = "";
             Session["EMPLOYEEID"] = "";

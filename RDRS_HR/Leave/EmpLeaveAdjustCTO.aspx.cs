@@ -9,10 +9,10 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
-using Base.Repository.DAL;
 using System.Collections.Generic;
-using Base.Repository.DATA;
 using System.Linq;
+using BaseHR.Repository.DAL;
+using BaseHR.DATA;
 
 public partial class EmpLeaveAdjustCTO : System.Web.UI.Page
 {

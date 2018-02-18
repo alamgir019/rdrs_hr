@@ -1,5 +1,4 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterBTMS.master.cs" Inherits="MasterBTMS" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -29,10 +28,6 @@
                                     <asp:Label ID="lblOfficeCaption" runat="server" Text="Office :" ForeColor="#FFFFFF"
                                         Font-Bold="true"></asp:Label>
                                     <asp:Label ID="lblOffice" runat="server" ForeColor="#FFFFFF"></asp:Label>
-                                </span><span style="padding-left: 15px;">
-                                    <asp:Label ID="lblProgCaption" runat="server" Text="Program :" ForeColor="#FFFFFF"
-                                        Font-Bold="true"></asp:Label>
-                                    <asp:Label ID="lblProgram" runat="server" ForeColor="#FFFFFF"></asp:Label>
                                 </span><span style="padding-left: 15px;">
                                     <asp:Label ID="lblTeamCaption" runat="server" Text="Team :" ForeColor="#FFFFFF" Font-Bold="true"></asp:Label>
                                     <asp:Label ID="lblTeam" runat="server" ForeColor="#FFFFFF"></asp:Label>

@@ -1,5 +1,5 @@
-﻿using Base.Repository.DAL;
-using Base.Repository.DATA;
+﻿using BaseHR.DATA;
+using BaseHR.Repository.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -108,7 +108,7 @@ public partial class Leave_LeavePlan : System.Web.UI.Page
         if (!string.IsNullOrEmpty(txtEmployeeId.Text.Trim()))
         {
             var list = objLeaveMgr.GetLeavePlan();
-            planList = list.Where(cc => cc.EmpId.Equals(txtEmpId.Text.Trim())).ToList();
+            planList = list.Where(cc => cc.EmpId.Equals(txtEmployeeId.Text.Trim())).ToList();
             grLeavePlan.DataSource = planList;
             grLeavePlan.DataBind();
         }

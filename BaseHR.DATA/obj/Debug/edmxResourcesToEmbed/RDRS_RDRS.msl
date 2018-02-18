@@ -191,26 +191,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EmpLeaveProfiles">
-      <EntityTypeMapping TypeName="RDRS_RDRSModel.EmpLeaveProfile">
-        <MappingFragment StoreEntitySet="EmpLeaveProfile">
-          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
-          <ScalarProperty Name="LTypeID" ColumnName="LTypeID" />
-          <ScalarProperty Name="LCarryOverd" ColumnName="LCarryOverd" />
-          <ScalarProperty Name="LEntitled" ColumnName="LEntitled" />
-          <ScalarProperty Name="LCashed" ColumnName="LCashed" />
-          <ScalarProperty Name="LeaveEnjoyed" ColumnName="LeaveEnjoyed" />
-          <ScalarProperty Name="LeaveElapsed" ColumnName="LeaveElapsed" />
-          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
-          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-          <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
-          <ScalarProperty Name="lvOpening" ColumnName="lvOpening" />
-          <ScalarProperty Name="lvPrevYearCarry" ColumnName="lvPrevYearCarry" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="GradeLists">
       <EntityTypeMapping TypeName="RDRS_RDRSModel.GradeList">
         <MappingFragment StoreEntitySet="GradeList">
@@ -568,5 +548,25 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="EmpLeaveProfiles">
+      <EntityTypeMapping TypeName="RDRS_RDRSModel.EmpLeaveProfile">
+        <MappingFragment StoreEntitySet="EmpLeaveProfile">
+          <ScalarProperty Name="lvPrevYearCarry" ColumnName="lvPrevYearCarry" />
+          <ScalarProperty Name="lvOpening" ColumnName="lvOpening" />
+          <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="LeaveElapsed" ColumnName="LeaveElapsed" />
+          <ScalarProperty Name="LeaveEnjoyed" ColumnName="LeaveEnjoyed" />
+          <ScalarProperty Name="LCashed" ColumnName="LCashed" />
+          <ScalarProperty Name="LEntitled" ColumnName="LEntitled" />
+          <ScalarProperty Name="LCarryOverd" ColumnName="LCarryOverd" />
+          <ScalarProperty Name="LTypeID" ColumnName="LTypeID" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

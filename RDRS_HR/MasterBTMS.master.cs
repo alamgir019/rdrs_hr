@@ -34,14 +34,14 @@ public partial class MasterBTMS : System.Web.UI.MasterPage
                 lblUser.Text = HttpContext.Current.Session["USERID"].ToString();
                 
                 //*Unchecked
-                if (string.IsNullOrEmpty(Session["OFFICE"].ToString()) == false)
-                    lblOffice.Text = Session["OFFICE"].ToString();
+                if (string.IsNullOrEmpty(Session["OFFICEID"].ToString()) == false)
+                    lblOffice.Text = Session["OFFICEID"].ToString();
                 else
                     lblOfficeCaption.Visible = false;
-                if (string.IsNullOrEmpty(Session["PROGRAM"].ToString()) == false)
-                    lblProgram.Text = Session["PROGRAM"].ToString();
-                else
-                    lblProgCaption.Visible = false;
+                //if (string.IsNullOrEmpty(Session["PROGRAM"].ToString()) == false)
+                //    lblProgram.Text = Session["PROGRAM"].ToString();
+                //else
+                //    lblProgCaption.Visible = false;
 
                 if (string.IsNullOrEmpty(Session["TEAM"].ToString()) == false)
                     lblTeam.Text = Session["TEAM"].ToString();
@@ -56,38 +56,7 @@ public partial class MasterBTMS : System.Web.UI.MasterPage
             }
         }
     }
-
-    //public void GetMenuItem(Menu mnu, string userid)
-    //{
-
-    //    string sql = "";
-    //    DataRow[] mRows;
-    //    DataRow[] cRows;
-    //    sql = "Select v.ViewId,v.ViewName,v.ShowToPage,v.ParentId from ViewName v, userprivs up, userinfo ui where v.ViewId=up.SCREEN_ID AND ui.USERID=up.USERID AND up.A='Y' AND ui.Userid='" + userid.Trim() + "' order by viewid";
-    //   // sql = "Select v.ViewId,v.ViewName,v.ShowToPage,v.ParentId from ViewName v Order By v.ViewId";
-    //    DataTable dtMnuMaster = objDB.CreateDT(sql, "MnuMaster");
-    //    mRows = FindInMenuItem("ParentId='0'", dtMnuMaster);
-    //    foreach (DataRow row in mRows)
-    //    {
-    //        MenuItem masterItem = new MenuItem(row["ViewName"].ToString(), row["ShowToPage"].ToString());
-    //        //mnu.Items.Add(masterItem);
-    //        cRows = FindInMenuItem("ParentId='" + row["ViewId"].ToString() + "'", dtMnuMaster);
-    //        foreach (DataRow rowc in cRows)
-    //        {
-    //            MenuItem childItem = new MenuItem(rowc["ViewName"].ToString(), rowc["ShowToPage"].ToString());
-    //            masterItem.ChildItems.Add(childItem);
-    //        }
-    //        mnu.Items.Add(masterItem);
-    //    }
-    //}
-
-    //public DataRow[] FindInMenuItem(string strExpr, DataTable dtMnuMaster)
-    //{
-    //    DataRow[] foundRows;
-    //    foundRows = dtMnuMaster.Select(strExpr);
-    //    return foundRows;
-    //}
-
+    
     protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
     {        
         Response.Redirect("~/" + Menu1.SelectedValue.ToString());

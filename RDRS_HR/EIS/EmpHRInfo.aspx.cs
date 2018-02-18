@@ -2,8 +2,8 @@ using System;
 using System.Data;
 using System.Web.UI.WebControls;
 using System.IO;
-using Base.Security;
 using System.Linq;
+using BaseHR.Repository;
 
 public partial class EIS_EmpHRInfo : System.Web.UI.Page
 {

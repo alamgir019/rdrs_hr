@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RDRS_RDRSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RDRS_RDRSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DivisionList">
           <Key>
             <PropertyRef Name="DivisionId" />
@@ -528,8 +528,7 @@
             <End Role="UserPrivs" EntitySet="UserPrivs" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RDRS_RDRSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -702,7 +701,7 @@
           <Property Name="ThematicId" Type="Decimal" Precision="5" Scale="0" />
           <NavigationProperty Name="EmpInfo1" Relationship="Self.FK_EmpInfo_EmpInfo" FromRole="EmpInfo" ToRole="EmpInfo1" />
           <NavigationProperty Name="EmpInfo2" Relationship="Self.FK_EmpInfo_EmpInfo" FromRole="EmpInfo1" ToRole="EmpInfo" />
-          <NavigationProperty Name="EmpLeaveProfiles" Relationship="Self.FK_EmpLeaveProfile_EmpInfo" FromRole="EmpInfo" ToRole="EmpLeaveProfile" />
+          <NavigationProperty Name="EmpLeaveProfiles" Relationship="RDRS_RDRSModel.FK_EmpLeaveProfile_EmpInfo" FromRole="EmpInfo" ToRole="EmpLeaveProfile" />
         </EntityType>
         <EntityType Name="EmpLeaveCTOEntitleLog">
           <Key>
@@ -724,28 +723,6 @@
           <Property Name="LvAppId" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="LeaveEnjoyed" Type="Decimal" Precision="5" Scale="2" />
           <NavigationProperty Name="LeaveTypeList" Relationship="Self.FK__EmpLeaveC__LType__14A88507" FromRole="EmpLeaveCTOEntitleLog" ToRole="LeaveTypeList" />
-        </EntityType>
-        <EntityType Name="EmpLeaveProfile">
-          <Key>
-            <PropertyRef Name="EmpId" />
-            <PropertyRef Name="LTypeID" />
-          </Key>
-          <Property Name="EmpId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LTypeID" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="LCarryOverd" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="LEntitled" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="LCashed" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="LeaveEnjoyed" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="LeaveElapsed" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="InsertedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="lvOpening" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="lvPrevYearCarry" Type="Decimal" Precision="5" Scale="0" />
-          <NavigationProperty Name="EmpInfo" Relationship="Self.FK_EmpLeaveProfile_EmpInfo" FromRole="EmpLeaveProfile" ToRole="EmpInfo" />
-          <NavigationProperty Name="LeaveTypeList" Relationship="Self.FK_EmpLeaveProfile_LeaveTypeList" FromRole="EmpLeaveProfile" ToRole="LeaveTypeList" />
         </EntityType>
         <EntityType Name="GradeList">
           <Key>
@@ -807,7 +784,7 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="EmpLeaveCTOEntitleLogs" Relationship="Self.FK__EmpLeaveC__LType__14A88507" FromRole="LeaveTypeList" ToRole="EmpLeaveCTOEntitleLog" />
-          <NavigationProperty Name="EmpLeaveProfiles" Relationship="Self.FK_EmpLeaveProfile_LeaveTypeList" FromRole="LeaveTypeList" ToRole="EmpLeaveProfile" />
+          <NavigationProperty Name="EmpLeaveProfiles" Relationship="RDRS_RDRSModel.FK_EmpLeaveProfile_LeaveTypeList" FromRole="LeaveTypeList" ToRole="EmpLeaveProfile" />
         </EntityType>
         <EntityType Name="OfficeList">
           <Key>
@@ -962,20 +939,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EmpLeaveProfile_EmpInfo">
-          <End Role="EmpInfo" Type="Self.EmpInfo" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="EmpLeaveProfile" Type="Self.EmpLeaveProfile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmpInfo">
-              <PropertyRef Name="EmpId" />
-            </Principal>
-            <Dependent Role="EmpLeaveProfile">
-              <PropertyRef Name="EmpId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__EmpLeaveC__LType__14A88507">
           <End Role="LeaveTypeList" Type="Self.LeaveTypeList" Multiplicity="0..1" />
           <End Role="EmpLeaveCTOEntitleLog" Type="Self.EmpLeaveCTOEntitleLog" Multiplicity="*" />
@@ -985,18 +948,6 @@
             </Principal>
             <Dependent Role="EmpLeaveCTOEntitleLog">
               <PropertyRef Name="LTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmpLeaveProfile_LeaveTypeList">
-          <End Role="LeaveTypeList" Type="Self.LeaveTypeList" Multiplicity="1" />
-          <End Role="EmpLeaveProfile" Type="Self.EmpLeaveProfile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LeaveTypeList">
-              <PropertyRef Name="LTypeID" />
-            </Principal>
-            <Dependent Role="EmpLeaveProfile">
-              <PropertyRef Name="LTypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1028,7 +979,6 @@
           <EntitySet Name="DivisionLists" EntityType="Self.DivisionList" />
           <EntitySet Name="EmpInfoes" EntityType="Self.EmpInfo" />
           <EntitySet Name="EmpLeaveCTOEntitleLogs" EntityType="Self.EmpLeaveCTOEntitleLog" />
-          <EntitySet Name="EmpLeaveProfiles" EntityType="Self.EmpLeaveProfile" />
           <EntitySet Name="GradeLists" EntityType="Self.GradeList" />
           <EntitySet Name="LeavePlans" EntityType="Self.LeavePlan" />
           <EntitySet Name="LeaveTypeLists" EntityType="Self.LeaveTypeList" />
@@ -1046,17 +996,9 @@
             <End Role="EmpInfo" EntitySet="EmpInfoes" />
             <End Role="EmpInfo1" EntitySet="EmpInfoes" />
           </AssociationSet>
-          <AssociationSet Name="FK_EmpLeaveProfile_EmpInfo" Association="Self.FK_EmpLeaveProfile_EmpInfo">
-            <End Role="EmpInfo" EntitySet="EmpInfoes" />
-            <End Role="EmpLeaveProfile" EntitySet="EmpLeaveProfiles" />
-          </AssociationSet>
           <AssociationSet Name="FK__EmpLeaveC__LType__14A88507" Association="Self.FK__EmpLeaveC__LType__14A88507">
             <End Role="LeaveTypeList" EntitySet="LeaveTypeLists" />
             <End Role="EmpLeaveCTOEntitleLog" EntitySet="EmpLeaveCTOEntitleLogs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmpLeaveProfile_LeaveTypeList" Association="Self.FK_EmpLeaveProfile_LeaveTypeList">
-            <End Role="LeaveTypeList" EntitySet="LeaveTypeLists" />
-            <End Role="EmpLeaveProfile" EntitySet="EmpLeaveProfiles" />
           </AssociationSet>
           <AssociationSet Name="FK_OfficeList_OfficeList" Association="Self.FK_OfficeList_OfficeList">
             <End Role="OfficeList" EntitySet="OfficeLists" />
@@ -1067,8 +1009,17 @@
             <End Role="UserPrivs" EntitySet="UserPrivs" />
           </AssociationSet>
           <FunctionImport Name="proc_select_EmpInfo" ReturnType="Collection(RDRS_RDRSModel.proc_select_EmpInfo_Result)">
-            <Parameter Name="EmpId" Mode="In" Type="String" />
+          <Parameter Name="EmpId" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="EmpLeaveProfiles" EntityType="RDRS_RDRSModel.EmpLeaveProfile" />
+          <AssociationSet Name="FK_EmpLeaveProfile_EmpInfo" Association="RDRS_RDRSModel.FK_EmpLeaveProfile_EmpInfo">
+            <End Role="EmpInfo" EntitySet="EmpInfoes" />
+            <End Role="EmpLeaveProfile" EntitySet="EmpLeaveProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpLeaveProfile_LeaveTypeList" Association="RDRS_RDRSModel.FK_EmpLeaveProfile_LeaveTypeList">
+            <End Role="LeaveTypeList" EntitySet="LeaveTypeLists" />
+            <End Role="EmpLeaveProfile" EntitySet="EmpLeaveProfiles" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="proc_select_EmpInfo_Result">
           <Property Type="String" Name="EmpId" Nullable="false" MaxLength="20" />
@@ -1230,6 +1181,54 @@
           <Property Type="DateTime" Name="LeaveStartPeriod" Nullable="true" Precision="23" />
           <Property Type="DateTime" Name="LeaveEndPeriod" Nullable="true" Precision="23" />
         </ComplexType>
+        <EntityType Name="EmpLeaveProfile">
+          <Key>
+            <PropertyRef Name="EmpId" />
+            <PropertyRef Name="LTypeID" />
+          </Key>
+          <Property Name="EmpId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LTypeID" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="LCarryOverd" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="LEntitled" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="LCashed" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="LeaveEnjoyed" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="LeaveElapsed" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="lvOpening" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="lvPrevYearCarry" Type="Decimal" Precision="5" Scale="0" />
+          <NavigationProperty Name="EmpInfo" Relationship="RDRS_RDRSModel.FK_EmpLeaveProfile_EmpInfo" FromRole="EmpLeaveProfile" ToRole="EmpInfo" />
+          <NavigationProperty Name="LeaveTypeList" Relationship="RDRS_RDRSModel.FK_EmpLeaveProfile_LeaveTypeList" FromRole="EmpLeaveProfile" ToRole="LeaveTypeList" />
+        </EntityType>
+        <Association Name="FK_EmpLeaveProfile_EmpInfo">
+          <End Type="RDRS_RDRSModel.EmpInfo" Role="EmpInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="RDRS_RDRSModel.EmpLeaveProfile" Role="EmpLeaveProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmpInfo">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="EmpLeaveProfile">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpLeaveProfile_LeaveTypeList">
+          <End Type="RDRS_RDRSModel.LeaveTypeList" Role="LeaveTypeList" Multiplicity="1" />
+          <End Type="RDRS_RDRSModel.EmpLeaveProfile" Role="EmpLeaveProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LeaveTypeList">
+              <PropertyRef Name="LTypeID" />
+            </Principal>
+            <Dependent Role="EmpLeaveProfile">
+              <PropertyRef Name="LTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1423,26 +1422,6 @@
                 <ScalarProperty Name="EnjoyedStatus" ColumnName="EnjoyedStatus" />
                 <ScalarProperty Name="LvAppId" ColumnName="LvAppId" />
                 <ScalarProperty Name="LeaveEnjoyed" ColumnName="LeaveEnjoyed" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EmpLeaveProfiles">
-            <EntityTypeMapping TypeName="RDRS_RDRSModel.EmpLeaveProfile">
-              <MappingFragment StoreEntitySet="EmpLeaveProfile">
-                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
-                <ScalarProperty Name="LTypeID" ColumnName="LTypeID" />
-                <ScalarProperty Name="LCarryOverd" ColumnName="LCarryOverd" />
-                <ScalarProperty Name="LEntitled" ColumnName="LEntitled" />
-                <ScalarProperty Name="LCashed" ColumnName="LCashed" />
-                <ScalarProperty Name="LeaveEnjoyed" ColumnName="LeaveEnjoyed" />
-                <ScalarProperty Name="LeaveElapsed" ColumnName="LeaveElapsed" />
-                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
-                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
-                <ScalarProperty Name="lvOpening" ColumnName="lvOpening" />
-                <ScalarProperty Name="lvPrevYearCarry" ColumnName="lvPrevYearCarry" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1803,6 +1782,26 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="EmpLeaveProfiles">
+            <EntityTypeMapping TypeName="RDRS_RDRSModel.EmpLeaveProfile">
+              <MappingFragment StoreEntitySet="EmpLeaveProfile">
+                <ScalarProperty Name="lvPrevYearCarry" ColumnName="lvPrevYearCarry" />
+                <ScalarProperty Name="lvOpening" ColumnName="lvOpening" />
+                <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+                <ScalarProperty Name="LeaveElapsed" ColumnName="LeaveElapsed" />
+                <ScalarProperty Name="LeaveEnjoyed" ColumnName="LeaveEnjoyed" />
+                <ScalarProperty Name="LCashed" ColumnName="LCashed" />
+                <ScalarProperty Name="LEntitled" ColumnName="LEntitled" />
+                <ScalarProperty Name="LCarryOverd" ColumnName="LCarryOverd" />
+                <ScalarProperty Name="LTypeID" ColumnName="LTypeID" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

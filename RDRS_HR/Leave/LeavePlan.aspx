@@ -2,7 +2,7 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <script language="javascript" type="text/javascript" src="../../JScripts/Confirmation.js"></script>
+    <script language="javascript" type="text/javascript" src="../JScripts/Confirmation.js"></script>
     <script language="javascript" type="text/javascript" src="../Script/datetimepicker.js"></script>
     
     <div class="EmpMainDivStyle" style="text-align: left;">
@@ -114,8 +114,7 @@
                 </fieldset>
                 <!--Grid view Code starts-->
                 <asp:GridView ID="grLeavePlan" runat="server" 
-                DataKeyNames="ProjectId, ProjectName, ProjectCode, StartDate, EndDate, WeekEndID, IncrementType, IncrementMonth,
-	                          IncrementAfter,	IsPF, IsGratuity, IsEOC, IsLE, IsInsurance, IsGSal, IsBSal, IsCore, IsProject,ShortName"
+                DataKeyNames="ID ,EmpId,LTypeId,LTypeName,StardDate,EndDate,Remarks,IsActive"
                     AutoGenerateColumns="False" EmptyDataText="No Record Found" Font-Size="9px" Width="100%">
                     <HeaderStyle BackColor="#B3CDE4" Font-Bold="True"></HeaderStyle>
                     <SelectedRowStyle BackColor="#D1DDF1" ForeColor="#333333" CssClass="ListHeader" Font-Bold="True">
@@ -125,18 +124,21 @@
                         <asp:ButtonField CommandName="DoubleClick" HeaderText="Edit" Text="Edit">
                             <ItemStyle CssClass="ItemStylecss" Width="8%" />
                         </asp:ButtonField>
-                        <asp:BoundField DataField="ProjectName" HeaderText="Name">
-                            <ItemStyle CssClass="ItemStylecss" Width="20%"></ItemStyle>
+                        <asp:BoundField DataField="EmpId" HeaderText="Employee Id">
+                            <ItemStyle CssClass="ItemStylecss" Width="10%"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField DataField="ProjectCode" HeaderText="Code">
-                            <ItemStyle CssClass="ItemStylecss" Width="8%"></ItemStyle>
+                        <asp:BoundField DataField="LTypeName" HeaderText="Leave Type">
+                            <ItemStyle CssClass="ItemStylecss" Width="15%"></ItemStyle>
                         </asp:BoundField>
 
                         <asp:BoundField DataField="StartDate" HeaderText="Start Date" DataFormatString="{0:dd/MM/yyyy}">
-                            <ItemStyle CssClass="ItemStylecss" Width="12%"></ItemStyle>
+                            <ItemStyle CssClass="ItemStylecss" Width="15%"></ItemStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="EndDate" HeaderText="End Date" DataFormatString="{0:dd/MM/yyyy}">
-                            <ItemStyle CssClass="ItemStylecss" Width="12%"></ItemStyle>
+                            <ItemStyle CssClass="ItemStylecss" Width="15%"></ItemStyle>
+                        </asp:BoundField>                        
+                        <asp:BoundField DataField="Remarks" HeaderText="Remarks">
+                            <ItemStyle CssClass="ItemStylecss" Width="20%"></ItemStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="IsActive" HeaderText="Is Active">
                             <ItemStyle CssClass="ItemStylecss" Width="8%"></ItemStyle>

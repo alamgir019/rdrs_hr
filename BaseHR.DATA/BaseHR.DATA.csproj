@@ -75,6 +75,7 @@
       <DependentUpon>RDRS_RDRS.tt</DependentUpon>
     </Compile>
     <Compile Include="Partial\EmpLeaveCTOEntitleLog.cs" />
+    <Compile Include="Partial\LeavePlan.cs" />
     <Compile Include="Partial\UserPriv.cs" />
     <Compile Include="proc_select_EmpInfo_Result.cs">
       <DependentUpon>RDRS_RDRS.tt</DependentUpon>
@@ -112,17 +113,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
     <EntityDeploy Include="RDRS_RDRS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>RDRS_RDRS.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="packages.config" />
     <None Include="RDRS_RDRS.edmx.diagram">
       <DependentUpon>RDRS_RDRS.edmx</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="RDRS_RDRS.Context.tt">
@@ -135,9 +137,6 @@
       <DependentUpon>RDRS_RDRS.edmx</DependentUpon>
       <LastGenOutput>RDRS_RDRS.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

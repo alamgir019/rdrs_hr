@@ -18,25 +18,13 @@ namespace BaseHR.Repository.DAL
         {
             var ctos = (from cto in context.EmpLeaveCTOEntitleLogs
                        join typ in context.LeaveTypeLists on cto.LTypeId equals typ.LTypeID
-                       select new { EmpId = cto.EmpId.Trim(), EndDate = cto.EndDate, EnjoyedStatus = cto.EnjoyedStatus
+                       select new EmpLeaveCTOEntitleLog()
+                       { EmpId = cto.EmpId.Trim(), EndDate = cto.EndDate, EnjoyedStatus = cto.EnjoyedStatus
                        ,LeaveEnjoyed=cto.LeaveEnjoyed,LEntitled=cto.LEntitled,LogId=cto.LogId,LTypeId=cto.LTypeId,
                        LvAppId=cto.LvAppId,LYear=cto.LYear,StartDate=cto.StartDate,
                            LTypeTitle=typ.LTypeTitle,
                            Remarks=cto.Remarks
-                       }).ToList().Select(x=>new EmpLeaveCTOEntitleLog {
-                           EmpId = x.EmpId,
-                           EndDate = x.EndDate,
-                           EnjoyedStatus = x.EnjoyedStatus,
-                           LeaveEnjoyed = x.LeaveEnjoyed,
-                           LEntitled = x.LEntitled,
-                           LogId = x.LogId,
-                           LTypeId = x.LTypeId,
-                           LvAppId = x.LvAppId,
-                           LYear = x.LYear,
-                           StartDate = x.StartDate,
-                           LTypeTitle = x.LTypeTitle,
-                           Remarks=x.Remarks
-                       });
+                       }).ToList();
             return ctos.ToList();
         }
         public int AddEmpLeaveCTOEntitleLog(decimal logID, string empId, decimal leaveType, decimal entitle, string strStartDate, string strEndDate, decimal year, string remarks, string insertedBy, decimal prevValue)
@@ -89,7 +77,20 @@ namespace BaseHR.Repository.DAL
 
         public List<LeavePlan> GetLeavePlan()
         {
-            return context.LeavePlans.ToList();
+            var plans = (from pl in context.LeavePlans
+                         join ltype in context.LeaveTypeLists on pl.LTypeId equals ltype.LTypeID
+                         select new LeavePlan
+                         {
+                             ID = pl.ID,
+                             EmpId = pl.EmpId,
+                             LTypeId = pl.LTypeId,
+                             LTypeName = ltype.LTypeTitle,
+                             StardDate = pl.StardDate,
+                             EndDate = pl.EndDate,
+                             Remarks = pl.Remarks,
+                             IsActive = pl.IsActive
+                         }).ToList();
+            return plans;
         }
 
         public int AddLeavePlan(LeavePlan objLeavePlan)
@@ -99,7 +100,7 @@ namespace BaseHR.Repository.DAL
             if (objLeavePlan.ID==0)
             {
                 decimal maxId = context.LeavePlans.Select(mm => mm.ID).DefaultIfEmpty(0).Max();
-                objLeavePlan.ID = maxId++;
+                objLeavePlan.ID = ++maxId;
                 context.LeavePlans.Add(objLeavePlan);
             }
             else
