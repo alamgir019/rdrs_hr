@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="RDRS_RDRSModel.EmpInfo" Width="1.5" PointX="5.75" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="RDRS_RDRSModel.EmpLeaveCTOEntitleLog" Width="1.5" PointX="10" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="RDRS_RDRSModel.GradeList" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="RDRS_RDRSModel.LeavePlan" Width="1.5" PointX="2.75" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="RDRS_RDRSModel.LeaveTypeList" Width="1.5" PointX="7.75" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="RDRS_RDRSModel.OfficeList" Width="1.5" PointX="5.75" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="RDRS_RDRSModel.ProjectList" Width="1.5" PointX="7.75" PointY="10.625" IsExpanded="true" />
@@ -25,6 +24,7 @@
         <EntityTypeShape EntityType="RDRS_RDRSModel.EmpLeaveProfile" Width="1.5" PointX="10" PointY="18.25" />
         <AssociationConnector Association="RDRS_RDRSModel.FK_EmpLeaveProfile_EmpInfo" />
         <AssociationConnector Association="RDRS_RDRSModel.FK_EmpLeaveProfile_LeaveTypeList" />
+        <EntityTypeShape EntityType="RDRS_RDRSModel.LeavePlan" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

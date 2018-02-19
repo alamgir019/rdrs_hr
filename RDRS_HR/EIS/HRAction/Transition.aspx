@@ -474,7 +474,7 @@
                         <SelectedRowStyle BackColor="#D1DDF1" CssClass="ListHeader" Font-Bold="True" ForeColor="#333333" />
                         <AlternatingRowStyle BackColor="#EFF3FB" />
                         <Columns>
-                            <asp:ButtonField CommandName="DoubleClick">
+                            <asp:ButtonField CommandName="DoubleClick" Text="Edit">
                                 <ItemStyle Width="1%" CssClass="ItemStylecss" />
                             </asp:ButtonField>
                             <asp:BoundField DataField="TransType" HeaderText="Transition Type">

@@ -187,6 +187,21 @@
                     </tr>
                     <tr>
                         <td class="textlevel">
+                            Recommender Id :</td>
+                        <td>
+                            <asp:TextBox ID="txtRecommendId" runat="server" MaxLength="20" onkeyup="ToUpper(this)"
+                                ToolTip="Enter the Emp. Code" Width="80px"></asp:TextBox>
+                            <asp:ImageButton ID="imgBtnRec" runat="server" Height="19px" ImageUrl="~/Images/Search_Icon.jpg"
+                                    OnClick="imgBtnRec_Click" 
+                                ToolTip="Click on find button to retrieve any existing employee information." /></td>
+                        <td class="textlevel">
+                            Recommender Name :</td>
+                        <td>
+                            <asp:TextBox ID="txtRecommendName" runat="server" MaxLength="20" 
+                                ToolTip="Enter the Emp. Code" Width="187px"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td class="textlevel">
                             Supervisor
                             Comments :</td>
                         <td colspan="3">
@@ -216,8 +231,8 @@
                         </SelectedRowStyle>
                         <AlternatingRowStyle BackColor="#EFF3FB"></AlternatingRowStyle>
                         <Columns>
-                            <asp:ButtonField CommandName="DoubleClick">
-                                <ItemStyle Width="1%" CssClass="ItemStylecss" />
+                            <asp:ButtonField CommandName="DoubleClick" HeaderText="Edit" Text="Edit">
+                                <ItemStyle Width="5%" CssClass="ItemStylecss" />
                             </asp:ButtonField>
                             <asp:BoundField DataField="ActionName" HeaderText="Name of Action">
                                 <ItemStyle CssClass="ItemStylecss" Width="10%"></ItemStyle>
@@ -249,10 +264,16 @@
                             <asp:BoundField DataField="Percentage" HeaderText="Percentage">
                                 <ItemStyle CssClass="ItemStylecssCenter" Width="5%"></ItemStyle>
                             </asp:BoundField>
+                            <asp:BoundField DataField="Assignment" HeaderText="Assignment">
+                                <ItemStyle CssClass="ItemStylecss" Width="10%"></ItemStyle>
+                            </asp:BoundField>
                             <asp:BoundField DataField="SupervisorId" HeaderText="Supervisor Id">
                                 <ItemStyle CssClass="ItemStylecss" Width="10%"></ItemStyle>
                             </asp:BoundField>
                             <asp:BoundField DataField="SupervisorComment" HeaderText="Supervisor Comments">
+                                <ItemStyle CssClass="ItemStylecss" Width="10%"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="RecommenderId" HeaderText="Recommender Id">
                                 <ItemStyle CssClass="ItemStylecss" Width="10%"></ItemStyle>
                             </asp:BoundField>
                         </Columns>

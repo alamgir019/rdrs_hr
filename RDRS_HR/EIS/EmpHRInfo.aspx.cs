@@ -71,17 +71,12 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
             Common.FillDropDownList(objEmpInfoMgr.SelectSupervisor(), ddlSupervisor, "EMPNAME", "EMPID", true, "Nil");
             Common.FillDropDownList(objEmpInfoMgr.SelectBankList(), ddlBankName, "BankName", "BankCode", true, "Nil");
             this.GetTaskPermissionContract();
-            //DataTable dtTaskPermission = objUserMgr.GetUserTaskPermission(Session["USERID"].ToString(), "302", "T102");
-            //if (dtTaskPermission.Rows.Count > 0)
-            //    Common.FillDropDownList_Nil(objMasMgr.SelectEmpTypeContract(0), ddlEmpType);                
-            //else
-            //    Common.FillDropDownList_Nil(objMasMgr.SelectEmpType(0), ddlEmpType);
-            //Common.FillDropDownList_Nil(objMasMgr.SelectEmpNature(0), ddlEmpNature);
-            if (string.IsNullOrEmpty(Session["HREMPID"].ToString()) == false)
-            {
-                txtEmpID.Text = Session["HREMPID"].ToString().Trim();
-                this.FillEmpInfo(Session["HREMPID"].ToString().Trim());
-            }
+            Common.FillDropDownList_Nil(objMasMgr.SelectEmpType(0).Select("IsActive='Y'").CopyToDataTable(), ddlEmpType);
+            //if (string.IsNullOrEmpty(Session["HREMPID"].ToString()) == false)
+            //{
+            //    txtEmpID.Text = Session["HREMPID"].ToString().Trim();
+            //    this.FillEmpInfo(Session["HREMPID"].ToString().Trim());
+            //}
         }
     }
 

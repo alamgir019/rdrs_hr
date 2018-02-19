@@ -185,7 +185,7 @@ public partial class EmpInfoSetup : System.Web.UI.Page
                 {
                     this.UploadImage();
                 }
-                else
+                else if (!string.IsNullOrEmpty(Session["imgByte"].ToString()))
                 {
                     imgByte = (byte[])Session["imgByte"];
                 }
@@ -201,7 +201,7 @@ public partial class EmpInfoSetup : System.Web.UI.Page
                 {
                     this.UploadSignImage();
                 }
-                else
+                else if (!string.IsNullOrEmpty(Session["imgSignByte"].ToString()))
                 {
                     imgSignByte = (byte[])Session["imgSignByte"];
                 }

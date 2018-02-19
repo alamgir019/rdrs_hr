@@ -231,7 +231,7 @@
     </Key>
     <Property Name="ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
     <Property Name="LTypeId" Type="numeric" Precision="5" Scale="0" />
-    <Property Name="StardDate" Type="date" />
+    <Property Name="StartDate" Type="date" />
     <Property Name="EndDate" Type="date" />
     <Property Name="Remarks" Type="varchar" MaxLength="200" />
     <Property Name="IsActive" Type="char" MaxLength="1" />

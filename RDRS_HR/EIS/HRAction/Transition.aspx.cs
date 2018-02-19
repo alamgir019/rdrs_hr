@@ -88,15 +88,21 @@ public partial class EIS_HRAction_Transition : System.Web.UI.Page
                 ddlUnit.SelectedValue = Common.RetrieveddL(ddlUnit, row["UnitId"].ToString(), "99999");
                 ddlGrade.SelectedValue = Common.RetrieveddL(ddlGrade, row["GradeId"].ToString(), "99999");
                 ddlGradeLevel.SelectedValue = Common.RetrieveddL(ddlGradeLevel, row["GradeLevelId"].ToString(), "99999");
-                ddlDivision.SelectedValue = Common.RetrieveddL(ddlDivision, row["PostingDivId"].ToString(), "99999");
+                string postingDiv = row["PostingDivId"] == null ?null: row["PostingDivId"].ToString();
+                ddlDivision.SelectedValue = Common.RetrieveddL(ddlDivision, postingDiv, "-1");
                 Common.FillDropDownList_Nil(objMasMgr.SelectDivisionWiseDistrict2(Convert.ToInt32(ddlDivision.SelectedValue)), ddlDistrict);
-                ddlDistrict.SelectedValue = Common.RetrieveddL(ddlDistrict, row["PostingDistId"].ToString(), "99999");
-                ddlSalaryLoc.SelectedValue = Common.RetrieveddL(ddlSalaryLoc, row["SalLocId"].ToString(), "99999");
+                string postingDist = row["PostingDistId"] == null ?null: row["PostingDistId"].ToString();
+                ddlDistrict.SelectedValue = Common.RetrieveddL(ddlDistrict, postingDist, "99999");
+                string salLocId = row["SalLocId"] == null ?null: row["SalLocId"].ToString();
+                ddlSalaryLoc.SelectedValue = Common.RetrieveddL(ddlSalaryLoc, salLocId, "99999");
                
-                ddlPostingPlace.SelectedValue = Common.RetrieveddL(ddlPostingPlace, row["PostingPlaceId"].ToString(), "99999");
-                ddlPosByFunction.SelectedValue = Common.RetrieveddL(ddlPosByFunction, row["PosFuncId"].ToString(), "99999");
+                string postingPlaceId = row["PostingPlaceId"] == null ?null: row["PostingPlaceId"].ToString();
+                ddlPostingPlace.SelectedValue = Common.RetrieveddL(ddlPostingPlace, postingPlaceId, "99999");
+                string posFuncId = row["PosFuncId"] == null ?null: row["PosFuncId"].ToString();
+                ddlPosByFunction.SelectedValue = Common.RetrieveddL(ddlPosByFunction, posFuncId, "99999");
 
-                ddlSupervisor.SelectedValue = Common.RetrieveddL(ddlSupervisor, row["SupervisorId"].ToString(), "-1");
+                string supervisorId = row["SupervisorId"] == null ?null: row["SupervisorId"].ToString();
+                ddlSupervisor.SelectedValue = Common.RetrieveddL(ddlSupervisor, supervisorId, "-1");
 
                 txtBankAccNo.Text = row["BankAccNo"].ToString().Trim();
                 txtBasicSal.Text = string.IsNullOrEmpty(row["BasicSalary"].ToString()) == true ? "" : row["BasicSalary"].ToString();
@@ -320,7 +326,7 @@ public partial class EIS_HRAction_Transition : System.Web.UI.Page
             DataRow nRow2 = objDs.dtSalPackUpdate.NewRow();
 
             nRow2["SHEADID"] = 2;
-            nRow2["PAYAMT"] = hfHousing.Value.ToString();   
+            nRow2["PAYAMT"] = Common.RoundDecimal(hfHousing.Value,0);
 
             objDs.dtSalPackUpdate.Rows.Add(nRow2);
         }
@@ -347,7 +353,7 @@ public partial class EIS_HRAction_Transition : System.Web.UI.Page
             ddlSalaryLoc.SelectedValue.ToString(), "", ddlPostingPlace.SelectedValue.ToString(), txtBasicSal.Text.Trim(),txtGrossSalary.Text.Trim(),   
             strEffDate, strNextIncDate, (chkIsNew.Checked == true ? "Y" : "N"), txtRemarks.Text.Trim(), Session["USERID"].ToString(), Common.SetDateTime(DateTime.Now.ToString()),
             ddlPosByFunction.SelectedValue.ToString(), strGradeChDate, ddlProject.SelectedValue.ToString(), ddlSupervisor.SelectedValue.ToString(),txtBankAccNo.Text.Trim()   );
-
+        // lblJoinDate.ToolTip contains salpakid
         objEmpInfoMgr.InsertEmpTransitionLog(objEmpTrans, "", hfDiv.Value.ToString(), hfOffice.Value.ToString(), hfDesig.Value.ToString(), hfJobTitle.Value.ToString(), hfSector.Value.ToString(), hfDept.Value.ToString(),
             hfUnit.Value.ToString(), hfGrade.Value.ToString(), hfGradeLevel.Value.ToString(), hfPostingDiv.Value.ToString(), hfPostingDist.Value.ToString(), hfSalLoc.Value.ToString(), "",
             hfPostingPlace.Value.ToString(), hfPosByFunction.Value.ToString(), txtBasicSal.ToolTip, txtGrossSalary.ToolTip, strEffDate, strNextIncDate, strGradeChDate, strRetirementDate, txtRemarks.Text.Trim(), hfIsUpdate.Value,
@@ -358,75 +364,7 @@ public partial class EIS_HRAction_Transition : System.Web.UI.Page
         this.EntryMode(false);
         this.ClearControls();
     }
-
-    //protected void grEmpTransition_RowCommand(object sender, GridViewCommandEventArgs e)
-    //{
-    //    GridView _gridView = (GridView)sender;
-    //    int _selectedIndex = int.Parse(e.CommandArgument.ToString());
-    //    string _commandName = e.CommandName;
-    //    _gridView.SelectedIndex = _selectedIndex;
-    //    switch (_commandName)
-    //    {
-    //        case ("DoubleClick"):
-    //            hfId.Value = grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[0].ToString().Trim();
-    //            if (string.IsNullOrEmpty(grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[1].ToString().Trim()) == false)
-    //                ddlAction.SelectedValue = grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[1].ToString().Trim();
-    //            if (string.IsNullOrEmpty(grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[2].ToString().Trim()) == false)
-    //                ddlDesignation.SelectedValue = grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[2].ToString().Trim();
-    //            if (string.IsNullOrEmpty(grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[3].ToString().Trim()) == false)
-    //                ddlJobTitle.SelectedValue = grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[3].ToString().Trim();
-
-    //            if (string.IsNullOrEmpty(grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[4].ToString().Trim()) == false)
-    //                ddlSector.SelectedValue = grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[4].ToString().Trim();
-
-    //            if (string.IsNullOrEmpty(grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[5].ToString().Trim()) == false)
-    //                ddlDepartment.SelectedValue = grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[5].ToString().Trim();
-    //            if (string.IsNullOrEmpty(grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[6].ToString().Trim()) == false)
-    //                ddlUnit.SelectedValue = grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[6].ToString().Trim();
-
-    //            if (string.IsNullOrEmpty(grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[7].ToString().Trim()) == false)
-    //                ddlGrade.SelectedValue = grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[7].ToString().Trim();
-
-    //            if (string.IsNullOrEmpty(grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[8].ToString().Trim()) == false)
-    //                ddlDivision.SelectedValue = grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[8].ToString().Trim();
-
-    //            if (string.IsNullOrEmpty(grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[9].ToString().Trim()) == false)
-    //                ddlDistrict.SelectedValue = grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[9].ToString().Trim();
-
-    //            if (string.IsNullOrEmpty(grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[10].ToString().Trim()) == false)
-    //                ddlLocation.SelectedValue = grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[10].ToString().Trim();
-
-    //            if (string.IsNullOrEmpty(grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[11].ToString().Trim()) == false)
-    //            {
-    //                if (grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[11].ToString().Trim() == "P")
-    //                {
-    //                    radPromotion.Checked = true;
-    //                    radTrans.Checked = false;
-    //                    radEquity.Checked = false;
-    //                }
-    //                else if (grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[11].ToString().Trim() == "T")
-    //                {
-    //                    radPromotion.Checked = false;
-    //                    radTrans.Checked = true;
-    //                    radEquity.Checked = false;
-    //                }
-    //                else if (grEmpTransition.DataKeys[_gridView.SelectedIndex].Values[11].ToString().Trim() == "E")
-    //                {
-    //                    radPromotion.Checked = false;
-    //                    radTrans.Checked = false;
-    //                    radEquity.Checked = true;
-    //                }
-    //            }
-
-    //            txtEffDate.Text = Common.CheckNullString(grEmpTransition.SelectedRow.Cells[12].Text.Trim());
-    //            txtNextIncDate.Text = Common.CheckNullString(grEmpTransition.SelectedRow.Cells[13].Text.Trim());
-    //            txtBasicSal.Text = Common.CheckNullString(grEmpTransition.SelectedRow.Cells[14].Text.Trim());
-    //            txtRemarks.Text = Common.CheckNullString(grEmpTransition.SelectedRow.Cells[15].Text.Trim());
-    //            this.EntryMode(true);
-    //            break;
-    //    }
-    //}    
-
+    
     protected void ddlCompany_SelectedIndexChanged(object sender, EventArgs e)
     {
         Common.FillDropDownList_Nil(objMasMgr.GetOfficeList(0, Convert.ToDecimal(ddlCompany.SelectedValue.Trim()), Convert.ToDecimal(ddlOffType.SelectedValue.Trim())), ddlOffice);

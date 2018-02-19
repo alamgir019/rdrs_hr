@@ -32,7 +32,6 @@ namespace BaseHR.DATA
         public DbSet<EmpInfo> EmpInfoes { get; set; }
         public DbSet<EmpLeaveCTOEntitleLog> EmpLeaveCTOEntitleLogs { get; set; }
         public DbSet<GradeList> GradeLists { get; set; }
-        public DbSet<LeavePlan> LeavePlans { get; set; }
         public DbSet<LeaveTypeList> LeaveTypeLists { get; set; }
         public DbSet<OfficeList> OfficeLists { get; set; }
         public DbSet<ProjectList> ProjectLists { get; set; }
@@ -41,6 +40,7 @@ namespace BaseHR.DATA
         public DbSet<UserPriv> UserPrivs { get; set; }
         public DbSet<ViewName> ViewNames { get; set; }
         public DbSet<EmpLeaveProfile> EmpLeaveProfiles { get; set; }
+        public DbSet<LeavePlan> LeavePlans { get; set; }
     
         public virtual ObjectResult<proc_select_EmpInfo_Result> proc_select_EmpInfo(string empId)
         {

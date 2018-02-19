@@ -250,12 +250,14 @@ public class EmpInfoManager
         p_IsDeleted.Direction = ParameterDirection.Input;
         p_IsDeleted.Value = IsDelete;
 
-        SqlParameter p_EmpImage = command.Parameters.Add("EmpImage", SqlDbType.Image);
+        SqlParameter p_EmpImage = command.Parameters.Add("EmpImage", DBNull.Value);
         p_EmpImage.Direction = ParameterDirection.Input;
+        p_EmpImage.IsNullable = true;
         p_EmpImage.Value = imgByte;
 
-        SqlParameter p_EmpSignImage = command.Parameters.Add("EmpSignImage", SqlDbType.Image);
+        SqlParameter p_EmpSignImage = command.Parameters.Add("EmpSignImage", DBNull.Value);
         p_EmpSignImage.Direction = ParameterDirection.Input;
+        p_EmpSignImage.IsNullable = true;
         p_EmpSignImage.Value = imgSignByte;
 
         SqlParameter p_RelativeInfo = command.Parameters.Add("RelativeInfo", SqlDbType.VarChar);
@@ -3948,7 +3950,7 @@ public class EmpInfoManager
     //Insert Disciplinary Responsibility
     public void InsertDisciplinary(string strId, string strEmpId, string strEntryDt, string strActionId, string strReason, string strActionDate,
         string strReviewDate, string strIsReview, string strIsSuspendInc, string strResponseDays,string strResponseDate,string strEmpResponse,
-        string strRemarks, string strInsBy, string strInsDate, string strIsUpdate)
+        string strRemarks, string strInsBy, string strInsDate, string strIsUpdate,string fine)
     {
         SqlCommand[] command = new SqlCommand[3];
         command[0] = new SqlCommand("proc_Insert_EmpDisciplinaryLog");
@@ -3957,6 +3959,14 @@ public class EmpInfoManager
         SqlParameter p_DisciplinaryId = command[0].Parameters.Add("DisciplinaryId", SqlDbType.BigInt);
         p_DisciplinaryId.Direction = ParameterDirection.Input;
         p_DisciplinaryId.Value = strId;
+
+        SqlParameter p_Fine = command[0].Parameters.Add("Fine", SqlDbType.Decimal);
+        p_Fine.Direction = ParameterDirection.Input;
+        if (string.IsNullOrEmpty(fine))
+        {
+            fine = "0";
+        }        
+        p_Fine.Value = fine;
 
         SqlParameter p_EmpId = command[0].Parameters.Add("EmpId", SqlDbType.VarChar);
         p_EmpId.Direction = ParameterDirection.Input;
@@ -4234,175 +4244,178 @@ public class EmpInfoManager
 
         if (strIsUpdate == "N")
         {
-            //command[1] = InsertEmpInfoLog(objEmpTrans.EmpID);
+            command[1] = InsertEmpInfoLog(objEmpTrans.EmpID);
 
-            command[2] = new SqlCommand("proc_Update_EmpInfoTransitionLog");
-            command[2].CommandType = CommandType.StoredProcedure;
+            command[1] = new SqlCommand("proc_Update_EmpInfoTransitionLog");
+            command[1].CommandType = CommandType.StoredProcedure;
 
-            SqlParameter p_EmpID1 = command[2].Parameters.Add("EmpID", SqlDbType.VarChar);
+            SqlParameter p_EmpID1 = command[1].Parameters.Add("EmpID", SqlDbType.VarChar);
             p_EmpID1.Direction = ParameterDirection.Input;
             p_EmpID1.Value = objEmpTrans.EmpID;
 
-            SqlParameter p_DivisionId1 = command[2].Parameters.Add("DivisionId", DBNull.Value);
+            SqlParameter p_DivisionId1 = command[1].Parameters.Add("DivisionId", DBNull.Value);
             p_DivisionId1.Direction = ParameterDirection.Input;
             p_DivisionId1.IsNullable = true;
             if ((objEmpTrans.DivisionId != "-1") && (objEmpTrans.DivisionId != "") && (objEmpTrans.DivisionId != "99999"))
                 p_DivisionId1.Value = objEmpTrans.DivisionId;
 
-            SqlParameter p_OfficeId1 = command[2].Parameters.Add("OfficeId", DBNull.Value);
+            SqlParameter p_OfficeId1 = command[1].Parameters.Add("OfficeId", DBNull.Value);
             p_OfficeId1.Direction = ParameterDirection.Input;
             p_EffDate.IsNullable = true;
             if ((objEmpTrans.OfficeId != "-1") && (objEmpTrans.OfficeId != "") && (objEmpTrans.OfficeId != "99999"))
                 p_OfficeId1.Value = objEmpTrans.OfficeId;
 
-            SqlParameter p_DesigId1 = command[2].Parameters.Add("DesigId", DBNull.Value);
+            SqlParameter p_DesigId1 = command[1].Parameters.Add("DesigId", DBNull.Value);
             p_DesigId1.Direction = ParameterDirection.Input;
             p_EffDate.IsNullable = true;
             if ((objEmpTrans.DesigId != "-1") && (objEmpTrans.DesigId != "") && (objEmpTrans.DesigId != "99999"))
                 p_DesigId1.Value = objEmpTrans.DesigId;
 
-            SqlParameter p_JobTitleId1 = command[2].Parameters.Add("JobTitleId", DBNull.Value);
+            SqlParameter p_JobTitleId1 = command[1].Parameters.Add("JobTitleId", DBNull.Value);
             p_JobTitleId1.Direction = ParameterDirection.Input;
             p_EffDate.IsNullable = true;
             if ((objEmpTrans.JobTitleId != "-1") && (objEmpTrans.JobTitleId != "") && (objEmpTrans.JobTitleId != "99999"))
                 p_JobTitleId1.Value = objEmpTrans.JobTitleId;
 
-            SqlParameter p_SectorId1 = command[2].Parameters.Add("SectorId", DBNull.Value);
+            SqlParameter p_SectorId1 = command[1].Parameters.Add("SectorId", DBNull.Value);
             p_SectorId1.Direction = ParameterDirection.Input;
             p_EffDate.IsNullable = true;
             if ((objEmpTrans.SectorId != "-1") && (objEmpTrans.SectorId != "") && (objEmpTrans.SectorId != "99999"))
                 p_SectorId1.Value = objEmpTrans.SectorId;
 
-            SqlParameter p_DeptId1 = command[2].Parameters.Add("DeptId", DBNull.Value);
+            SqlParameter p_DeptId1 = command[1].Parameters.Add("DeptId", DBNull.Value);
             p_DeptId1.Direction = ParameterDirection.Input;
             p_EffDate.IsNullable = true;
             if ((objEmpTrans.DeptId != "-1") && (objEmpTrans.DeptId != "") && (objEmpTrans.DeptId != "99999"))
                 p_DeptId1.Value = objEmpTrans.DeptId;
 
-            SqlParameter p_UnitId1 = command[2].Parameters.Add("UnitId", DBNull.Value);
+            SqlParameter p_UnitId1 = command[1].Parameters.Add("UnitId", DBNull.Value);
             p_UnitId1.Direction = ParameterDirection.Input;
             p_UnitId1.IsNullable = true;
             if ((objEmpTrans.UnitId != "-1") && (objEmpTrans.UnitId != "") && (objEmpTrans.UnitId != "99999"))
                 p_UnitId1.Value = objEmpTrans.UnitId;
 
-            SqlParameter p_GradeId1 = command[2].Parameters.Add("GradeId", DBNull.Value);
+            SqlParameter p_GradeId1 = command[1].Parameters.Add("GradeId", DBNull.Value);
             p_GradeId1.Direction = ParameterDirection.Input;
             p_GradeId1.IsNullable = true;
             if ((objEmpTrans.GradeId != "-1") && (objEmpTrans.GradeId != "") && (objEmpTrans.GradeId != "99999"))
                 p_GradeId1.Value = objEmpTrans.GradeId;
 
-            SqlParameter p_GradeIdLevel1 = command[2].Parameters.Add("GradeLevelId", DBNull.Value);
+            SqlParameter p_GradeIdLevel1 = command[1].Parameters.Add("GradeLevelId", DBNull.Value);
             p_GradeIdLevel1.Direction = ParameterDirection.Input;
             p_GradeIdLevel1.IsNullable = true;
             if ((objEmpTrans.GradeLevelId != "-1") && (objEmpTrans.GradeLevelId != "") && (objEmpTrans.GradeLevelId != "99999"))
                 p_GradeIdLevel1.Value = objEmpTrans.GradeLevelId;
 
-            SqlParameter p_PostingDivId1 = command[2].Parameters.Add("PostingDivId", DBNull.Value);
+            SqlParameter p_PostingDivId1 = command[1].Parameters.Add("PostingDivId", DBNull.Value);
             p_PostingDivId1.Direction = ParameterDirection.Input;
             p_PostingDivId1.IsNullable = true;
             if ((objEmpTrans.PostingDivId != "-1") && (objEmpTrans.PostingDivId != "") && (objEmpTrans.PostingDivId != "99999"))
                 p_PostingDivId1.Value = objEmpTrans.PostingDivId;
 
-            SqlParameter p_PostingDistId1 = command[2].Parameters.Add("PostingDistId", DBNull.Value);
+            SqlParameter p_PostingDistId1 = command[1].Parameters.Add("PostingDistId", DBNull.Value);
             p_PostingDistId1.Direction = ParameterDirection.Input;
             p_PostingDistId1.IsNullable = true;
             if ((objEmpTrans.PostingDistId != "-1") && (objEmpTrans.PostingDistId != "") && (objEmpTrans.PostingDistId != "99999"))
                 p_PostingDistId1.Value = objEmpTrans.PostingDistId;
 
-            SqlParameter p_SalLocId1 = command[2].Parameters.Add("SalLocId", DBNull.Value);
+            SqlParameter p_SalLocId1 = command[1].Parameters.Add("SalLocId", DBNull.Value);
             p_SalLocId1.Direction = ParameterDirection.Input;
             p_SalLocId1.IsNullable = true;
             if ((objEmpTrans.SalLocId != "-1") && (objEmpTrans.SalLocId != "") && (objEmpTrans.SalLocId != "99999"))
                 p_SalLocId1.Value = objEmpTrans.SalLocId;
 
-            SqlParameter p_PostingPlaceId1 = command[2].Parameters.Add("PostingPlaceId", DBNull.Value);
+            SqlParameter p_PostingPlaceId1 = command[1].Parameters.Add("PostingPlaceId", DBNull.Value);
             p_PostingPlaceId1.Direction = ParameterDirection.Input;
             p_PostingPlaceId1.IsNullable = true;
             if ((objEmpTrans.PostingPlaceId != "-1") && (objEmpTrans.PostingPlaceId != "") && (objEmpTrans.PostingPlaceId != "99999"))
                 p_PostingPlaceId1.Value = objEmpTrans.PostingPlaceId;
 
-            SqlParameter p_PosFuncId1 = command[2].Parameters.Add("PosFuncId", DBNull.Value);
+            SqlParameter p_PosFuncId1 = command[1].Parameters.Add("PosFuncId", DBNull.Value);
             p_PosFuncId1.Direction = ParameterDirection.Input;
             p_PosFuncId1.IsNullable = true;
             if ((objEmpTrans.PosFuncId != "-1") && (objEmpTrans.PosFuncId != "") && (objEmpTrans.PosFuncId != "99999"))
                 p_PosFuncId1.Value = objEmpTrans.PosFuncId;
 
-            SqlParameter p_BasicSal1 = command[2].Parameters.Add("BasicSalary", DBNull.Value);
+            SqlParameter p_BasicSal1 = command[1].Parameters.Add("BasicSalary", DBNull.Value);
             p_BasicSal1.Direction = ParameterDirection.Input;
             p_BasicSal1.IsNullable = true;
             if (objEmpTrans.BasicSal != "-1")
                 p_BasicSal1.Value = objEmpTrans.BasicSal;
 
-            SqlParameter p_GrossSalary1 = command[2].Parameters.Add("GrossSalary", DBNull.Value);
+            SqlParameter p_GrossSalary1 = command[1].Parameters.Add("GrossSalary", DBNull.Value);
             p_GrossSalary1.Direction = ParameterDirection.Input;
             p_GrossSalary1.IsNullable = true;
             if (objEmpTrans.GrossSalary != "-1")
                 p_GrossSalary1.Value = objEmpTrans.GrossSalary;
 
-            SqlParameter p_ActionId2 = command[2].Parameters.Add("ActionId", SqlDbType.BigInt);
+            SqlParameter p_ActionId2 = command[1].Parameters.Add("ActionId", SqlDbType.BigInt);
             p_ActionId2.Direction = ParameterDirection.Input;
             p_ActionId2.Value = objEmpTrans.ActionId;
 
-            SqlParameter p_ActionDate = command[2].Parameters.Add("ActionDate", DBNull.Value);
+            SqlParameter p_ActionDate = command[1].Parameters.Add("ActionDate", DBNull.Value);
             p_ActionDate.Direction = ParameterDirection.Input;
             p_ActionDate.IsNullable = true;
             if (objEmpTrans.EffDate != "-1")
                 p_ActionDate.Value = objEmpTrans.EffDate;
 
-            SqlParameter p_DateInGrade = command[2].Parameters.Add("DateInGrade", DBNull.Value);
+            SqlParameter p_DateInGrade = command[1].Parameters.Add("DateInGrade", DBNull.Value);
             p_DateInGrade.Direction = ParameterDirection.Input;
             p_DateInGrade.IsNullable = true;
             if (objEmpTrans.GradeChangeDate != "-1")
                 p_DateInGrade.Value = objEmpTrans.GradeChangeDate;
 
-            SqlParameter p_RetirementDate = command[2].Parameters.Add("RetirementDate", DBNull.Value);
+            SqlParameter p_RetirementDate = command[1].Parameters.Add("RetirementDate", DBNull.Value);
             p_RetirementDate.Direction = ParameterDirection.Input;
             p_RetirementDate.IsNullable = true;
             if (strRetirementDate != "")
                 p_RetirementDate.Value = strRetirementDate;
 
-            SqlParameter p_DateInPosition = command[2].Parameters.Add("EffDate", DBNull.Value);
+            SqlParameter p_DateInPosition = command[1].Parameters.Add("EffDate", DBNull.Value);
             p_DateInPosition.Direction = ParameterDirection.Input;
             p_DateInPosition.IsNullable = true;
             if (objEmpTrans.EffDate != "-1")
                 p_DateInPosition.Value = objEmpTrans.EffDate;
 
-            SqlParameter p_InsertedBy2 = command[2].Parameters.Add("InsertedBy", SqlDbType.VarChar);
+            SqlParameter p_InsertedBy2 = command[1].Parameters.Add("InsertedBy", SqlDbType.VarChar);
             p_InsertedBy2.Direction = ParameterDirection.Input;
             p_InsertedBy2.Value = objEmpTrans.InsertedBy;
 
-            SqlParameter p_InsertedDate2 = command[2].Parameters.Add("InsertedDate", SqlDbType.DateTime);
+            SqlParameter p_InsertedDate2 = command[1].Parameters.Add("InsertedDate", SqlDbType.DateTime);
             p_InsertedDate2.Direction = ParameterDirection.Input;
             p_InsertedDate2.Value = objEmpTrans.InsertedDate;
 
-            p_TransType = command[2].Parameters.Add("TransType", SqlDbType.Char);
+            p_TransType = command[1].Parameters.Add("TransType", SqlDbType.Char);
             p_TransType.Direction = ParameterDirection.Input;
             p_TransType.Value = objEmpTrans.TransType;
 
-            p_ProjectId = command[2].Parameters.Add("ProjectId", DBNull.Value);
+            p_ProjectId = command[1].Parameters.Add("ProjectId", DBNull.Value);
             p_ProjectId.Direction = ParameterDirection.Input;
             p_ProjectId.IsNullable = true;
             if ((objEmpTrans.ProjectId != "-1") && (objEmpTrans.ProjectId != "") && (objEmpTrans.ProjectId != "99999"))
                 p_ProjectId.Value = objEmpTrans.ProjectId;
 
-            p_SupervisorId = command[2].Parameters.Add("SupervisorId", SqlDbType.VarChar);
+            p_SupervisorId = command[1].Parameters.Add("SupervisorId", SqlDbType.VarChar);
             p_SupervisorId.Direction = ParameterDirection.Input;
             p_SupervisorId.Value = objEmpTrans.SuperId;
 
-            p_BankAccNo = command[2].Parameters.Add("BankAccNo", SqlDbType.VarChar);
+            p_BankAccNo = command[1].Parameters.Add("BankAccNo", SqlDbType.VarChar);
             p_BankAccNo.Direction = ParameterDirection.Input;
             p_BankAccNo.Value = objEmpTrans.BankAccNo;
 
-            command[3] = InsertEmpActionLog(objEmpTrans.EmpID, objEmpTrans.ActionId, objEmpTrans.EffDate, objEmpTrans.InsertedBy, objEmpTrans.InsertedDate);
+            command[2] = InsertEmpActionLog(objEmpTrans.EmpID, objEmpTrans.ActionId, objEmpTrans.EffDate, objEmpTrans.InsertedBy, objEmpTrans.InsertedDate);
 
-            //Housing & PF & Transportation Allowance Update     
-            int i = 4;
+            //    Housing & PF & Transportation Allowance Update
+            int i = 3;
             if (dtSalPackUpdate.Rows.Count > 0)
             {
-                foreach (SqlCommand cmdSal in this.GetSalPackDetUpdateCommand(dtSalPackUpdate, strSalPackId, objEmpTrans.InsertedBy, objEmpTrans.InsertedDate, "Transition"))
+                if (!string.IsNullOrEmpty(strSalPackId))
                 {
-                    command[i] = cmdSal;
-                    i++;
+                    foreach (SqlCommand cmdSal in this.GetSalPackDetUpdateCommand(dtSalPackUpdate, strSalPackId, objEmpTrans.InsertedBy, objEmpTrans.InsertedDate, "Transition"))
+                    {
+                        command[i] = cmdSal;
+                        i++;
+                    }
                 }
             }
         }
@@ -4594,6 +4607,11 @@ public class EmpInfoManager
         SqlParameter p_SupervisorId = command[0].Parameters.Add("SupervisorId", SqlDbType.Char);
         p_SupervisorId.Direction = ParameterDirection.Input;
         p_SupervisorId.Value = objTempDutyAssign.SupervisorId;
+
+
+        SqlParameter p_RecommenderId = command[0].Parameters.Add("RecommenderId", SqlDbType.Char);
+        p_RecommenderId.Direction = ParameterDirection.Input;
+        p_RecommenderId.Value = objTempDutyAssign.RecommenderId;
 
         SqlParameter p_SupervisorComment = command[0].Parameters.Add("SupervisorComment", SqlDbType.VarChar);
         p_SupervisorComment.Direction = ParameterDirection.Input;

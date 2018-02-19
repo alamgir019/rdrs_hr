@@ -210,19 +210,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LeavePlans">
-      <EntityTypeMapping TypeName="RDRS_RDRSModel.LeavePlan">
-        <MappingFragment StoreEntitySet="LeavePlan">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="LTypeId" ColumnName="LTypeId" />
-          <ScalarProperty Name="StardDate" ColumnName="StardDate" />
-          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="LeaveTypeLists">
       <EntityTypeMapping TypeName="RDRS_RDRSModel.LeaveTypeList">
         <MappingFragment StoreEntitySet="LeaveTypeList">
@@ -565,6 +552,19 @@
           <ScalarProperty Name="LCarryOverd" ColumnName="LCarryOverd" />
           <ScalarProperty Name="LTypeID" ColumnName="LTypeID" />
           <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeavePlans">
+      <EntityTypeMapping TypeName="RDRS_RDRSModel.LeavePlan">
+        <MappingFragment StoreEntitySet="LeavePlan">
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="LTypeId" ColumnName="LTypeId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

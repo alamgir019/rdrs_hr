@@ -9,9 +9,9 @@ using System.Web.UI.WebControls;
 
 public partial class Leave_LeavePlan : System.Web.UI.Page
 {
-    DLeave objLeaveMgr = new DLeave();
-    LeavePlan objLeavePlan = null;
-    List<LeavePlan> planList = null;
+    DLeavePlan objLeaveMgr = new DLeavePlan();
+    LeavePlanDTO objLeavePlan = null;
+    List<LeavePlanDTO> planList = null;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -94,13 +94,13 @@ public partial class Leave_LeavePlan : System.Web.UI.Page
                 lblMsg.Text = "Leave Plan Saved Successfully";
             else
                 lblMsg.Text = "Leave Plan Updated Successfully";
+            this.EntryMode(false);
         }
         else
         {
             lblMsg.Text = "Leave Plan did not saved";
         }
         this.OpenRecord();
-        this.EntryMode(false);
     }
 
     private void OpenRecord()
@@ -134,13 +134,40 @@ public partial class Leave_LeavePlan : System.Web.UI.Page
         {
             planID = Convert.ToDecimal(hfID.Value.ToString());
         }
-        objLeavePlan = new LeavePlan();
+        objLeavePlan = new LeavePlanDTO();
         objLeavePlan.ID = planID;
         objLeavePlan.EmpId = txtEmpId.Text.Trim();
         objLeavePlan.LTypeId = Convert.ToDecimal(ddlLeaveType.SelectedValue);
-        objLeavePlan.StardDate = Convert.ToDateTime(strStartDate);
+        objLeavePlan.StartDate = Convert.ToDateTime(strStartDate);
         objLeavePlan.EndDate = Convert.ToDateTime(strEndDate);
         objLeavePlan.Remarks = txtRemarks.Text;
         objLeavePlan.IsActive = ChkIsActive.Checked ? "N" : "Y";
+    }
+
+    protected void grLeavePlan_SelectedIndexChanged(object sender, EventArgs e)
+    {
+    }
+
+    protected void grLeavePlan_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        GridView _gridView = (GridView)sender;
+        int _selectedIndex = int.Parse(e.CommandArgument.ToString());
+        string _commandName = e.CommandName;
+        _gridView.SelectedIndex = _selectedIndex;
+        switch (_commandName)
+        {
+            case ("DoubleClick"):
+                //ID ,EmpId,LTypeId,LTypeName,StartDate,EndDate,Remarks,IsActive
+                txtEmpId.Text = grLeavePlan.SelectedRow.Cells[1].Text;
+                hfID.Value = grLeavePlan.DataKeys[_gridView.SelectedIndex].Values[0].ToString();
+                ChkIsActive.Checked = (grLeavePlan.DataKeys[_gridView.SelectedIndex].Values[7].ToString() == "N" ? true : false);
+                var pp = grLeavePlan.DataKeys[_gridView.SelectedIndex].Values[7].ToString();
+                txtRemarks.Text = Common.CheckNullString(grLeavePlan.SelectedRow.Cells[5].Text);
+                ddlLeaveType.SelectedValue = grLeavePlan.DataKeys[_gridView.SelectedIndex].Values[2].ToString();
+                txtStartDate.Text = grLeavePlan.SelectedRow.Cells[3].Text;//grLeavePlan.DataKeys[_gridView.SelectedIndex].Values[4].ToString();
+                txtEndDate.Text = grLeavePlan.SelectedRow.Cells[4].Text; //grLeavePlan.DataKeys[_gridView.SelectedIndex].Values[5].ToString();
+                this.EntryMode(true);
+                break;
+        }
     }
 }

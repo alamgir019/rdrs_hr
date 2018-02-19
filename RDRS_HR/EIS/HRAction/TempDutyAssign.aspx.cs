@@ -134,7 +134,9 @@ public partial class EIS_HRAction_TempDutyAssign : System.Web.UI.Page
         txtAmount.Text = "";
         txtSupervisorId.Text = "";
         txtSupervisorName.Text = "";
-        txtSupervisorComments.Text = "";         
+        txtSupervisorComments.Text = "";
+        txtRecommendId.Text = "";
+        txtRecommendName.Text = "";    
      }
 
     protected void btnSave_Click(object sender, EventArgs e)
@@ -209,7 +211,7 @@ public partial class EIS_HRAction_TempDutyAssign : System.Web.UI.Page
             (
                 hfId.Value.ToString(), txtEmpID.Text.Trim(), ddlAction.SelectedValue.ToString(), ddlDistrict.SelectedValue.ToString(), ddlLocation.SelectedValue.ToString(),
                 ddlSector.SelectedValue.ToString(), ddlUnit.SelectedValue.ToString(), ddlDept.SelectedValue.ToString(), txtAssignment.Text.Trim(), strStartDate, strEndDate,
-               txtPercentage.Text.Trim(),txtAmount.Text.Trim(),txtSupervisorId.Text.Trim(),txtSupervisorComments.Text.Trim(),Session["USERID"].ToString(),Common.SetDateTime(DateTime.Now.ToString())
+               txtPercentage.Text.Trim(),txtAmount.Text.Trim(),txtSupervisorId.Text.Trim(),txtRecommendId.Text.Trim(),txtSupervisorComments.Text.Trim(),Session["USERID"].ToString(),Common.SetDateTime(DateTime.Now.ToString())
             );
 
             objEmpInfoMgr.InsertEmpTempDuty(objclsTempDutyAssign, hfIsUpdate.Value);
@@ -244,17 +246,23 @@ public partial class EIS_HRAction_TempDutyAssign : System.Web.UI.Page
                 hfId.Value = grTempDuty.DataKeys[_gridView.SelectedIndex].Values[0].ToString();
                 ddlAction.SelectedValue = grTempDuty.DataKeys[_gridView.SelectedIndex].Values[1].ToString();
                 if (string.IsNullOrEmpty(grTempDuty.DataKeys[_gridView.SelectedIndex].Values[2].ToString()) == false)
-                    ddlSector.SelectedValue = grTempDuty.DataKeys[_gridView.SelectedIndex].Values[2].ToString();
+                    ddlDistrict.SelectedValue = grTempDuty.DataKeys[_gridView.SelectedIndex].Values[2].ToString();
                 if (string.IsNullOrEmpty(grTempDuty.DataKeys[_gridView.SelectedIndex].Values[3].ToString()) == false)
-                    ddlDistrict.SelectedValue = grTempDuty.DataKeys[_gridView.SelectedIndex].Values[3].ToString();
+                    ddlLocation.SelectedValue = grTempDuty.DataKeys[_gridView.SelectedIndex].Values[3].ToString();
                 if (string.IsNullOrEmpty(grTempDuty.DataKeys[_gridView.SelectedIndex].Values[4].ToString()) == false)
-                    ddlLocation.SelectedValue = grTempDuty.DataKeys[_gridView.SelectedIndex].Values[4].ToString();
+                    ddlSector.SelectedValue = grTempDuty.DataKeys[_gridView.SelectedIndex].Values[4].ToString();
                 if (string.IsNullOrEmpty(grTempDuty.DataKeys[_gridView.SelectedIndex].Values[5].ToString()) == false)
                     ddlUnit.SelectedValue = grTempDuty.DataKeys[_gridView.SelectedIndex].Values[5].ToString();
-                txtStartDate.Text = Common.CheckNullString(grTempDuty.SelectedRow.Cells[6].Text);
-                txtEndDate.Text = Common.CheckNullString(grTempDuty.SelectedRow.Cells[7].Text);
-                txtAssignment.Text = Common.CheckNullString(grTempDuty.SelectedRow.Cells[10].Text.Trim());
-
+                if (string.IsNullOrEmpty(grTempDuty.DataKeys[_gridView.SelectedIndex].Values[6].ToString()) == false)
+                    ddlDept.SelectedValue = grTempDuty.DataKeys[_gridView.SelectedIndex].Values[6].ToString();
+                txtStartDate.Text = Common.CheckNullString(grTempDuty.SelectedRow.Cells[7].Text);
+                txtEndDate.Text = Common.CheckNullString(grTempDuty.SelectedRow.Cells[8].Text);
+                txtAmount.Text = Common.CheckNullString(grTempDuty.SelectedRow.Cells[9].Text);
+                txtPercentage.Text = Common.CheckNullString(grTempDuty.SelectedRow.Cells[10].Text);
+                txtAssignment.Text = Common.CheckNullString(grTempDuty.SelectedRow.Cells[11].Text.Trim());
+                txtSupervisorId.Text = Common.CheckNullString(grTempDuty.SelectedRow.Cells[12].Text);
+                txtSupervisorComments.Text = Common.CheckNullString(grTempDuty.SelectedRow.Cells[13].Text.Trim());
+                txtRecommendId.Text = Common.CheckNullString(grTempDuty.SelectedRow.Cells[14].Text);
                 this.EntryMode(true);
                 break;
             case ("RowDeleting"):
@@ -290,4 +298,27 @@ public partial class EIS_HRAction_TempDutyAssign : System.Web.UI.Page
             }
         }
     }
+
+    protected void imgBtnRec_Click(object sender, ImageClickEventArgs e)
+    {
+        if (string.IsNullOrEmpty(txtRecommendId.Text.Trim()) == false)
+        {
+            dtEmpInfo = objEmpInfoMgr.SelectEmpInfoHRAction(txtRecommendId.Text.Trim());
+
+            if (dtEmpInfo.Rows.Count > 0)
+            {
+                foreach (DataRow row in dtEmpInfo.Rows)
+                {
+                    txtRecommendName.Text = row["FullName"].ToString().Trim();
+                    lblMsg.Text = "";
+
+                }
+            }
+            else
+            {
+                lblMsg.Text = "Recommender Id is not valid.";
+            }
+        }
+    }
+    
 }

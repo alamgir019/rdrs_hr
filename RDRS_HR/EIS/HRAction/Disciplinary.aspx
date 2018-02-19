@@ -12,11 +12,11 @@
     </script>
 
     <script language="javascript" type="text/javascript">
-    function ToUpper(ctrl)
-    {   
-    var t = ctrl.value;
-    ctrl.value = t.toUpperCase(); 
-    }
+        function ToUpper(ctrl)
+        {   
+            var t = ctrl.value;
+            ctrl.value = t.toUpperCase(); 
+        }
     </script>
 
     <div class="empTrainForm">
@@ -139,21 +139,18 @@
                                 Width="150px" />
                             <asp:CheckBox ID="chkIsSuspendInc" runat="server" CssClass="textlevelleft"
                                     Text="Is Suspend Increment" Width="129px" /></td>
+                    </tr>                    
+                    <tr>
+                        <td class="textlevel">Fine :</td>
+                        <td><asp:TextBox ID="txtFine" runat="server" Width="80px"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td class="textlevel">
-                            Response Days :</td>
-                        <td>
-                            <asp:TextBox ID="txtResponseDays" runat="server"
-                                Width="80px"></asp:TextBox>
-                            </td>
+                        <td class="textlevel">Response Days :</td>
+                        <td><asp:TextBox ID="txtResponseDays" runat="server" Width="80px"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td class="textlevel">
-                            Response Date :</td>
-                        <td>
-                             <asp:TextBox ID="txtResponseDate" runat="server"
-                                Width="80px"></asp:TextBox>
+                        <td class="textlevel">Response Date :</td>
+                        <td><asp:TextBox ID="txtResponseDate" runat="server" Width="80px"></asp:TextBox>
                             <a href="javascript:NewCal('<%= txtResponseDate.ClientID %>','ddmmyyyy')">
                                 <img style="border: 0px;" height="16" alt="Pick a date" src="../../images/cal.gif" width="16" /></a>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtResponseDate"
@@ -198,7 +195,7 @@
                                 <ItemStyle CssClass="ItemStylecss" Width="10%"></ItemStyle>
                             </asp:BoundField>
                             <asp:BoundField DataField="ReasonName" HeaderText="Reason">
-                                <ItemStyle CssClass="ItemStylecss" Width="20%"></ItemStyle>
+                                <ItemStyle CssClass="ItemStylecss" Width="15%"></ItemStyle>
                             </asp:BoundField>
                             <asp:BoundField DataField="ActionDate" HeaderText="Action Date">
                                 <ItemStyle CssClass="ItemStylecss" Width="10%"></ItemStyle>
@@ -207,22 +204,25 @@
                                 <ItemStyle CssClass="ItemStylecss" Width="10%"></ItemStyle>
                             </asp:BoundField>
                             <asp:BoundField DataField="IsReview" HeaderText="Is Review">
-                                <ItemStyle CssClass="ItemStylecss" Width="10%"></ItemStyle>
+                                <ItemStyle CssClass="ItemStylecss" Width="5%"></ItemStyle>
                             </asp:BoundField>
                             <asp:BoundField DataField="IsSuspendInc" HeaderText="Is Suspend Increment ">
-                                <ItemStyle CssClass="ItemStylecss" Width="10%"></ItemStyle>
+                                <ItemStyle CssClass="ItemStylecss" Width="5%"></ItemStyle>
                             </asp:BoundField>
                             <asp:BoundField DataField="ResponseDays" HeaderText="Response Days">
-                                <ItemStyle CssClass="ItemStylecss" Width="20%"></ItemStyle>
+                                <ItemStyle CssClass="ItemStylecss" Width="5%"></ItemStyle>
                             </asp:BoundField>
                              <asp:BoundField DataField="ResponseDate" HeaderText="Response Date">
-                                <ItemStyle CssClass="ItemStylecss" Width="20%"></ItemStyle>
+                                <ItemStyle CssClass="ItemStylecss" Width="15%"></ItemStyle>
+                            </asp:BoundField>
+                             <asp:BoundField DataField="Fine" HeaderText="Fine">
+                                <ItemStyle CssClass="ItemStylecss" Width="5%"></ItemStyle>
                             </asp:BoundField>
                              <asp:BoundField DataField="EmpResponse" HeaderText="Employee Response">
-                                <ItemStyle CssClass="ItemStylecss" Width="20%"></ItemStyle>
+                                <ItemStyle CssClass="ItemStylecss" Width="15%"></ItemStyle>
                             </asp:BoundField>
                              <asp:BoundField DataField="Remarks" HeaderText="Remarks">
-                                <ItemStyle CssClass="ItemStylecss" Width="20%"></ItemStyle>
+                                <ItemStyle CssClass="ItemStylecss" Width="15%"></ItemStyle>
                             </asp:BoundField>
                         </Columns>
                     </asp:GridView>

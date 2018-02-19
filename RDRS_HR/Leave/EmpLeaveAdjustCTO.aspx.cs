@@ -17,7 +17,7 @@ using BaseHR.DATA;
 public partial class EmpLeaveAdjustCTO : System.Web.UI.Page
 {
     //DBConnector objDB = new DBConnector();
-    DLeave objLeaveMgr = new DLeave();
+    DLeavePlan objLeaveMgr = new DLeavePlan();
     DEmployee objEmpInfoMgr = new DEmployee();
     List<proc_select_EmpInfo_Result> objEmpinfo = new List<proc_select_EmpInfo_Result>();
     List<EmpLeaveCTOEntitleLog> lvLogs = new List<EmpLeaveCTOEntitleLog>();

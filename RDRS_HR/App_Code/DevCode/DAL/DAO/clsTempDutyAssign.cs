@@ -109,6 +109,7 @@ public class clsTempDutyAssign
         get { return _SupervisorId; }
         set { _SupervisorId = value; }
     }
+    public string RecommenderId { get; set; }
     private string _SupervisorComment;
     public string SupervisorComment
     {
@@ -132,7 +133,7 @@ public class clsTempDutyAssign
 
 
     public clsTempDutyAssign(string DutyAssignID, string EmpID, string ActionId, string PostingDistId, string PostingPlaceId, string SectorId, string UnitId, string DeptId,
-        string Assignment, string StartDate, string EndDate, string Percentage, string Amount, string SupervisorId, string SupervisorComment,string InsertedBy,string InsertedDate        )
+        string Assignment, string StartDate, string EndDate, string Percentage, string Amount, string SupervisorId, string RecommenderId,string SupervisorComment,string InsertedBy,string InsertedDate        )
 	{
         this.DutyAssignID = DutyAssignID;
         this.EmpID = EmpID;
@@ -148,6 +149,7 @@ public class clsTempDutyAssign
         this.Percentage = Percentage;
         this.Amount = Amount;
         this.SupervisorId = SupervisorId;
+        this.RecommenderId = RecommenderId;
         this.SupervisorComment = SupervisorComment;
         this.InsertedBy = InsertedBy;
         this.InsertedDate = InsertedDate;

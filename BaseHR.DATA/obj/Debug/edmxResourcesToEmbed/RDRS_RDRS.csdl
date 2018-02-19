@@ -210,18 +210,6 @@
     <Property Name="BasicMax" Type="Decimal" Precision="12" Scale="2" />
     <Property Name="GradeType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
   </EntityType>
-  <EntityType Name="LeavePlan">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="LTypeId" Type="Decimal" Precision="5" Scale="0" />
-    <Property Name="StardDate" Type="DateTime" Precision="0" />
-    <Property Name="EndDate" Type="DateTime" Precision="0" />
-    <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-    <Property Name="EmpId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="LeaveTypeList">
     <Key>
       <PropertyRef Name="LTypeID" />
@@ -448,7 +436,6 @@
     <EntitySet Name="EmpInfoes" EntityType="Self.EmpInfo" />
     <EntitySet Name="EmpLeaveCTOEntitleLogs" EntityType="Self.EmpLeaveCTOEntitleLog" />
     <EntitySet Name="GradeLists" EntityType="Self.GradeList" />
-    <EntitySet Name="LeavePlans" EntityType="Self.LeavePlan" />
     <EntitySet Name="LeaveTypeLists" EntityType="Self.LeaveTypeList" />
     <EntitySet Name="OfficeLists" EntityType="Self.OfficeList" />
     <EntitySet Name="ProjectLists" EntityType="Self.ProjectList" />
@@ -488,6 +475,7 @@
       <End Role="LeaveTypeList" EntitySet="LeaveTypeLists" />
       <End Role="EmpLeaveProfile" EntitySet="EmpLeaveProfiles" />
     </AssociationSet>
+    <EntitySet Name="LeavePlans" EntityType="RDRS_RDRSModel.LeavePlan" />
   </EntityContainer>
   <ComplexType Name="proc_select_EmpInfo_Result">
     <Property Type="String" Name="EmpId" Nullable="false" MaxLength="20" />
@@ -697,4 +685,16 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="LeavePlan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="LTypeId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="EmpId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

@@ -53,6 +53,7 @@
     <Compile Include="DivisionList.cs">
       <DependentUpon>RDRS_RDRS.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTOs\LeavePlanDTO.cs" />
     <Compile Include="EmpInfo.cs">
       <DependentUpon>RDRS_RDRS.tt</DependentUpon>
     </Compile>
@@ -75,7 +76,6 @@
       <DependentUpon>RDRS_RDRS.tt</DependentUpon>
     </Compile>
     <Compile Include="Partial\EmpLeaveCTOEntitleLog.cs" />
-    <Compile Include="Partial\LeavePlan.cs" />
     <Compile Include="Partial\UserPriv.cs" />
     <Compile Include="proc_select_EmpInfo_Result.cs">
       <DependentUpon>RDRS_RDRS.tt</DependentUpon>

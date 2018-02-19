@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using BaseHR.DATA;
+using BaseHR.Repository;
 
 namespace BaseHR.Repository.DAL
 {
-    public class DLeave
+    public class DLeavePlan
     {
         private RDRS_RDRSEntities context = DBConnector.DbConnect.context;
         public List<LeaveTypeList> getLeaveType()
@@ -75,17 +76,17 @@ namespace BaseHR.Repository.DAL
             }    
         }
 
-        public List<LeavePlan> GetLeavePlan()
+        public List<LeavePlanDTO> GetLeavePlan()
         {
             var plans = (from pl in context.LeavePlans
                          join ltype in context.LeaveTypeLists on pl.LTypeId equals ltype.LTypeID
-                         select new LeavePlan
+                         select new LeavePlanDTO
                          {
                              ID = pl.ID,
                              EmpId = pl.EmpId,
-                             LTypeId = pl.LTypeId,
+                             LTypeId = pl.LTypeId.Value,
                              LTypeName = ltype.LTypeTitle,
-                             StardDate = pl.StardDate,
+                             StartDate = pl.StartDate,
                              EndDate = pl.EndDate,
                              Remarks = pl.Remarks,
                              IsActive = pl.IsActive
@@ -93,22 +94,26 @@ namespace BaseHR.Repository.DAL
             return plans;
         }
 
-        public int AddLeavePlan(LeavePlan objLeavePlan)
+        public int AddLeavePlan(LeavePlanDTO objLeavePlan)
         {
             try
             {
+                // insert plan
             if (objLeavePlan.ID==0)
             {
                 decimal maxId = context.LeavePlans.Select(mm => mm.ID).DefaultIfEmpty(0).Max();
                 objLeavePlan.ID = ++maxId;
-                context.LeavePlans.Add(objLeavePlan);
+                LeavePlan target = new LeavePlan();
+                objLeavePlan.Mapper(target);
+                context.LeavePlans.Add(target);
             }
             else
             {
+                    // update plan
                 LeavePlan exPlan = context.LeavePlans.Where(ll => ll.ID == objLeavePlan.ID).FirstOrDefault();
                 exPlan.EmpId = objLeavePlan.EmpId;
                 exPlan.LTypeId = objLeavePlan.LTypeId;
-                exPlan.StardDate = objLeavePlan.StardDate;
+                exPlan.StartDate = objLeavePlan.StartDate;
                 exPlan.EndDate = objLeavePlan.EndDate;
                 exPlan.Remarks = objLeavePlan.Remarks;
                 exPlan.IsActive = objLeavePlan.IsActive;                

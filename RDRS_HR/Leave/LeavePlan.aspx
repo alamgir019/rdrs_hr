@@ -34,7 +34,7 @@
                             <asp:Label ID="Label4" runat="server" Width="100px" CssClass="textlevel" Text="Leave Type :"></asp:Label>
                         </td>
                         <td colspan="3">
-                            <asp:DropDownList ID="ddlLeaveType" runat="server" Width="100px"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlLeaveType" runat="server"></asp:DropDownList>
                         </td>
                         <td>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ddlLeaveType"
@@ -113,8 +113,8 @@
                     </table>
                 </fieldset>
                 <!--Grid view Code starts-->
-                <asp:GridView ID="grLeavePlan" runat="server" 
-                DataKeyNames="ID ,EmpId,LTypeId,LTypeName,StardDate,EndDate,Remarks,IsActive"
+                <asp:GridView ID="grLeavePlan" runat="server"  OnRowCommand="grLeavePlan_RowCommand" OnSelectedIndexChanged="grLeavePlan_SelectedIndexChanged"
+                DataKeyNames="ID ,EmpId,LTypeId,LTypeName,StartDate,EndDate,Remarks,IsActive"
                     AutoGenerateColumns="False" EmptyDataText="No Record Found" Font-Size="9px" Width="100%">
                     <HeaderStyle BackColor="#B3CDE4" Font-Bold="True"></HeaderStyle>
                     <SelectedRowStyle BackColor="#D1DDF1" ForeColor="#333333" CssClass="ListHeader" Font-Bold="True">

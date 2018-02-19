@@ -153,7 +153,7 @@ public partial class EIS_HRAction_Disciplinary : System.Web.UI.Page
             hfId.Value = Common.getMaxId("EmpDisciplinaryLog", "DisciplinaryId");
 
         objEmpMgr.InsertDisciplinary(hfId.Value.ToString(), txtEmpID.Text.Trim(), strEntryDate, ddlAction.SelectedValue.ToString(), ddlReasonList.SelectedValue.ToString(), strActionDate, strReviewDate, chkIsReviewed.Checked == true ? "Y" : "N", 
-            chkIsSuspendInc.Checked ==true ? "Y":"N",txtResponseDays.Text.Trim (),strResponseDate,txtEmpResponse.Text.Trim (),    txtRemarks.Text.Trim(), Session["USERID"].ToString(), Common.SetDateTime(DateTime.Now.ToString()), hfIsUpdate.Value.ToString());
+            chkIsSuspendInc.Checked ==true ? "Y":"N",txtResponseDays.Text.Trim (),strResponseDate,txtEmpResponse.Text.Trim (),    txtRemarks.Text.Trim(), Session["USERID"].ToString(), Common.SetDateTime(DateTime.Now.ToString()), hfIsUpdate.Value.ToString(),txtFine.Text.Trim());
 
         if (hfIsUpdate.Value == "N")
             lblMsg.Text = "Record Saved Successfully";
@@ -186,6 +186,7 @@ public partial class EIS_HRAction_Disciplinary : System.Web.UI.Page
         chkIsReviewed.Checked = false;
         chkIsSuspendInc.Checked = false;
         txtRemarks.Text = "";
+        txtFine.Text = "";
     }
 
     protected void grDisciplinary_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -209,8 +210,9 @@ public partial class EIS_HRAction_Disciplinary : System.Web.UI.Page
                 chkIsSuspendInc.Checked = Common.CheckNullString(grDisciplinary.SelectedRow.Cells[6].Text.Trim()) == "Y" ? true : false;               
                 txtResponseDays.Text = Common.CheckNullString(grDisciplinary.SelectedRow.Cells[7].Text.Trim());
                 txtResponseDate.Text = Common.CheckNullString(grDisciplinary.SelectedRow.Cells[8].Text.Trim());
-                txtEmpResponse.Text = Common.CheckNullString(grDisciplinary.SelectedRow.Cells[9].Text.Trim());
-                txtRemarks.Text = Common.CheckNullString(grDisciplinary.SelectedRow.Cells[10].Text.Trim());
+                txtFine.Text = Common.CheckNullString(grDisciplinary.SelectedRow.Cells[9].Text.Trim());
+                txtEmpResponse.Text = Common.CheckNullString(grDisciplinary.SelectedRow.Cells[10].Text.Trim());
+                txtRemarks.Text = Common.CheckNullString(grDisciplinary.SelectedRow.Cells[11].Text.Trim());
                 this.EntryMode(true);
                 lblMsg.Text = "";
                 break;
