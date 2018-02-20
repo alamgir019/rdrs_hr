@@ -60,7 +60,7 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
             }
             Common.FillDropDownList_Nil(objMasMgr.SelectGradeLevel(0), ddlGradeLevel);
             Common.FillDropDownList_Nil(objMasMgr.SelectSalaryLocation(0), ddlSalaryLoc);
-            Common.FillDropDownList_Nil(objMasMgr.SelectSalarySubLocation(0), ddlSalarySubLoc);
+            //Common.FillDropDownList_Nil(objMasMgr.SelectSalarySubLocation(0), ddlSalarySubLoc);
             Common.FillDropDownList_Nil(objMasMgr.SelectLeavePakMst(0), ddlLeavePackage);
             Common.FillDropDownList_Nil(objMasMgr.SelectWeekendPolicy(0), ddlWeekend);
             Common.FillDropDownList_Nil(objMasMgr.SelectAttendancePolicy(0), ddlAttndPolicy);
@@ -213,7 +213,7 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
                     ddlPostingPlace.SelectedValue = Common.RetrieveddL(ddlPostingPlace, dRow["PostingPlaceId"].ToString(), "99999");
                     ddlSalaryLoc.SelectedValue = Common.RetrieveddL(ddlSalaryLoc, dRow["SalLocId"].ToString(), "99999");
                     
-                    ddlSalarySubLoc.SelectedValue = Common.RetrieveddL(ddlSalarySubLoc, dRow["SalSubLocId"].ToString(), "99999");
+                    //ddlSalarySubLoc.SelectedValue = Common.RetrieveddL(ddlSalarySubLoc, dRow["SalSubLocId"].ToString(), "99999");
 
                     txtBankAccNo.Text = dRow["BankAccNo"].ToString().Trim();
                     txtBasicSalary.Text = dRow["BasicSalary"].ToString().Trim();
@@ -284,8 +284,8 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
                     ddlWeekend.SelectedValue = Common.RetrieveddL(ddlWeekend, dRow["WeekendId"].ToString(), "99999");
                     ddlAttndPolicy.SelectedValue = Common.RetrieveddL(ddlWeekend, dRow["AttnPolicyID"].ToString(), "99999");
 
-                    chkIsChildEdu.Checked = dRow["IsChildEduAllow"].ToString() == "Y" ? true : false;
-                    chkIsMedicalEntitle.Checked = dRow["IsMedicalEntmnt"].ToString() == "Y" ? true : false;
+                    //chkIsChildEdu.Checked = dRow["IsChildEduAllow"].ToString() == "Y" ? true : false;
+                    //chkIsMedicalEntitle.Checked = dRow["IsMedicalEntmnt"].ToString() == "Y" ? true : false;
                     chkIsOTEntitle.Checked = dRow["IsOTEntmnt"].ToString() == "Y" ? true : false;
                     chkIsPayrollStaff.Checked = dRow["IsPayrollStaff"].ToString() == "Y" ? true : false;
                     chkIsServiceAgrmnt.Checked = dRow["IsServiceAgrmnt"].ToString() == "Y" ? true : false;
@@ -333,10 +333,10 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
         }
     }
 
-    protected void btnOk_Click(object sender, EventArgs e)
-    {
-        this.SaveData();
-    }
+    //protected void btnOk_Click(object sender, EventArgs e)
+    //{
+    //    this.SaveData();
+    //}
 
     protected void btnSave_Click(object sender, EventArgs e)
     {
@@ -496,7 +496,7 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
         obj.PostingDivId = ddlPostDivision.SelectedValue.ToString();
         obj.PostingPlaceId = ddlPostingPlace.SelectedValue.ToString();
         obj.SalLocId = ddlSalaryLoc.SelectedValue.ToString();
-        obj.SalSubLocId = ddlSalarySubLoc.SelectedValue.ToString();
+        //obj.SalSubLocId = ddlSalarySubLoc.SelectedValue.ToString();
 
         obj.ActionDate = txtActionDate.Text.Trim();
         obj.ActionName = txtActionName.Text.Trim();
@@ -520,8 +520,8 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
         
         obj.EmpNatureID = ddlEmpNature.SelectedValue.ToString();
         obj.PostingDate = strPostingDate;
-        obj.IsChildEduAllow = chkIsChildEdu.Checked == true ? "Y" : "N";
-        obj.IsMedicalEntmnt = chkIsMedicalEntitle.Checked == true ? "Y" : "N";
+        //obj.IsChildEduAllow = chkIsChildEdu.Checked == true ? "Y" : "N";
+        //obj.IsMedicalEntmnt = chkIsMedicalEntitle.Checked == true ? "Y" : "N";
         obj.IsOTEntmnt = chkIsOTEntitle.Checked == true ? "Y" : "N";
         obj.IsPayrollStaff = chkIsPayrollStaff.Checked == true ? "Y" : "N";
         obj.IsServiceAgrmnt = chkIsServiceAgrmnt.Checked == true ? "Y" : "N";

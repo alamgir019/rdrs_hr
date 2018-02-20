@@ -17,7 +17,7 @@
             <asp:Label ID="lblMsg" runat="server"></asp:Label>
         </div>
         <div class="officeSetupInner">
-            <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Height="300px">
+            <cc1:TabContainer ID="TabContainer1" runat="server" Height="300px">
                 <cc1:TabPanel runat="server" Height="280px" ID="TabPanel1" HeaderText="Office Setup">
                     <ContentTemplate>
                         <asp:HiddenField ID="hfID" runat="server" />

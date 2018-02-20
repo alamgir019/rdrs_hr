@@ -281,7 +281,7 @@
                                                 <td>
                                                     <asp:Panel ID="PSalarySubLoc" runat="server" BorderStyle="Solid" BorderColor="DarkGray"
                                                         BorderWidth="1px" Width="400px">
-                                                        <table>
+                                                        <%--<table>
                                                             <tbody>
                                                                 <tr>
                                                                     <td>
@@ -293,7 +293,7 @@
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
-                                                        </table>
+                                                        </table>--%>
                                                     </asp:Panel>
                                                 </td>
                                             </tr>

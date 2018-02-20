@@ -22,7 +22,7 @@ public partial class EIS_ProjectSetup : System.Web.UI.Page
             hfIsUpadate.Value = "N";
             dtCompany.Rows.Clear();
             dtCompany.Dispose();
-            Common.FillDropDownList_Nil(objMasMgr.SelectWeekendPolicy(0), ddlWeekend);
+            //Common.FillDropDownList_Nil(objMasMgr.SelectWeekendPolicy(0), ddlWeekend);
             grProject.DataSource = null;
             grProject.DataBind();
             Common.EmptyTextBoxValues(this);
@@ -73,20 +73,20 @@ public partial class EIS_ProjectSetup : System.Web.UI.Page
                                                 Common.ReturnDate(txtStartDate.Text.ToString()),
                                                 Common.ReturnDate(txtEndDate.Text.ToString()),
                                                
-                                                ddlWeekend.SelectedItem.Value.ToString(),
-                                                ddlIncrement.SelectedItem.Value.ToString(),
-                                                ddlIncrMonth.SelectedItem.Value.ToString(),
-                                                txtIncrementYear.Text.ToString(),
+                                                //ddlWeekend.SelectedItem.Value.ToString(),
+                                                //ddlIncrement.SelectedItem.Value.ToString(),
+                                                //ddlIncrMonth.SelectedItem.Value.ToString(),
+                                                //txtIncrementYear.Text.ToString(),
                                                
                                                 (chkPF.Checked == true ? "Y" : "N"),
                                                 (chkGratuity.Checked == true ? "Y" : "N"),
-                                                (chkEOC.Checked == true ? "Y" : "N"),
-                                                (chkEL.Checked == true ? "Y" : "N"),
-                                                (chkInsurance.Checked == true ? "Y" : "N"),
-                                                (chkGrossSalary.Checked == true ? "Y" : "N"),
-                                                (chkBasicSalary.Checked == true ? "Y" : "N"),
-                                                (chkCore.Checked == true ? "Y" : "N"),
-                                                (chkProject.Checked == true ? "Y" : "N"),
+                                                //(chkEOC.Checked == true ? "Y" : "N"),
+                                                //(chkEL.Checked == true ? "Y" : "N"),
+                                                //(chkInsurance.Checked == true ? "Y" : "N"),
+                                                //(chkGrossSalary.Checked == true ? "Y" : "N"),
+                                                //(chkBasicSalary.Checked == true ? "Y" : "N"),
+                                                //(chkCore.Checked == true ? "Y" : "N"),
+                                                //(chkProject.Checked == true ? "Y" : "N"),
                                                 
                                                 (ChkIsActive.Checked == true ? "N" : "Y"),
                                                 "N",
@@ -145,31 +145,30 @@ public partial class EIS_ProjectSetup : System.Web.UI.Page
         {
             case ("DoubleClick"):
 
-
                                 txtProject.Text=grProject.DataKeys[_gridView.SelectedIndex].Values[1].ToString();
                                 txtProjectCode.Text=grProject.DataKeys[_gridView.SelectedIndex].Values[2].ToString();
                                                
                                 txtStartDate.Text=Common.DisplayDate(grProject.DataKeys[_gridView.SelectedIndex].Values[3].ToString());
                                 txtEndDate.Text=Common.DisplayDate(grProject.DataKeys[_gridView.SelectedIndex].Values[4].ToString());
                                                
-                                ddlWeekend.SelectedValue=grProject.DataKeys[_gridView.SelectedIndex].Values[5].ToString();
-                                ddlIncrement.SelectedValue=grProject.DataKeys[_gridView.SelectedIndex].Values[6].ToString();
-                                ddlIncrMonth.SelectedValue=grProject.DataKeys[_gridView.SelectedIndex].Values[7].ToString();
-                                txtIncrementYear.Text=grProject.DataKeys[_gridView.SelectedIndex].Values[8].ToString();
+                                //ddlWeekend.SelectedValue=grProject.DataKeys[_gridView.SelectedIndex].Values[5].ToString();
+                                //ddlIncrement.SelectedValue=grProject.DataKeys[_gridView.SelectedIndex].Values[6].ToString();
+                                //ddlIncrMonth.SelectedValue=grProject.DataKeys[_gridView.SelectedIndex].Values[7].ToString();
+                                //txtIncrementYear.Text=grProject.DataKeys[_gridView.SelectedIndex].Values[8].ToString();
                                                
-                                chkPF.Checked=grProject.DataKeys[_gridView.SelectedIndex].Values[9].ToString() == "Y" ? true : false;
-                                chkGratuity.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[10].ToString() == "Y" ? true : false;
-                                chkEOC.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[11].ToString() == "Y" ? true : false;
-                                chkEL.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[12].ToString() == "Y" ? true : false;
-                                chkInsurance.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[13].ToString() == "Y" ? true : false;
-                                chkGrossSalary.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[14].ToString() == "Y" ? true : false;
-                                chkBasicSalary.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[15].ToString() == "Y" ? true : false;
-                                chkCore.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[16].ToString() == "Y" ? true : false;
-                                chkProject.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[17].ToString() == "Y" ? true : false;
+                                chkPF.Checked=grProject.DataKeys[_gridView.SelectedIndex].Values[5].ToString() == "Y" ? true : false;
+                                chkGratuity.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[6].ToString() == "Y" ? true : false;
+                                //chkEOC.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[11].ToString() == "Y" ? true : false;
+                                //chkEL.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[12].ToString() == "Y" ? true : false;
+                                //chkInsurance.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[13].ToString() == "Y" ? true : false;
+                                //chkGrossSalary.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[14].ToString() == "Y" ? true : false;
+                                //chkBasicSalary.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[15].ToString() == "Y" ? true : false;
+                                //chkCore.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[16].ToString() == "Y" ? true : false;
+                                //chkProject.Checked =grProject.DataKeys[_gridView.SelectedIndex].Values[17].ToString() == "Y" ? true : false;
                                                 
                                 ChkIsActive.Checked=grProject.DataKeys[_gridView.SelectedIndex].Values[1].ToString() == "N" ? true : false;
                                 hfID.Value = grProject.DataKeys[_gridView.SelectedIndex].Values[0].ToString();
-                                txtSName.Text = grProject.DataKeys[_gridView.SelectedIndex].Values[18].ToString();
+                                txtSName.Text = grProject.DataKeys[_gridView.SelectedIndex].Values[7].ToString();
                 
                 this.EntryMode(true);
                 break;

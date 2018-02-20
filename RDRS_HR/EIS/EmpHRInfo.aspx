@@ -189,8 +189,7 @@
                                     Component:
                                 </td>
                                 <td>                                
-                                 <asp:DropDownList ID="ddlComponent" CssClass="textlevelleft" runat="server" Width="300px">
-                                    </asp:DropDownList>
+                                 <asp:DropDownList ID="ddlComponent" CssClass="textlevelleft" runat="server" Width="300px"></asp:DropDownList>
                                 </td>
                                 <td>
                                 </td>
@@ -198,8 +197,7 @@
                                     Function :
                                 </td>
                                 <td>
-                                    <asp:DropDownList ID="ddlPosByFunction" runat="server" Width="300px" CssClass="textlevelleft">
-                                    </asp:DropDownList>
+                                    <asp:DropDownList ID="ddlPosByFunction" runat="server" Width="300px" CssClass="textlevelleft"></asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
@@ -207,8 +205,7 @@
                                     Date in Position :
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtDateInPosition" runat="server" Width="89px">
-                                    </asp:TextBox>
+                                    <asp:TextBox ID="txtDateInPosition" runat="server" Width="89px"></asp:TextBox>
                                     <a href="javascript:NewCal('<%= txtDateInPosition.ClientID %>','ddmmyyyy')">
                                         <img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px"
                                             height="16" alt="Pick a date" src="../images/cal.gif" width="16" /></a><asp:RegularExpressionValidator
@@ -216,9 +213,7 @@
                                                 CssClass="validator" ErrorMessage="Invalid" ValidationExpression="^(?=\d)(?:(?:31(?!.(?:0?[2469]|11))|(?:30|29)(?!.0?2)|29(?=.0?2.(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(?:\x20|$))|(?:2[0-8]|1\d|0?[1-9]))([-./])(?:1[012]|0?[1-9])\1(?:1[6-9]|[2-9]\d)?\d\d(?:(?=\x20\d)\x20|$))?(((0?[1-9]|1[012])(:[0-5]\d){0,2}(\x20[AP]M))|([01]\d|2[0-3])(:[0-5]\d){1,2})?$"></asp:RegularExpressionValidator>
                                 </td>
                                 <td></td>
-                                <td class="textlevel">
-                                    Grade :
-                                </td>
+                                <td class="textlevel">Grade :</td>
                                 <td>
                                     <asp:DropDownList ID="ddlGrade" CssClass="textlevelleft" runat="server" Width="300px" AutoPostBack="true" 
                                     OnSelectedIndexChanged="ddlGrade_SelectedIndexChanged">
@@ -228,9 +223,7 @@
                                     <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="*" ControlToValidate="ddlGrade"
                                         Operator="NotEqual" ValueToCompare="99999"></asp:CompareValidator>
                                 </td>
-                                <td class="textlevel">
-                                    Grade Step :
-                                </td>
+                                <td class="textlevel">Grade Step :</td>
                                 <td>
                                     <asp:DropDownList ID="ddlGradeLevel" CssClass="textlevelleft" runat="server" Width="300px" AutoPostBack="true"
                                     OnSelectedIndexChanged="ddlGradeLevel_SelectedIndexChanged">
@@ -238,24 +231,17 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="textlevel">
-                                    Date in Grade :
-                                </td>
+                                <td class="textlevel">Date in Grade :</td>
                                 <td>
-                                    <asp:TextBox ID="txtDateInGrade" runat="server" Width="89px">
-                                    </asp:TextBox>
+                                    <asp:TextBox ID="txtDateInGrade" runat="server" Width="89px"></asp:TextBox>
                                     <a href="javascript:NewCal('<%= txtDateInGrade.ClientID %>','ddmmyyyy')">
                                         <img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px"
                                             height="16" alt="Pick a date" src="../images/cal.gif" width="16" /></a><asp:RegularExpressionValidator
                                                 ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtDateInGrade"
                                                 CssClass="validator" ErrorMessage="Invalid" ValidationExpression="^(?=\d)(?:(?:31(?!.(?:0?[2469]|11))|(?:30|29)(?!.0?2)|29(?=.0?2.(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(?:\x20|$))|(?:2[0-8]|1\d|0?[1-9]))([-./])(?:1[012]|0?[1-9])\1(?:1[6-9]|[2-9]\d)?\d\d(?:(?=\x20\d)\x20|$))?(((0?[1-9]|1[012])(:[0-5]\d){0,2}(\x20[AP]M))|([01]\d|2[0-3])(:[0-5]\d){1,2})?$"></asp:RegularExpressionValidator>
                                 </td>
-                                <td>
-                                    &nbsp;
-                                </td>
-                                <td class="textlevel">
-                                   HR Designation :
-                                </td>
+                                <td>&nbsp;</td>
+                                <td class="textlevel">HR Designation :</td>
                                 <td>
                                     <asp:DropDownList ID="ddlDesignation" runat="server" Width="300px" CssClass="textlevelleft"
                                         OnSelectedIndexChanged="ddlDesignation_SelectedIndexChanged" AutoPostBack="true">
@@ -265,12 +251,9 @@
                                     <asp:CompareValidator ID="CompareValidator4" runat="server" ErrorMessage="*" ControlToValidate="ddlDesignation"
                                         Operator="NotEqual" ValueToCompare="99999"></asp:CompareValidator>
                                 </td>
-                                <td class="textlevel">
-                                   Functional Designation :
-                                </td>
+                                <td class="textlevel">Functional Designation :</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlJobTitle" runat="server" Width="300px" CssClass="textlevelleft">
-                                    </asp:DropDownList>
+                                    <asp:DropDownList ID="ddlJobTitle" runat="server" Width="300px" CssClass="textlevelleft"></asp:DropDownList>
                                 </td>
                                 <td>
                                     <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="*" ControlToValidate="ddlJobTitle"
@@ -284,12 +267,8 @@
                                 <td>
                                     <asp:TextBox ID="txtActionName" Text="" runat="server" Width="200px"></asp:TextBox>
                                 </td>
-                                <td>
-                                    &nbsp;
-                                </td>
-                                <td class="textlevel">
-                                    Posting Division :
-                                </td>
+                                <td>&nbsp;</td>
+                                <td class="textlevel">Posting Division :</td>
                                 <td>
                                     <asp:DropDownList ID="ddlPostDivision" runat="server" Width="300px" CssClass="textlevelleft"
                                         OnSelectedIndexChanged="ddlPostDivision_SelectedIndexChanged" AutoPostBack="true">
@@ -299,12 +278,9 @@
                                     <asp:CompareValidator ID="CompareValidator10" runat="server" ErrorMessage="*" ControlToValidate="ddlPostDivision"
                                         Operator="NotEqual" ValueToCompare="99999"></asp:CompareValidator>
                                 --%></td>
-                                <td class="textlevel">
-                                    Posting District :
-                                </td>
+                                <td class="textlevel">Posting District :</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlPostDistrict" runat="server" Width="300px" CssClass="textlevelleft">
-                                    </asp:DropDownList>
+                                    <asp:DropDownList ID="ddlPostDistrict" runat="server" Width="300px" CssClass="textlevelleft"></asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
@@ -312,28 +288,20 @@
                                     <asp:Label ID="lblActionDate" runat="server" CssClass="textlevel" Text="Action Date :"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtActionDate" runat="server" Width="89px">
-                                    </asp:TextBox>
+                                    <asp:TextBox ID="txtActionDate" runat="server" Width="89px"></asp:TextBox>
                                 </td>
+                                <td></td>
+                                <td class="textlevel">Place Of Posting :</td>
                                 <td>
-                                </td>
-                                <td class="textlevel">
-                                    &nbsp;Place Of Posting :
-                                </td>
-                                <td>
-                                    <asp:DropDownList ID="ddlPostingPlace" runat="server" Width="300px" CssClass="textlevelleft">
-                                    </asp:DropDownList>
+                                    <asp:DropDownList ID="ddlPostingPlace" runat="server" Width="300px" CssClass="textlevelleft"></asp:DropDownList>
                                 </td>
                               <td>  
                                    <%-- <asp:CompareValidator ID="CompareValidator13" runat="server" ErrorMessage="*" ControlToValidate="ddlPostingPlace"
                                         Operator="NotEqual" ValueToCompare="99999"></asp:CompareValidator>--%>
                                 </td>
-                                <td class="textlevel">
-                                    &nbsp;Employee Type :
-                                </td>
+                                <td class="textlevel">Employee Type :</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlEmpType" runat="server" Width="300px" CssClass="textlevelleft">
-                                    </asp:DropDownList>
+                                    <asp:DropDownList ID="ddlEmpType" runat="server" Width="300px" CssClass="textlevelleft"></asp:DropDownList>
                                 </td>
                                 <td>
                                     <asp:CompareValidator ID="CompareValidator5" runat="server" ErrorMessage="*" ControlToValidate="ddlEmpType"
@@ -341,9 +309,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="textlevel">
-                                    Working Days :
-                                </td>
+                                <td class="textlevel">Working Days :</td>
                                 <td>
                                     <asp:TextBox ID="txtWorkingDays" Text="0" runat="server" Width="89px" CssClass="TextBoxAmt60"></asp:TextBox>
                                 </td>
@@ -351,9 +317,7 @@
                                     <asp:CompareValidator ID="CompareValidator15" runat="server" ErrorMessage="*" ControlToValidate="txtWorkingDays"
                                         Operator="NotEqual" ValueToCompare="-1"></asp:CompareValidator>
                                 </td>
-                                <td class="textlevel">
-                                    Salary Location :
-                                </td>
+                                <td class="textlevel">Salary Location :</td>
                                 <td style="height: 15px">
                                     <asp:DropDownList ID="ddlSalaryLoc" runat="server" Width="300px" CssClass="textlevelleft"
                                         OnSelectedIndexChanged="ddlSalaryLoc_SelectedIndexChanged">
@@ -363,34 +327,23 @@
                                     <asp:CompareValidator ID="CompareValidator12" runat="server" ErrorMessage="*" ControlToValidate="ddlSalarySubLoc"
                                         Operator="NotEqual" ValueToCompare="99999"></asp:CompareValidator>
                                 </td>
-                                <td class="textlevel">
-                                    Emp Nature:
-                                </td>
+                                <td class="textlevel">Emp Nature:</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlEmpNature" runat="server" Width="150px" CssClass="textlevelleft">
-                                    </asp:DropDownList>
+                                    <asp:DropDownList ID="ddlEmpNature" runat="server" Width="150px" CssClass="textlevelleft"></asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="textlevel" style="height: 15px">
-                                    Contract Purpose :
-                                </td>
+                                <td class="textlevel" style="height: 15px">Contract Purpose :</td>
                                 <td style="height: 15px">
                                     <asp:TextBox ID="txtContractPurpose" runat="server" Width="295px"></asp:TextBox>
                                 </td>
-                                <td style="height: 15px">
-                                </td>
-                                <td class="textlevel" style="height: 15px">
-                                    Work Area :
-                                </td>
+                                <td style="height: 15px"></td>
+                                <td class="textlevel" style="height: 15px">Work Area :</td>
                                 <td style="height: 15px">
                                     <asp:TextBox ID="txtWorkArea" runat="server" Width="295px"></asp:TextBox>
                                 </td>
-                                <td style="height: 15px">
-                                </td>
-                                <td style="height: 15px" class="textlevel">
-                                    Appointment Type:
-                                </td>
+                                <td style="height: 15px"></td>
+                                <td style="height: 15px" class="textlevel">Appointment Type:</td>
                                 <td style="height: 15px">
                                     <asp:DropDownList ID="ddlAppointType" runat="server" CssClass="textlevelleft">
                                         <asp:ListItem Text="Core" Value="C"></asp:ListItem>
@@ -400,29 +353,22 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="textlevel" style="height: 16px">
-                                    Work Area Type :
-                                </td>
+                                <td class="textlevel" style="height: 16px">Work Area Type :</td>
                                 <td class="textlevelleft" style="height: 16px">
-                                    <asp:CheckBox ID="chkWorkArea" runat="server" CssClass="textlevelleft" Text="Is Remote"
-                                        Width="91px" />
+                                    <asp:CheckBox ID="chkWorkArea" runat="server" CssClass="textlevelleft" Text="Is Remote" Width="91px" />
                                 </td>
-                                <td style="height: 16px">
-                                </td>
-                                <td class="textlevel" style="height: 16px">
-                                </td>
+                                <td style="height: 16px"></td>
+                                <td class="textlevel" style="height: 16px"></td>
                                 <td class="textlevelleft" style="height: 16px">
                                     <asp:CheckBox ID="chkIsSeveranceBenefit" runat="server" CssClass="textlevelleft"
                                         Text="Is PF Benefit" Width="255px" />
                                 </td>
+                                <td style="height: 16px"></td>
+                                <td style="height: 16px"></td>
                                 <td style="height: 16px">
-                                </td>
-                                <td style="height: 16px">
-                                </td>
-                                <td style="height: 16px">
-                                    <asp:DropDownList ID="ddlSalarySubLoc" runat="server" Width="300px" 
+                                   <%-- <asp:DropDownList ID="ddlSalarySubLoc" runat="server" Width="300px" 
                                         CssClass="textlevelleft" Visible="False">
-                                    </asp:DropDownList>
+                                    </asp:DropDownList>--%>
                                 </td>
                             </tr>
                             <tr>
@@ -434,69 +380,47 @@
                                 </td>--%>
                                <%-- <td style="height: 16px">
                                 </td>--%>
-                                <td class="textlevel" style="height: 16px">
-                                    Reason (if not) :
-                                </td>
+                                <td class="textlevel" style="height: 16px">Reason (if not) :</td>
                                 <td class="textlevelleft" style="height: 16px">
                                     <asp:TextBox ID="txtSeveranceReason" runat="server" Width="295px"></asp:TextBox>
                                 </td>
-                                <td style="height: 16px">
-                                </td>
-                                <td style="height: 16px">
-                                </td>
-                                <td style="height: 16px">
-                                </td>
+                                <td style="height: 16px"></td>
+                                <td style="height: 16px"></td>
+                                <td style="height: 16px"></td>
                             </tr>
                             <tr>
-                                <td class="textlevel">
-                                     Supervisor Approver:
-                                </td>
+                                <td class="textlevel">Supervisor Approver:</td>
                                 <td class="textlevelleft">
-                                     <asp:DropDownList ID="ddlSupervisor" runat="server" Width="300px" CssClass="textlevelleft">
-                                    </asp:DropDownList>
+                                     <asp:DropDownList ID="ddlSupervisor" runat="server" Width="300px" CssClass="textlevelleft"></asp:DropDownList>
                                 </td>
-                                <td>
-                                </td>
-                                <td class="textlevel">
-                                    Supervisor Recommender :
-                                </td>
+                                <td></td>
+                                <td class="textlevel">Supervisor Recommender :</td>
                                 <td class="textlevelleft">
                                    <asp:TextBox ID="txtLeaveSupervisor" runat="server" Width="130px"></asp:TextBox>
                                 </td>
-                                <td>
-                                </td>
-                                <td class="textlevel">
-                                   Notification Receivers
-                                </td>
+                                <td></td>
+                                <td class="textlevel">Notification Receivers</td>
                                 <td>
                                    <asp:TextBox ID="txtNotifier" runat="server" Width="200px"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                 <td class="textlevel">
-                                    Basic :
-                                </td>
+                                 <td class="textlevel">Basic :</td>
                                 <td class="textlevelleft">
                                     <asp:TextBox ID="txtBasicSalary" runat="server" CssClass="TextBoxAmt60" Width="89px"></asp:TextBox>&nbsp;&nbsp;BDT
                                     <asp:CompareValidator ID="CompareValidator14" runat="server" ErrorMessage="*" ControlToValidate="txtBasicSalary"
                                         Operator="NotEqual" ValueToCompare="0"></asp:CompareValidator>
                                 </td>
-                                <td>
-                                </td>
-                                <td class="textlevel">
-                                    Gross :
-                                </td>
+                                <td></td>
+                                <td class="textlevel">Gross :</td>
                                 <td class="textlevelleft">
                                      <asp:TextBox ID="txtGross" runat="server" CssClass="TextBoxAmt60" Width="89px"></asp:TextBox>&nbsp;&nbsp;BDT
                                     <asp:CompareValidator ID="CompareValidator18" runat="server" ErrorMessage="*" ControlToValidate="txtGross"
                                         Operator="NotEqual" ValueToCompare="0"></asp:CompareValidator>
                                 </td>
-                                <td>
-                                </td>
-                                <td class="textlevel">
-                                </td>
-                                <td>
-                                </td>
+                                <td></td>
+                                <td class="textlevel"></td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>
@@ -508,84 +432,53 @@
                     <table>
                         <tbody>
                             <tr>
-                                <td class="textlevel">
-                                    Salary Package :
+                                <td class="textlevel">Salary Package :</td>
+                                <td>
+                                    <asp:DropDownList ID="ddlSalaryPak" runat="server" Width="300px" CssClass="textlevelleft"></asp:DropDownList>
+                                </td>
+                                <td></td>
+                                <td class="textlevel">&nbsp;</td>
+                                <td>
+                                    <asp:CheckBox ID="chkIsPayrollStaff" runat="server" CssClass="textlevelleft" Text="Is Payroll Staff" Width="167px" />
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="textlevel">Payroll Cycle :</td>
+                                <td>
+                                    <asp:DropDownList ID="ddlMPC" runat="server" Width="300px" CssClass="textlevelleft"></asp:DropDownList>
                                 </td>
                                 <td>
-                                    <asp:DropDownList ID="ddlSalaryPak" runat="server" Width="300px" CssClass="textlevelleft">
-                                    </asp:DropDownList>
+                                    <asp:CompareValidator ID="CompareValidator6" runat="server" ErrorMessage="*" ControlToValidate="ddlMPC" Operator="NotEqual" ValueToCompare="99999"></asp:CompareValidator>
                                 </td>
+                                <td class="textlevel">Bank Account No :</td>
                                 <td>
-                                </td>
-                                <td class="textlevel">
-                                    &nbsp;
-                                </td>
-                                <td>
-                                    <asp:CheckBox ID="chkIsPayrollStaff" runat="server" CssClass="textlevelleft" Text="Is Payroll Staff"
-                                        Width="167px" />
-                                </td>
-                                <td>
+                                    <asp:TextBox ID="txtBankAccNo" runat="server" Width="130px"></asp:TextBox>&nbsp;&nbsp;
                                 </td>
                             </tr>
                             <tr>
-                                <td class="textlevel">
-                                    Payroll Cycle :
-                                </td>
-                                <td>
-                                    <asp:DropDownList ID="ddlMPC" runat="server" Width="300px" CssClass="textlevelleft">
-                                    </asp:DropDownList>
-                                </td>
-                                <td>
-                                    <asp:CompareValidator ID="CompareValidator6" runat="server" ErrorMessage="*" ControlToValidate="ddlMPC"
-                                        Operator="NotEqual" ValueToCompare="99999"></asp:CompareValidator>
-                                </td>
-                                <td class="textlevel">
-                                    Bank Account No :
-                                    <td>
-                                        <asp:TextBox ID="txtBankAccNo" runat="server" Width="130px"></asp:TextBox>&nbsp;&nbsp;
-                                    </td>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="textlevel">
-                                    Bank Name :
-                                </td>
+                                <td class="textlevel">Bank Name :</td>
                                 <td>
                                     <asp:DropDownList ID="ddlBankName" runat="server" Width="300px" AutoPostBack="True"
                                         OnSelectedIndexChanged="ddlBankName_SelectedIndexChanged" CssClass="textlevelleft">
                                     </asp:DropDownList>
                                 </td>
+                                <td></td>
+                                <td class="textlevel">Branch Name :</td>
                                 <td>
+                                    <asp:DropDownList ID="ddlBranchCode" runat="server" Width="300px" CssClass="textlevelleft"></asp:DropDownList>
                                 </td>
-                                <td class="textlevel">
-                                    Branch Name :
-                                </td>
-                                <td>
-                                    <asp:DropDownList ID="ddlBranchCode" runat="server" Width="300px" CssClass="textlevelleft">
-                                    </asp:DropDownList>
-                                </td>
-                                <td>
-                                </td>
+                                <td></td>
                             </tr>
                             <tr>
-                                <td class="textlevel">
-                                    Routing No.:
-                                </td>
+                                <td class="textlevel">Routing No.:</td>
                                 <td>
                                     <asp:Label ID="lblRoutingNo" runat="server" CssClass="textlevel" Text="Label"></asp:Label>
                                 </td>
-                                <td>
-                                    &nbsp;
-                                </td>
-                                <td class="textlevel">
-                                    &nbsp;
-                                </td>
-                                <td>
-                                    &nbsp;
-                                </td>
-                                <td>
-                                    &nbsp;
-                                </td>
+                                <td>&nbsp;</td>
+                                <td class="textlevel">&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
                             </tr>
                         </tbody>
                     </table>
@@ -598,35 +491,21 @@
                         <table>
                             <tbody>
                                 <tr>
-                                    <td class="textlevel">
-                                        Leave Package :
-                                    </td>
+                                    <td class="textlevel">Leave Package :</td>
                                     <td>
-                                        <asp:DropDownList ID="ddlLeavePackage" runat="server" Width="300px" CssClass="textlevelleft">
-                                        </asp:DropDownList>
+                                        <asp:DropDownList ID="ddlLeavePackage" runat="server" Width="300px" CssClass="textlevelleft"></asp:DropDownList>
                                     </td>
+                                    <td></td>
+                                    <td class="textlevel">Weekend :</td>
                                     <td>
+                                        <asp:DropDownList ID="ddlWeekend" runat="server" Width="300px" CssClass="textlevelleft" Visible="True"></asp:DropDownList>
                                     </td>
-                                    <td class="textlevel">
-                                        Weekend :
-                                    </td>
+                                    <td></td>
+                                    <td class="textlevel">Attnd Policy :</td>
                                     <td>
-                                        <asp:DropDownList ID="ddlWeekend" runat="server" Width="300px" CssClass="textlevelleft"
-                                            Visible="True">
-                                        </asp:DropDownList>
+                                        <asp:DropDownList ID="ddlAttndPolicy" runat="server" Width="90px" CssClass="textlevelleft" Visible="True"></asp:DropDownList>
                                     </td>
-                                    <td>
-                                    </td>
-                                    <td class="textlevel">
-                                        Attnd Policy :
-                                    </td>
-                                    <td>
-                                        <asp:DropDownList ID="ddlAttndPolicy" runat="server" Width="90px" CssClass="textlevelleft"
-                                            Visible="True">
-                                        </asp:DropDownList>
-                                    </td>
-                                    <td>
-                                    </td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -931,16 +810,16 @@
                             <td>
                             </td>
                             <td>
-                                <asp:CheckBox ID="chkIsMedicalEntitle" runat="server" CssClass="textlevelleft" Text="Is Medical Entitlement"
-                                    Width="130px" Visible="false"/>
+                                <%--<asp:CheckBox ID="chkIsMedicalEntitle" runat="server" CssClass="textlevelleft" Text="Is Medical Entitlement"
+                                    Width="130px" Visible="false"/>--%>
                             </td>
                             <td>
                             </td>
                             <td>
                                 <asp:CheckBox ID="chkIsOTEntitle" runat="server" CssClass="textlevelleft" Text="Is OT Entitlement"
                                     Width="127px" />
-                                <asp:CheckBox ID="chkIsChildEdu" runat="server" CssClass="textlevelleft" Text="Child Care Allowance"
-                                    Width="163px" Visible="false" />
+                                <%--<asp:CheckBox ID="chkIsChildEdu" runat="server" CssClass="textlevelleft" Text="Child Care Allowance"
+                                    Width="163px" Visible="false" />--%>
                             </td>
                         </tr>
                         <tr>
@@ -1023,7 +902,7 @@
                     </asp:BoundField>
                 </Columns>
             </asp:GridView>
-            <fieldset>
+            <%--<fieldset>
                 <asp:Panel ID="PnlSalaryRange" runat="server" Width="600px" BackColor="White" Visible="false" >
                     <div style="background-image: url(../Images/back-bar-header.png); color: white; background-repeat: repeat-x;
                         height: 20px;">
@@ -1036,7 +915,7 @@
                         <asp:Button ID="btnCancel" runat="server" Text="Cancel" Width="60px" BackColor="#336699"
                             Font-Bold="True" /></div>
                 </asp:Panel>
-            </fieldset>
+            </fieldset>--%>
             <cc1:ModalPopupExtender ID="ModalPopupTree" runat="server" BackgroundCssClass="modalBackground"
                 CancelControlID="btnCancel" DropShadow="True" DynamicServicePath="" Enabled="true" 
                 PopupControlID="PnlSalaryRange" TargetControlID="btnShow">

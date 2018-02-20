@@ -121,10 +121,10 @@
                             
                             <td> <asp:CheckBox ID="chkPF" runat="server" Text="PF" /> </td>
                             <td><asp:CheckBox ID="chkGratuity" runat="server" Text="Gratuity"/></td>
-                            <td> <asp:CheckBox ID="chkEL" runat="server" Text="Earn Leave Encash" 
-                                    Visible="False" /></td>
+                            <%--<td> <asp:CheckBox ID="chkEL" runat="server" Text="Earn Leave Encash" 
+                                    Visible="False" /></td>--%>
                         </tr>
-                        <tr>
+                        <%--<tr>
                             
                             <td> <asp:CheckBox ID="chkInsurance" runat="server" Text="Insurance" 
                                     Visible="False" /> </td>
@@ -132,7 +132,7 @@
                                     Visible="False"/></td>
                             <td><asp:CheckBox ID="chkBasicSalary" runat="server" Text="Basic Salary" 
                                     Visible="False" /></td>
-                        </tr>
+                        </tr>--%>
                         </table>
                         </fieldset>
                       </td>
@@ -152,7 +152,7 @@
                     </tr>
 
                      
-                     <tr>
+                     <%--<tr>
                         <td>
                             <asp:Label ID="Label5" runat="server" Width="100px" CssClass="textlevel" 
                                 Text="Weekend :" Visible="False"></asp:Label>
@@ -174,10 +174,10 @@
                                 </asp:DropDownList>
                         </td>
 
-                    </tr>
+                    </tr>--%>
 
                      
-                     <tr>
+                     <%--<tr>
                         <td>
                             <asp:Label ID="Label7" runat="server" Width="100px" CssClass="textlevel" 
                                 Text="Increment Month :" Visible="False"></asp:Label>
@@ -218,18 +218,17 @@
                         <td>
                             <asp:CheckBox ID="chkProject" runat="server" Text="Project" Visible="False" />
                         </td>
-                    </tr>
+                    </tr>--%>
                 </table>
-                <cc1:filteredtextboxextender ID="FTBIncrementYear" runat="server" FilterType="Numbers"
+                <%--<cc1:filteredtextboxextender ID="FTBIncrementYear" runat="server" FilterType="Numbers"
                         TargetControlID="txtIncrementYear" ValidChars="0123456789">
-                    </cc1:filteredtextboxextender>
+                    </cc1:filteredtextboxextender>--%>
             </fieldset>
         </div>
         <div class="GridFormat1">
             <!--Grid view Code starts-->
             <asp:GridView ID="grProject" runat="server" 
-            DataKeyNames="ProjectId, ProjectName, ProjectCode, StartDate, EndDate, WeekEndID, IncrementType, IncrementMonth,
-	                      IncrementAfter,	IsPF, IsGratuity, IsEOC, IsLE, IsInsurance, IsGSal, IsBSal, IsCore, IsProject,ShortName"
+            DataKeyNames="ProjectId, ProjectName, ProjectCode, StartDate, EndDate, IsPF, IsGratuity,ShortName"
                 AutoGenerateColumns="False" EmptyDataText="No Record Found" Font-Size="9px" Width="100%"
                 OnRowCommand="grProject_RowCommand">
                 <HeaderStyle BackColor="#B3CDE4" Font-Bold="True"></HeaderStyle>

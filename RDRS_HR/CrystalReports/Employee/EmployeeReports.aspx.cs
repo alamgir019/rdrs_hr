@@ -34,7 +34,7 @@ public partial class CrystalReports_Employee_EmployeeReports : System.Web.UI.Pag
             Common.FillDropDownList_All(objMasMgr.SelectDesignation(0), ddlDesignation);
             Common.FillDropDownList_All(objMasMgr.SelectLocation(0), ddlPlaceOfPosting);
             Common.FillDropDownList_All(objMasMgr.SelectSalaryLocation(0), ddlSalaryLoc);
-            Common.FillDropDownList_All(objMasMgr.SelectSalarySubLocation(0), ddlSalarySubLoc);
+            //Common.FillDropDownList_All(objMasMgr.SelectSalarySubLocation(0), ddlSalarySubLoc);
             Common.FillDropDownList_All(objMasMgr.SelectAction(0, "S"), ddlSeparationType);
             Common.FillDropDownList(objEmpInfoMgr.SelectBankList(), ddlBank, "BankName", "BankCode", true, "All");
             Common.FillDropDownList_All(objMasMgr.SelectLearningArea(0), ddlLearningArea);
@@ -423,8 +423,8 @@ public partial class CrystalReports_Employee_EmployeeReports : System.Web.UI.Pag
                         Session["GROUPID"] = ddlComponentUnit.SelectedValue;
                     else if (ddlGroupWise.SelectedValue == "4")
                         Session["GROUPID"] = ddlPosByFunc.SelectedValue;
-                    else if (ddlGroupWise.SelectedValue == "5")
-                        Session["GROUPID"] = ddlSalarySubLoc.SelectedValue;
+                    //else if (ddlGroupWise.SelectedValue == "5")
+                    //    Session["GROUPID"] = ddlSalarySubLoc.SelectedValue;
                     else if (ddlGroupWise.SelectedValue == "6")
                         Session["GROUPID"] = ddlSalaryLoc.SelectedValue;
                     else if (ddlGroupWise.SelectedValue == "7")

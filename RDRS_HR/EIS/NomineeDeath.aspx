@@ -137,8 +137,8 @@
                          <td class="textlevel">
                          </td>
                          <td>
-                             <asp:Button ID="btnWitness" runat="server" CausesValidation="False" Text="Witness"
-                        Width="70px" ToolTip="Click on Save Button to store the employee data." /></td>
+                            <%-- <asp:Button ID="btnWitness" runat="server" CausesValidation="False" Text="Witness"
+                        Width="70px" ToolTip="Click on Save Button to store the employee data." />--%></td>
                      </tr>
                  </table>
              </fieldset> 

@@ -353,7 +353,7 @@ public class EmpInfoManager
         }
         // EmpNatureID,JobTitleId,PosFuncId,PostingDistId,PostingDivId,PostingPlaceId,SalSubLocId,SubDesigId,UnitId
         #region Save HR Info
-        SqlCommand[] cmd = new SqlCommand[cmd1.Length + 4];
+        SqlCommand[] cmd = new SqlCommand[cmd1.Length + 3];
         cmd[0] = new SqlCommand("proc_Insert_EmpInfo_tabHR");
         cmd[0].CommandType = CommandType.StoredProcedure;
 
@@ -463,11 +463,11 @@ public class EmpInfoManager
         if (clEmp.SalLocId != "99999")
             p_SalLocId.Value = clEmp.SalLocId;
 
-        SqlParameter p_SalSubLocId = cmd[0].Parameters.Add("SalSubLocId", DBNull.Value);
-        p_SalSubLocId.Direction = ParameterDirection.Input;
-        p_SalSubLocId.IsNullable = true;
-        if (clEmp.SalSubLocId != "99999")
-            p_SalSubLocId.Value = clEmp.SalSubLocId;
+        //SqlParameter p_SalSubLocId = cmd[0].Parameters.Add("SalSubLocId", DBNull.Value);
+        //p_SalSubLocId.Direction = ParameterDirection.Input;
+        //p_SalSubLocId.IsNullable = true;
+        //if (clEmp.SalSubLocId != "99999")
+        //    p_SalSubLocId.Value = clEmp.SalSubLocId;
 
         SqlParameter p_ContractPurpose = cmd[0].Parameters.Add("ContractPurpose", SqlDbType.VarChar);
         p_ContractPurpose.Direction = ParameterDirection.Input;
@@ -599,17 +599,17 @@ public class EmpInfoManager
         p_Remarks.Direction = ParameterDirection.Input;
         p_Remarks.Value = clEmp.Remarks;
 
-        SqlParameter p_IsMedicalEntmnt = cmd[0].Parameters.Add("IsMedicalEntmnt", SqlDbType.Char);
-        p_IsMedicalEntmnt.Direction = ParameterDirection.Input;
-        p_IsMedicalEntmnt.Value = clEmp.IsMedicalEntmnt;
+        //SqlParameter p_IsMedicalEntmnt = cmd[0].Parameters.Add("IsMedicalEntmnt", SqlDbType.Char);
+        //p_IsMedicalEntmnt.Direction = ParameterDirection.Input;
+        //p_IsMedicalEntmnt.Value = clEmp.IsMedicalEntmnt;
 
         SqlParameter p_IsOTEntmnt = cmd[0].Parameters.Add("IsOTEntmnt", SqlDbType.Char);
         p_IsOTEntmnt.Direction = ParameterDirection.Input;
         p_IsOTEntmnt.Value = clEmp.IsOTEntmnt;
 
-        SqlParameter p_IsChildEduAllow = cmd[0].Parameters.Add("IsChildEduAllow", SqlDbType.Char);
-        p_IsChildEduAllow.Direction = ParameterDirection.Input;
-        p_IsChildEduAllow.Value = clEmp.IsChildEduAllow;
+        //SqlParameter p_IsChildEduAllow = cmd[0].Parameters.Add("IsChildEduAllow", SqlDbType.Char);
+        //p_IsChildEduAllow.Direction = ParameterDirection.Input;
+        //p_IsChildEduAllow.Value = clEmp.IsChildEduAllow;
 
         SqlParameter p_EmpSignature = cmd[0].Parameters.Add("EmpSignature", SqlDbType.VarChar);
         p_EmpSignature.Direction = ParameterDirection.Input;
@@ -729,17 +729,17 @@ public class EmpInfoManager
 
         #endregion
 
-        if (clEmp.IsMedicalEntmnt == "Y")
-        {
-            DataTable dtMedical = SelectEmpMedicalBalance(clEmp.EmpId);
-            if (dtMedical.Rows.Count == 0)
-                cmd[1] = InsertEmpMedicalBalance(clEmp.EmpId, clEmp.JoiningDate, clEmp.InsertedBy, clEmp.InsertedDate);
-        }
+        //if (clEmp.IsMedicalEntmnt == "Y")
+        //{
+        //    DataTable dtMedical = SelectEmpMedicalBalance(clEmp.EmpId);
+        //    if (dtMedical.Rows.Count == 0)
+        //        cmd[1] = InsertEmpMedicalBalance(clEmp.EmpId, clEmp.JoiningDate, clEmp.InsertedBy, clEmp.InsertedDate);
+        //}
 
         if (strIsNew == "Y")
         {
-            cmd[2] = InsertEmpActionLog(clEmp.EmpId, "21", clEmp.JoiningDate, clEmp.InsertedBy, clEmp.InsertedDate);
-            cmd[3] = InsertEmpInfoJoining(clEmp.EmpId, clEmp.JobTitleId, clEmp.JoiningDate, clEmp.DivisionId, clEmp.DeptId, clEmp.SalLocId, clEmp.BasicSalary, clEmp.InsertedBy, clEmp.InsertedDate);
+            cmd[1] = InsertEmpActionLog(clEmp.EmpId, "21", clEmp.JoiningDate, clEmp.InsertedBy, clEmp.InsertedDate);
+            cmd[2] = InsertEmpInfoJoining(clEmp.EmpId, clEmp.JobTitleId, clEmp.JoiningDate, clEmp.DivisionId, clEmp.DeptId, clEmp.SalLocId, clEmp.BasicSalary, clEmp.InsertedBy, clEmp.InsertedDate);
         }
         if (clEmp.SeparateTypeId != "" && clEmp.SeparateTypeId != "99999")
         {
@@ -748,9 +748,9 @@ public class EmpInfoManager
             foundRow = dtActionLog.Select("ActionDate='" + clEmp.SeparateDate + "'");
 
             if (foundRow.Length == 0)
-                cmd[4] = InsertEmpActionLog(clEmp.EmpId, clEmp.SeparateTypeId, clEmp.SeparateDate, clEmp.InsertedBy, clEmp.InsertedDate);
+                cmd[3] = InsertEmpActionLog(clEmp.EmpId, clEmp.SeparateTypeId, clEmp.SeparateDate, clEmp.InsertedBy, clEmp.InsertedDate);
         }
-        i = 5;
+        i = 4;
 
         foreach (SqlCommand cmdTemp in cmd1)
         {
@@ -3714,102 +3714,102 @@ public class EmpInfoManager
         }
     }
 
-    private SqlCommand InsertEmpMedicalBalance(string strEmpId, string strJoiningDate, string strInsertedBy, string strInsertedDate)
-    {
-        try
-        {
-            SqlCommand cmd = new SqlCommand();
+    //private SqlCommand InsertEmpMedicalBalance(string strEmpId, string strJoiningDate, string strInsertedBy, string strInsertedDate)
+    //{
+    //    try
+    //    {
+    //        SqlCommand cmd = new SqlCommand();
 
-            DateTime JoinYear;
-            //DateTime CurrYear =Convert.ToDateTime("2015-01-01");
+    //        DateTime JoinYear;
+    //        //DateTime CurrYear =Convert.ToDateTime("2015-01-01");
 
-            DateTime CurrYear = DateTime.Now;
-            CurrYear = Convert.ToDateTime(DateTime.Now.Year + "-01-01");
+    //        DateTime CurrYear = DateTime.Now;
+    //        CurrYear = Convert.ToDateTime(DateTime.Now.Year + "-01-01");
 
-            decimal tempMedicalValue = 0;
-            decimal tempHospitalValue = 0;
-            decimal dclMedicalBal = 0;
-            decimal dclHospitalBal = 0;
-            decimal dclMedicalCost = 0;
-            decimal dclHospitalCost = 0;
-            if (strJoiningDate == "")
-            {
-                JoinYear = CurrYear;
-            }
-            else
-            {
-                JoinYear = Convert.ToDateTime(strJoiningDate);
-            }
+    //        decimal tempMedicalValue = 0;
+    //        decimal tempHospitalValue = 0;
+    //        decimal dclMedicalBal = 0;
+    //        decimal dclHospitalBal = 0;
+    //        decimal dclMedicalCost = 0;
+    //        decimal dclHospitalCost = 0;
+    //        if (strJoiningDate == "")
+    //        {
+    //            JoinYear = CurrYear;
+    //        }
+    //        else
+    //        {
+    //            JoinYear = Convert.ToDateTime(strJoiningDate);
+    //        }
 
 
-            if (JoinYear > CurrYear)
-            {
-                TimeSpan DateDiff = JoinYear - CurrYear;
-                string strTotDay = Common.ReturnTotalDay(DateDiff.ToString());
-                tempMedicalValue = (Convert.ToDecimal("35000") / 366);
-                tempMedicalValue = (tempMedicalValue * (366 - Convert.ToInt32(strTotDay)));
-                dclMedicalBal = Convert.ToInt32(tempMedicalValue);
-                dclMedicalCost = dclMedicalBal;
+    //        if (JoinYear > CurrYear)
+    //        {
+    //            TimeSpan DateDiff = JoinYear - CurrYear;
+    //            string strTotDay = Common.ReturnTotalDay(DateDiff.ToString());
+    //            tempMedicalValue = (Convert.ToDecimal("35000") / 366);
+    //            tempMedicalValue = (tempMedicalValue * (366 - Convert.ToInt32(strTotDay)));
+    //            dclMedicalBal = Convert.ToInt32(tempMedicalValue);
+    //            dclMedicalCost = dclMedicalBal;
 
-                tempHospitalValue = (Convert.ToDecimal("40000") / 366);
-                tempHospitalValue = (tempHospitalValue * (366 - Convert.ToInt32(strTotDay)));
-                dclHospitalBal = Convert.ToInt32(tempHospitalValue);
-                dclHospitalCost = dclHospitalBal;
-            }
-            else
-            {
-                dclMedicalCost = Convert.ToDecimal("35000");
-                dclHospitalCost = Convert.ToDecimal("40000");
-            }            
+    //            tempHospitalValue = (Convert.ToDecimal("40000") / 366);
+    //            tempHospitalValue = (tempHospitalValue * (366 - Convert.ToInt32(strTotDay)));
+    //            dclHospitalBal = Convert.ToInt32(tempHospitalValue);
+    //            dclHospitalCost = dclHospitalBal;
+    //        }
+    //        else
+    //        {
+    //            dclMedicalCost = Convert.ToDecimal("35000");
+    //            dclHospitalCost = Convert.ToDecimal("40000");
+    //        }            
             
-            cmd = InsertEmpMedicalBalanceSetup(strEmpId, dclMedicalCost,dclHospitalCost, strInsertedBy, strInsertedDate);
+    //        cmd = InsertEmpMedicalBalanceSetup(strEmpId, dclMedicalCost,dclHospitalCost, strInsertedBy, strInsertedDate);
 
-            return cmd;
-        }
-        catch (Exception ex)
-        {
-            throw (ex);
-        }
-    }
+    //        return cmd;
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        throw (ex);
+    //    }
+    //}
 
-    public SqlCommand InsertEmpMedicalBalanceSetup(string strEmpId, decimal dclMedicalCost,decimal dclHospitalCost, string strInsertedBy, string strInsertedDate)
-    {
-        try
-        {
-            SqlCommand cmd = new SqlCommand("proc_Insert_MedicalSetup");
-            cmd.CommandType = CommandType.StoredProcedure;
+    //public SqlCommand InsertEmpMedicalBalanceSetup(string strEmpId, decimal dclMedicalCost,decimal dclHospitalCost, string strInsertedBy, string strInsertedDate)
+    //{
+    //    try
+    //    {
+    //        SqlCommand cmd = new SqlCommand("proc_Insert_MedicalSetup");
+    //        cmd.CommandType = CommandType.StoredProcedure;
 
-            SqlParameter p_EmpId = cmd.Parameters.Add("EmpId", SqlDbType.VarChar);
-            p_EmpId.Direction = ParameterDirection.Input;
-            p_EmpId.Value = strEmpId;
+    //        SqlParameter p_EmpId = cmd.Parameters.Add("EmpId", SqlDbType.VarChar);
+    //        p_EmpId.Direction = ParameterDirection.Input;
+    //        p_EmpId.Value = strEmpId;
 
-            SqlParameter p_FiscalYrId = cmd.Parameters.Add("MedFiscalYrId", SqlDbType.BigInt);
-            p_FiscalYrId.Direction = ParameterDirection.Input;
-            p_FiscalYrId.Value = "40";
+    //        SqlParameter p_FiscalYrId = cmd.Parameters.Add("MedFiscalYrId", SqlDbType.BigInt);
+    //        p_FiscalYrId.Direction = ParameterDirection.Input;
+    //        p_FiscalYrId.Value = "40";
 
-            SqlParameter p_MedicalCost= cmd.Parameters.Add("MedicalCost", SqlDbType.Decimal);
-            p_MedicalCost.Direction = ParameterDirection.Input;
-            p_MedicalCost.Value = dclMedicalCost;
+    //        SqlParameter p_MedicalCost= cmd.Parameters.Add("MedicalCost", SqlDbType.Decimal);
+    //        p_MedicalCost.Direction = ParameterDirection.Input;
+    //        p_MedicalCost.Value = dclMedicalCost;
 
-            SqlParameter p_HospitalCost = cmd.Parameters.Add("HospitalCost", SqlDbType.Decimal);
-            p_HospitalCost.Direction = ParameterDirection.Input;
-            p_HospitalCost.Value = dclHospitalCost;
+    //        SqlParameter p_HospitalCost = cmd.Parameters.Add("HospitalCost", SqlDbType.Decimal);
+    //        p_HospitalCost.Direction = ParameterDirection.Input;
+    //        p_HospitalCost.Value = dclHospitalCost;
 
-            SqlParameter p_InsertedBy = cmd.Parameters.Add("InsertedBy", SqlDbType.VarChar);
-            p_InsertedBy.Direction = ParameterDirection.Input;
-            p_InsertedBy.Value = strInsertedBy;
+    //        SqlParameter p_InsertedBy = cmd.Parameters.Add("InsertedBy", SqlDbType.VarChar);
+    //        p_InsertedBy.Direction = ParameterDirection.Input;
+    //        p_InsertedBy.Value = strInsertedBy;
 
-            SqlParameter p_InsertedDate = cmd.Parameters.Add("InsertedDate", SqlDbType.DateTime);
-            p_InsertedDate.Direction = ParameterDirection.Input;
-            p_InsertedDate.Value = strInsertedDate;
+    //        SqlParameter p_InsertedDate = cmd.Parameters.Add("InsertedDate", SqlDbType.DateTime);
+    //        p_InsertedDate.Direction = ParameterDirection.Input;
+    //        p_InsertedDate.Value = strInsertedDate;
 
-            return cmd;
-        }
-        catch (Exception ex)
-        {
-            throw (ex);
-        }
-    }
+    //        return cmd;
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        throw (ex);
+    //    }
+    //}
 
     ////Insert into Employee Log File
     //public SqlCommand InsertEmpInfoLog(string strEmpId)
@@ -5876,20 +5876,20 @@ public class EmpInfoManager
         return objDC.CreateDT(strSQL, "tblDegreeList");
     }
 
-    public DataTable SelectEmpMedicalBalance(string EmpID)
-    {
-        if (objDC.ds.Tables["MedicalSetup"] != null)
-        {
-            objDC.ds.Tables["MedicalSetup"].Rows.Clear();
-            objDC.ds.Tables["MedicalSetup"].Dispose();
-        }
+    //public DataTable SelectEmpMedicalBalance(string EmpID)
+    //{
+    //    if (objDC.ds.Tables["MedicalSetup"] != null)
+    //    {
+    //        objDC.ds.Tables["MedicalSetup"].Rows.Clear();
+    //        objDC.ds.Tables["MedicalSetup"].Dispose();
+    //    }
 
-        string strSQL = "";
+    //    string strSQL = "";
 
-        strSQL = "SELECT * FROM MedicalSetup WHERE EmpId='" + EmpID + "'";
+    //    strSQL = "SELECT * FROM MedicalSetup WHERE EmpId='" + EmpID + "'";
 
-        return objDC.CreateDT(strSQL, "tblMedicalSetup");
-    }
+    //    return objDC.CreateDT(strSQL, "tblMedicalSetup");
+    //}
 
     public void InsertFinalPayment(string EmpID, string strStartDate, string strEndDate, string txtPaymentAmt, string txtPFAmount,string strRemarks, string Flag)
     {

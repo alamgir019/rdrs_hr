@@ -28,8 +28,7 @@ public class MasterTablesManager
             throw new Exception(ex.ToString());
         }
     }
-
-
+    
     #region Notification
     public DataTable GetConfirmationEmp(string StartDate, string EndDate)
     {
@@ -1319,60 +1318,60 @@ public class MasterTablesManager
         }
     }
 
-    public void InsertSalarySubLocation(Desigation dsg, string IsUpdate, string IsDelete, string IsActive)
-    {
-        SqlCommand command = new SqlCommand("proc_Insert_SalarySubLocation");
-        command.CommandType = CommandType.StoredProcedure;
+    //public void InsertSalarySubLocation(Desigation dsg, string IsUpdate, string IsDelete, string IsActive)
+    //{
+    //    SqlCommand command = new SqlCommand("proc_Insert_SalarySubLocation");
+    //    command.CommandType = CommandType.StoredProcedure;
 
-        SqlParameter p_DesignationID = command.Parameters.Add("SalSubLocId", SqlDbType.BigInt);
-        p_DesignationID.Direction = ParameterDirection.Input;
-        p_DesignationID.Value = dsg.DesgID;
+    //    SqlParameter p_DesignationID = command.Parameters.Add("SalSubLocId", SqlDbType.BigInt);
+    //    p_DesignationID.Direction = ParameterDirection.Input;
+    //    p_DesignationID.Value = dsg.DesgID;
 
-        SqlParameter p_DesignationName = command.Parameters.Add("SalSubLocName", SqlDbType.VarChar);
-        p_DesignationName.Direction = ParameterDirection.Input;
-        p_DesignationName.Value = dsg.DesgName;
+    //    SqlParameter p_DesignationName = command.Parameters.Add("SalSubLocName", SqlDbType.VarChar);
+    //    p_DesignationName.Direction = ParameterDirection.Input;
+    //    p_DesignationName.Value = dsg.DesgName;
 
-        SqlParameter p_isDeleted = command.Parameters.Add("IsDeleted", SqlDbType.Char);
-        p_isDeleted.Direction = ParameterDirection.Input;
-        p_isDeleted.Value = dsg.IsDeleted;
+    //    SqlParameter p_isDeleted = command.Parameters.Add("IsDeleted", SqlDbType.Char);
+    //    p_isDeleted.Direction = ParameterDirection.Input;
+    //    p_isDeleted.Value = dsg.IsDeleted;
 
-        SqlParameter p_InsertedBy = command.Parameters.Add("InsertedBy", SqlDbType.VarChar);
-        p_InsertedBy.Direction = ParameterDirection.Input;
-        p_InsertedBy.Value = dsg.InsertedBy;
+    //    SqlParameter p_InsertedBy = command.Parameters.Add("InsertedBy", SqlDbType.VarChar);
+    //    p_InsertedBy.Direction = ParameterDirection.Input;
+    //    p_InsertedBy.Value = dsg.InsertedBy;
 
-        SqlParameter p_InsertedDate = command.Parameters.Add("InsertedDate", SqlDbType.DateTime);
-        p_InsertedDate.Direction = ParameterDirection.Input;
-        p_InsertedDate.Value = dsg.InsertedDate;
+    //    SqlParameter p_InsertedDate = command.Parameters.Add("InsertedDate", SqlDbType.DateTime);
+    //    p_InsertedDate.Direction = ParameterDirection.Input;
+    //    p_InsertedDate.Value = dsg.InsertedDate;
 
-        SqlParameter p_LastUpdatedFrom = command.Parameters.Add("LastUpdatedFrom", SqlDbType.VarChar);
-        p_LastUpdatedFrom.Direction = ParameterDirection.Input;
-        p_LastUpdatedFrom.Value = dsg.LastUpdatedFrom;
+    //    SqlParameter p_LastUpdatedFrom = command.Parameters.Add("LastUpdatedFrom", SqlDbType.VarChar);
+    //    p_LastUpdatedFrom.Direction = ParameterDirection.Input;
+    //    p_LastUpdatedFrom.Value = dsg.LastUpdatedFrom;
 
-        SqlParameter p_IsUpdate = command.Parameters.Add("IsUpdate", SqlDbType.Char);
-        p_IsUpdate.Direction = ParameterDirection.Input;
-        p_IsUpdate.Value = IsUpdate;
+    //    SqlParameter p_IsUpdate = command.Parameters.Add("IsUpdate", SqlDbType.Char);
+    //    p_IsUpdate.Direction = ParameterDirection.Input;
+    //    p_IsUpdate.Value = IsUpdate;
 
-        SqlParameter p_IsDelete = command.Parameters.Add("IsDelete", SqlDbType.Char);
-        p_IsDelete.Direction = ParameterDirection.Input;
-        p_IsDelete.Value = IsDelete;
+    //    SqlParameter p_IsDelete = command.Parameters.Add("IsDelete", SqlDbType.Char);
+    //    p_IsDelete.Direction = ParameterDirection.Input;
+    //    p_IsDelete.Value = IsDelete;
 
-        SqlParameter p_IsActive = command.Parameters.Add("IsActive", SqlDbType.Char);
-        p_IsActive.Direction = ParameterDirection.Input;
-        p_IsActive.Value = IsActive;
+    //    SqlParameter p_IsActive = command.Parameters.Add("IsActive", SqlDbType.Char);
+    //    p_IsActive.Direction = ParameterDirection.Input;
+    //    p_IsActive.Value = IsActive;
 
-        try
-        {
-            objDC.ExecuteQuery(command);
-        }
-        catch (Exception ex)
-        {
-            throw (ex);
-        }
-        finally
-        {
-            command = null;
-        }
-    }
+    //    try
+    //    {
+    //        objDC.ExecuteQuery(command);
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        throw (ex);
+    //    }
+    //    finally
+    //    {
+    //        command = null;
+    //    }
+    //}
 
     public void InsertPositionByFunction(Desigation dsg, string IsUpdate, string IsDelete, string IsActive)
     {
@@ -2015,8 +2014,7 @@ public class MasterTablesManager
             command = null;
         }
     }
-
-    //
+    
     // Insert or Update  or Delete Data of ReasonList table
     public void InsertReason(Reason Rsn, string IsUpdate, string IsDelete)
     {
@@ -2142,8 +2140,7 @@ public class MasterTablesManager
             command = null;
         }
     }
-
-
+    
     // Insert or Update  or Delete Data of Department table
     public void InsertDepartment(Department Dpt, string IsUpdate, string IsDelete, string StrLocationID, string IsActive,
         string strDeptCode, string strValidFrom, string strValidTo)
@@ -2264,7 +2261,6 @@ public class MasterTablesManager
             command = null;
         }
     }
-
     public void InsertSection(Section sec, string IsUpdate, string IsDelete, string StrLocationID, string IsActive)
     {
         SqlCommand command = new SqlCommand("proc_Insert_Section");
@@ -2338,7 +2334,6 @@ public class MasterTablesManager
             command = null;
         }
     }
-
     public void InsertLeaveType(LeaveType Lvt, string IsUpdate, string IsDelete, string IsActive)
     {
         SqlCommand command = new SqlCommand("proc_Insert_LeaveType");
@@ -2437,8 +2432,6 @@ public class MasterTablesManager
             command = null;
         }
     }
-
-
     public void InsertEvent(EventType dc, string IsUpdate, string IsDelete, string IsActive)
     {
         // sproc functionality
@@ -2505,8 +2498,6 @@ public class MasterTablesManager
             command = null;
         }
     }
-
-
     //public void InsertAward(Award dc, string IsUpdate, string IsDelete, string IsActive)
     //{
     //    // sproc functionality
@@ -2723,9 +2714,7 @@ public class MasterTablesManager
     //        command = null;
     //    }
     //}
-
-
-    
+        
     public void InsertEmpType(clsEmpType ClEmpT, string IsUpdate, string IsDelete)
     {
         SqlCommand command = new SqlCommand("proc_Insert_EmpTypeList");
@@ -2914,7 +2903,6 @@ public class MasterTablesManager
             cmd = null;
         }
     }
-
     public void InsertProject(Project ClPro, string IsUpdate, string IsDelete)
     {
         SqlCommand command = new SqlCommand("proc_Insert_ProjectList");
@@ -3194,10 +3182,7 @@ public class MasterTablesManager
     //        command = null;
     //    }
     //}
-
-
-
-    
+        
 #endregion    
     
     #region Select Queries From Tables By store procedure
@@ -3219,7 +3204,6 @@ public class MasterTablesManager
         objDC.CreateDSFromProc(command, "Division");
         return objDC.ds.Tables["Division"];
     }
-
     public DataTable SelectPoistingDivision(Int32 DivisionID)
     {
         if (objDC.ds.Tables["PoistingDivision"] != null)
@@ -3237,7 +3221,6 @@ public class MasterTablesManager
         objDC.CreateDSFromProc(command, "PoistingDivision");
         return objDC.ds.Tables["PoistingDivision"];
     }
-
     public DataTable SelectSector(Int32 SectorID)
     {
         SqlCommand command = new SqlCommand("proc_Select_SectorList");
@@ -3250,9 +3233,7 @@ public class MasterTablesManager
         return objDC.ds.Tables["SectorList"];
     }
 
-
     //proc_Select_EmpType
-
     public DataTable SelectEmpTypeList(Int32 EmpTypeID)
     {
         SqlCommand command = new SqlCommand("proc_Select_EmpType");
@@ -3433,8 +3414,7 @@ public class MasterTablesManager
         objDC.CreateDSFromProc(command, "Location");
         return objDC.ds.Tables["Location"];
     }
-
-
+    
     public DataTable SelectDivisionWiseDistrict(Int32 DivisionId)
     {
         SqlCommand command = new SqlCommand("proc_select_DivisionWiseDistrict");
@@ -3446,7 +3426,6 @@ public class MasterTablesManager
         objDC.CreateDSFromProc(command, "tblDivisionWiseDistrict");
         return objDC.ds.Tables["tblDivisionWiseDistrict"];
     }
-
     public DataTable SelectDivisionWiseDistrict2(Int32 DivisionId)
     {
         SqlCommand command = new SqlCommand("proc_select_DivisionWiseDistrict2");
@@ -3458,7 +3437,6 @@ public class MasterTablesManager
         objDC.CreateDSFromProc(command, "tblDivisionWiseDistrict2");
         return objDC.ds.Tables["tblDivisionWiseDistrict2"];
     }
-
     public DataTable SelectSectorWiseDepartment2(Int32 SectorId)
     {
         SqlCommand command = new SqlCommand("proc_Select_SectorWiseDepartment2");
@@ -3482,7 +3460,6 @@ public class MasterTablesManager
         objDC.CreateDSFromProc(command, "tblDesigWiseJobTitle");
         return objDC.ds.Tables["tblDesigWiseJobTitle"];
     }
-
     public DataTable SelectSectorWiseDepartment(Int32 SectorId)
     {
         SqlCommand command = new SqlCommand("proc_select_SectorWiseDepartment");
@@ -3494,7 +3471,6 @@ public class MasterTablesManager
         objDC.CreateDSFromProc(command, "tblSectorWiseDepartment");
         return objDC.ds.Tables["tblSectorWiseDepartment"];
     }
-
     public DataTable SelectSalaryLocWiseSubLoc(Int32 SalLocId)
     {
         SqlCommand command = new SqlCommand("proc_select_SalaryLocWiseSubLoc");
@@ -3916,17 +3892,17 @@ public class MasterTablesManager
         return objDC.ds.Tables["SalaryLocation"];
     }
 
-    public DataTable SelectSalarySubLocation(Int32 SalSubLocId)
-    {
-        SqlCommand command = new SqlCommand("proc_Select_SalarySubLocation");
+    //public DataTable SelectSalarySubLocation(Int32 SalSubLocId)
+    //{
+    //    SqlCommand command = new SqlCommand("proc_Select_SalarySubLocation");
 
-        SqlParameter p_SalLocId = command.Parameters.Add("SalSubLocId", SqlDbType.BigInt);
-        p_SalLocId.Direction = ParameterDirection.Input;
-        p_SalLocId.Value = SalSubLocId;
+    //    SqlParameter p_SalLocId = command.Parameters.Add("SalSubLocId", SqlDbType.BigInt);
+    //    p_SalLocId.Direction = ParameterDirection.Input;
+    //    p_SalLocId.Value = SalSubLocId;
 
-        objDC.CreateDSFromProc(command, "SalarySubLocation");
-        return objDC.ds.Tables["SalarySubLocation"];
-    }
+    //    objDC.CreateDSFromProc(command, "SalarySubLocation");
+    //    return objDC.ds.Tables["SalarySubLocation"];
+    //}
 
     public DataTable SelectPositionByFunction(Int32 PosFuncId)
     {
@@ -4744,8 +4720,7 @@ public class MasterTablesManager
         objDC.CreateDSFromProc(command, "EmpInfo");
         return objDC.ds.Tables["EmpInfo"];
     }
-
-
+    
     public DataTable SelectEmployee(string EmpID, string EmpStatus)
     {
         if (objDC.ds.Tables["EmpInfoWithEmpStatus"] != null)
@@ -4767,8 +4742,7 @@ public class MasterTablesManager
         objDC.CreateDSFromProc(command, "EmpInfoWithEmpStatus");
         return objDC.ds.Tables["EmpInfoWithEmpStatus"];
     }
-
-
+    
     public DataTable SelectEmpList( string EmpStatus)
     {
 
@@ -4851,7 +4825,7 @@ public class MasterTablesManager
     //    return objDC.ds.Tables["DeptWiseSBU"];
     //}
     #endregion
-
+    
     #region Edited By ANol for Institute Certificate,Result Master Table Setup
    
    
@@ -5150,23 +5124,23 @@ public class MasterTablesManager
         if (clsPrj.EndDate != "")
             p_EndDate.Value = clsPrj.EndDate;
 
-        SqlParameter p_WeekEndID = command.Parameters.Add("WeekEndID", SqlDbType.BigInt);
-        p_WeekEndID.Direction = ParameterDirection.Input;
-        p_WeekEndID.Value = clsPrj.WeekEndID;
+        //SqlParameter p_WeekEndID = command.Parameters.Add("WeekEndID", SqlDbType.BigInt);
+        //p_WeekEndID.Direction = ParameterDirection.Input;
+        //p_WeekEndID.Value = clsPrj.WeekEndID;
 
-        SqlParameter p_IncrementType = command.Parameters.Add("IncrementType", SqlDbType.VarChar);
-        p_IncrementType.Direction = ParameterDirection.Input;
-        p_IncrementType.Value = clsPrj.IncrementType;
+        //SqlParameter p_IncrementType = command.Parameters.Add("IncrementType", SqlDbType.VarChar);
+        //p_IncrementType.Direction = ParameterDirection.Input;
+        //p_IncrementType.Value = clsPrj.IncrementType;
 
-        SqlParameter p_IncrementMonth = command.Parameters.Add("IncrementMonth", DBNull.Value  );
-        p_IncrementMonth.Direction = ParameterDirection.Input;
-        p_IncrementMonth.IsNullable = true;
-        if (string.IsNullOrEmpty(clsPrj.IncrementMonth) == false)
-            p_IncrementMonth.Value = clsPrj.IncrementMonth;
+        //SqlParameter p_IncrementMonth = command.Parameters.Add("IncrementMonth", DBNull.Value  );
+        //p_IncrementMonth.Direction = ParameterDirection.Input;
+        //p_IncrementMonth.IsNullable = true;
+        //if (string.IsNullOrEmpty(clsPrj.IncrementMonth) == false)
+        //    p_IncrementMonth.Value = clsPrj.IncrementMonth;
 
-        SqlParameter p_IncrementAfter = command.Parameters.Add("IncrementAfter", SqlDbType.BigInt);
-        p_IncrementAfter.Direction = ParameterDirection.Input;
-        p_IncrementAfter.Value = clsPrj.IncrementAfter;//this section causes error if empty
+        //SqlParameter p_IncrementAfter = command.Parameters.Add("IncrementAfter", SqlDbType.BigInt);
+        //p_IncrementAfter.Direction = ParameterDirection.Input;
+        //p_IncrementAfter.Value = clsPrj.IncrementAfter;
 
         SqlParameter p_IsPF = command.Parameters.Add("IsPF", SqlDbType.Char);
         p_IsPF.Direction = ParameterDirection.Input;
@@ -5176,33 +5150,33 @@ public class MasterTablesManager
         p_IsGratuity.Direction = ParameterDirection.Input;
         p_IsGratuity.Value = clsPrj.IsGratuity;
 
-        SqlParameter p_IsEOC = command.Parameters.Add("IsEOC", SqlDbType.Char);
-        p_IsEOC.Direction = ParameterDirection.Input;
-        p_IsEOC.Value = clsPrj.IsEOC;
+        //SqlParameter p_IsEOC = command.Parameters.Add("IsEOC", SqlDbType.Char);
+        //p_IsEOC.Direction = ParameterDirection.Input;
+        //p_IsEOC.Value = clsPrj.IsEOC;
 
-        SqlParameter p_IsLE = command.Parameters.Add("IsLE", SqlDbType.Char);
-        p_IsLE.Direction = ParameterDirection.Input;
-        p_IsLE.Value = clsPrj.IsLE;
+        //SqlParameter p_IsLE = command.Parameters.Add("IsLE", SqlDbType.Char);
+        //p_IsLE.Direction = ParameterDirection.Input;
+        //p_IsLE.Value = clsPrj.IsLE;
 
-        SqlParameter p_IsInsurance = command.Parameters.Add("IsInsurance", SqlDbType.Char);
-        p_IsInsurance.Direction = ParameterDirection.Input;
-        p_IsInsurance.Value = clsPrj.IsInsurance;
+        //SqlParameter p_IsInsurance = command.Parameters.Add("IsInsurance", SqlDbType.Char);
+        //p_IsInsurance.Direction = ParameterDirection.Input;
+        //p_IsInsurance.Value = clsPrj.IsInsurance;
 
-        SqlParameter p_IsGSal = command.Parameters.Add("IsGSal", SqlDbType.Char);
-        p_IsGSal.Direction = ParameterDirection.Input;
-        p_IsGSal.Value = clsPrj.IsGSal;
+        //SqlParameter p_IsGSal = command.Parameters.Add("IsGSal", SqlDbType.Char);
+        //p_IsGSal.Direction = ParameterDirection.Input;
+        //p_IsGSal.Value = clsPrj.IsGSal;
 
-        SqlParameter p_IsBSal = command.Parameters.Add("IsBSal", SqlDbType.Char);
-        p_IsBSal.Direction = ParameterDirection.Input;
-        p_IsBSal.Value = clsPrj.IsBSal;
+        //SqlParameter p_IsBSal = command.Parameters.Add("IsBSal", SqlDbType.Char);
+        //p_IsBSal.Direction = ParameterDirection.Input;
+        //p_IsBSal.Value = clsPrj.IsBSal;
 
-        SqlParameter p_IsCore = command.Parameters.Add("IsCore", SqlDbType.Char);
-        p_IsCore.Direction = ParameterDirection.Input;
-        p_IsCore.Value = clsPrj.IsCore;
+        //SqlParameter p_IsCore = command.Parameters.Add("IsCore", SqlDbType.Char);
+        //p_IsCore.Direction = ParameterDirection.Input;
+        //p_IsCore.Value = clsPrj.IsCore;
 
-        SqlParameter p_IsProject = command.Parameters.Add("IsProject", SqlDbType.Char);
-        p_IsProject.Direction = ParameterDirection.Input;
-        p_IsProject.Value = clsPrj.IsProject;
+        //SqlParameter p_IsProject = command.Parameters.Add("IsProject", SqlDbType.Char);
+        //p_IsProject.Direction = ParameterDirection.Input;
+        //p_IsProject.Value = clsPrj.IsProject;
 
         SqlParameter p_IsActive = command.Parameters.Add("IsActive", SqlDbType.Char);
         p_IsActive.Direction = ParameterDirection.Input;
@@ -5815,6 +5789,7 @@ public class MasterTablesManager
     public DataTable GetOfficeList(decimal officeid,decimal unit,decimal offtype)
     {
         string strSQL = "SELECT distinct * FROM vwOfficeList Where 1=1 ";
+       
         string strCond = "";
         if (officeid != 0)
             strCond = strCond + " AND OfficeID=@OfficeID";

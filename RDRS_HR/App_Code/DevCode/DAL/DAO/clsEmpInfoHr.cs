@@ -35,7 +35,7 @@ public class clsEmpInfoHr
     public string ContractPurpose { get; set; }
     public string WorkArea { get; set; }
     public string SalLocId { get; set; }
-    public string SalSubLocId { get; set; }
+    //public string SalSubLocId { get; set; }
     public string BasicSalary { get; set; }
     public string JoiningDate { get; set; }
     public string ProbationPeriod { get; set; }
@@ -60,9 +60,9 @@ public class clsEmpInfoHr
     public string SupervisorId { get; set; }
     public string OtherBenefit { get; set; }
     public string Remarks { get; set; }
-    public string IsMedicalEntmnt { get; set; }
+    //public string IsMedicalEntmnt { get; set; }
     public string IsOTEntmnt { get; set; }
-    public string IsChildEduAllow { get; set; }
+    //public string IsChildEduAllow { get; set; }
     public string IsDeleted { get; set; }
     public string PostingDate { get; set; }
     public string DateInPosition { get; set; }
