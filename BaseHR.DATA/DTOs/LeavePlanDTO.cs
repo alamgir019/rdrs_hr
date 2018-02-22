@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BaseHR.DATA
 {
+    [Serializable]
     public class LeavePlanDTO
     {
         public decimal ID { get; set; }

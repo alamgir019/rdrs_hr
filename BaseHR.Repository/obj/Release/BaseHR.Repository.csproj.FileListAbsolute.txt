@@ -1,0 +1,10 @@
+D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\bin\Release\BaseHR.Repository.dll.config
+D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\bin\Release\BaseHR.Repository.dll
+D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\bin\Release\BaseHR.Repository.pdb
+D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\bin\Release\BaseHR.DATA.dll
+D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\bin\Release\EntityFramework.dll
+D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\bin\Release\BaseHR.DATA.pdb
+D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\bin\Release\EntityFramework.xml
+D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\obj\Release\BaseHR.Repository.csprojResolveAssemblyReference.cache
+D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\obj\Release\BaseHR.Repository.dll
+D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\obj\Release\BaseHR.Repository.pdb

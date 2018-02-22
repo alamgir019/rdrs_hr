@@ -9,7 +9,7 @@ namespace BaseHR.Repository.DAL
     public class DUserPrivilege
     {
         private RDRS_RDRSEntities context = DBConnector.DbConnect.context;
-        public bool AddUserPrivPages(List<UserPriv> lstUserPrivs)
+        public bool AddUserPrivPages(List<UserPrivDTO> lstUserPrivs)
         {
             try
             {
@@ -40,7 +40,9 @@ namespace BaseHR.Repository.DAL
                     else
                     {
                         priv.ID = ++maxId;
-                        context.UserPrivs.Add(priv);
+                        UserPriv target = new UserPriv();
+                        priv.Mapper(target);
+                        context.UserPrivs.Add(target);
                     }
                 }
                 if (context.SaveChanges() > 0)
@@ -58,10 +60,10 @@ namespace BaseHR.Repository.DAL
             return pagepriv;
         }
 
-        public List<UserPriv> GetUserPrivPages(UserPriv objPriv)
+        public List<UserPrivDTO> GetUserPrivPages(UserPrivDTO objPriv)
         {
             List<UserPriv> lstUserPriv = context.UserPrivs.Where(pp => pp.UserId.Equals(objPriv.UserId) && (objPriv.ViewId==-1 || pp.ViewId == objPriv.ViewId)).ToList();
-            List<UserPriv> userPrivs = (from priv in lstUserPriv
+            List<UserPrivDTO> userPrivs = (from priv in lstUserPriv
                              join view in context.ViewNames on priv.ViewId equals view.ViewId
                                         join interv in context.DivisionLists on priv.InterventionId equals interv.DivisionId into UserInt
                                         from intname in UserInt.DefaultIfEmpty()
@@ -86,7 +88,7 @@ namespace BaseHR.Repository.DAL
                                         join sect in context.SectorLists on priv.SectorId equals sect.SectorId into Usersect
                                         from sectdef in Usersect.DefaultIfEmpty()
 
-                             select new UserPriv()
+                             select new UserPrivDTO()
                              {
                                  ID = priv.ID,
                                  AreaId = priv.AreaId,
