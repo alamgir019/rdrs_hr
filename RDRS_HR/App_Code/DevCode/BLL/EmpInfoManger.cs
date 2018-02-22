@@ -160,9 +160,9 @@ public class EmpInfoManager
         if (clEmp.SpecialSkill != "99999")
             p_SpecialSkillId.Value = clEmp.SpecialSkill;
 
-        SqlParameter p_IsSpectacled = command.Parameters.Add("IsSpectacled", SqlDbType.Char);
-        p_IsSpectacled.Direction = ParameterDirection.Input;
-        p_IsSpectacled.Value = clEmp.IsSpectacled;
+        //SqlParameter p_IsSpectacled = command.Parameters.Add("IsSpectacled", SqlDbType.Char);
+        //p_IsSpectacled.Direction = ParameterDirection.Input;
+        //p_IsSpectacled.Value = clEmp.IsSpectacled;
 
         SqlParameter p_DrivingLicense = command.Parameters.Add("DrivingLicense", SqlDbType.VarChar);
         p_DrivingLicense.Direction = ParameterDirection.Input;
@@ -555,6 +555,10 @@ public class EmpInfoManager
         p_EmpStatus.Direction = ParameterDirection.Input;
         p_EmpStatus.Value = clEmp.EmpStatus;
 
+        SqlParameter p_SecurityMoney = cmd[0].Parameters.Add("SecurityMoney",DBNull.Value);
+        p_SecurityMoney.Direction = ParameterDirection.Input;
+        p_SecurityMoney.Value = clEmp.SecurityMoney;
+
         SqlParameter p_SeparateTypeId = cmd[0].Parameters.Add("SeparateTypeId", DBNull.Value);
         p_SeparateTypeId.Direction = ParameterDirection.Input;
         p_SeparateTypeId.IsNullable = true;
@@ -713,9 +717,9 @@ public class EmpInfoManager
         p_Asset.Direction = ParameterDirection.Input;
         p_Asset.Value = clEmp.Asset;
 
-        SqlParameter p_EmpNatureId = cmd[0].Parameters.Add("EmpNatureId", SqlDbType.Decimal);
+        SqlParameter p_EmpNatureId = cmd[0].Parameters.Add("EmpNatureId", DBNull.Value);
         p_EmpNatureId.Direction = ParameterDirection.Input;
-        p_EmpNatureId.Value = clEmp.EmpNatureID;
+        p_EmpNatureId.Value =clEmp.EmpNatureID;
 
         SqlParameter p_GrossSalary = cmd[0].Parameters.Add("GrossSalary", SqlDbType.Decimal);
         p_GrossSalary.Direction = ParameterDirection.Input;

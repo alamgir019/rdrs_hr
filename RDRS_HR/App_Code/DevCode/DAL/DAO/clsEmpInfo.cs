@@ -313,14 +313,7 @@ public class clsEmpInfo
         get { return _Relation; }
         set { _Relation = value; }
     }
-
-    private string _IsSpectacled;
-    public string IsSpectacled
-    {
-        get { return _IsSpectacled; }
-        set { _IsSpectacled = value; }
-    }
-
+    
     private string _LicenseNo;
     public string LicenseNo
     {
@@ -469,7 +462,6 @@ public class clsEmpInfo
         string SpecialSkill,
         string IsRelativeInSC,
         string Relation,
-        string IsSpectacled,
         string LicenseNo,
         string LicenseExpDate,
         string EmpPicLoc,
@@ -530,7 +522,6 @@ public class clsEmpInfo
         this.SpecialSkill = SpecialSkill;
         this.IsRelativeInSC = IsRelativeInSC;
         this.Relation = Relation;
-        this.IsSpectacled = IsSpectacled;
         this.LicenseNo = LicenseNo;
         this.LicenseExpDate = LicenseExpDate;
         this.EmpPicLoc = EmpPicLoc;

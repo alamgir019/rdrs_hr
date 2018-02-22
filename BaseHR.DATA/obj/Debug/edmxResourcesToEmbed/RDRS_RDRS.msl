@@ -17,159 +17,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EmpInfoes">
-      <EntityTypeMapping TypeName="RDRS_RDRSModel.EmpInfo">
-        <MappingFragment StoreEntitySet="EmpInfo">
-          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="FullName" ColumnName="FullName" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
-          <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
-          <ScalarProperty Name="BloodGroupId" ColumnName="BloodGroupId" />
-          <ScalarProperty Name="DOB" ColumnName="DOB" />
-          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
-          <ScalarProperty Name="MotherName" ColumnName="MotherName" />
-          <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
-          <ScalarProperty Name="PrePhone" ColumnName="PrePhone" />
-          <ScalarProperty Name="PreFax" ColumnName="PreFax" />
-          <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
-          <ScalarProperty Name="PerPhone" ColumnName="PerPhone" />
-          <ScalarProperty Name="PerFax" ColumnName="PerFax" />
-          <ScalarProperty Name="PerDistrictID" ColumnName="PerDistrictID" />
-          <ScalarProperty Name="PerCountryID" ColumnName="PerCountryID" />
-          <ScalarProperty Name="OfficeExt" ColumnName="OfficeExt" />
-          <ScalarProperty Name="OfficeEmail" ColumnName="OfficeEmail" />
-          <ScalarProperty Name="PersonalEmail" ColumnName="PersonalEmail" />
-          <ScalarProperty Name="MailingAddrs" ColumnName="MailingAddrs" />
-          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
-          <ScalarProperty Name="MarriageDate" ColumnName="MarriageDate" />
-          <ScalarProperty Name="ProffDegreeId" ColumnName="ProffDegreeId" />
-          <ScalarProperty Name="SpecialSkillId" ColumnName="SpecialSkillId" />
-          <ScalarProperty Name="IsSpectacled" ColumnName="IsSpectacled" />
-          <ScalarProperty Name="DrivingLicense" ColumnName="DrivingLicense" />
-          <ScalarProperty Name="LicenseRenewDate" ColumnName="LicenseRenewDate" />
-          <ScalarProperty Name="IsRelativeInSC" ColumnName="IsRelativeInSC" />
-          <ScalarProperty Name="RelationId" ColumnName="RelationId" />
-          <ScalarProperty Name="TINNo" ColumnName="TINNo" />
-          <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
-          <ScalarProperty Name="PassExpDate" ColumnName="PassExpDate" />
-          <ScalarProperty Name="Circle" ColumnName="Circle" />
-          <ScalarProperty Name="Zone" ColumnName="Zone" />
-          <ScalarProperty Name="PassportIssueOffice" ColumnName="PassportIssueOffice" />
-          <ScalarProperty Name="NationalId" ColumnName="NationalId" />
-          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
-          <ScalarProperty Name="DOBId" ColumnName="DOBId" />
-          <ScalarProperty Name="SkypeId" ColumnName="SkypeId" />
-          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
-          <ScalarProperty Name="LandPhone" ColumnName="LandPhone" />
-          <ScalarProperty Name="BMDCRegNo" ColumnName="BMDCRegNo" />
-          <ScalarProperty Name="BMDCRegDate" ColumnName="BMDCRegDate" />
-          <ScalarProperty Name="IsMedical" ColumnName="IsMedical" />
-          <ScalarProperty Name="Nature" ColumnName="Nature" />
-          <ScalarProperty Name="EmpTypeID" ColumnName="EmpTypeID" />
-          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
-          <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
-          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
-          <ScalarProperty Name="GradeId" ColumnName="GradeId" />
-          <ScalarProperty Name="GradeLevelId" ColumnName="GradeLevelId" />
-          <ScalarProperty Name="JobTitleId" ColumnName="JobTitleId" />
-          <ScalarProperty Name="DesigId" ColumnName="DesigId" />
-          <ScalarProperty Name="DeptId" ColumnName="DeptId" />
-          <ScalarProperty Name="ContractPurpose" ColumnName="ContractPurpose" />
-          <ScalarProperty Name="WorkArea" ColumnName="WorkArea" />
-          <ScalarProperty Name="SalLocId" ColumnName="SalLocId" />
-          <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
-          <ScalarProperty Name="GrossSalary" ColumnName="GrossSalary" />
-          <ScalarProperty Name="BonusPakId" ColumnName="BonusPakId" />
-          <ScalarProperty Name="AttnPolicyID" ColumnName="AttnPolicyID" />
-          <ScalarProperty Name="LeavePakId" ColumnName="LeavePakId" />
-          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
-          <ScalarProperty Name="ProbationPeriod" ColumnName="ProbationPeriod" />
-          <ScalarProperty Name="ContractInterval" ColumnName="ContractInterval" />
-          <ScalarProperty Name="ContractEndDate" ColumnName="ContractEndDate" />
-          <ScalarProperty Name="ConfirmationDate" ColumnName="ConfirmationDate" />
-          <ScalarProperty Name="IsServiceAgrmnt" ColumnName="IsServiceAgrmnt" />
-          <ScalarProperty Name="ServiceStartDate" ColumnName="ServiceStartDate" />
-          <ScalarProperty Name="ServiceEndDate" ColumnName="ServiceEndDate" />
-          <ScalarProperty Name="WorkAreaType" ColumnName="WorkAreaType" />
-          <ScalarProperty Name="IsSeveranceBenefit" ColumnName="IsSeveranceBenefit" />
-          <ScalarProperty Name="SeveranceId" ColumnName="SeveranceId" />
-          <ScalarProperty Name="SeveranceReason" ColumnName="SeveranceReason" />
-          <ScalarProperty Name="RetirementDate" ColumnName="RetirementDate" />
-          <ScalarProperty Name="EmpStatus" ColumnName="EmpStatus" />
-          <ScalarProperty Name="SeparateTypeId" ColumnName="SeparateTypeId" />
-          <ScalarProperty Name="SeparateDate" ColumnName="SeparateDate" />
-          <ScalarProperty Name="SeparateReason" ColumnName="SeparateReason" />
-          <ScalarProperty Name="BankCode" ColumnName="BankCode" />
-          <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
-          <ScalarProperty Name="BankAccNo" ColumnName="BankAccNo" />
-          <ScalarProperty Name="SupervisorId" ColumnName="SupervisorId" />
-          <ScalarProperty Name="OtherBenefit" ColumnName="OtherBenefit" />
-          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-          <ScalarProperty Name="IsMedicalEntmnt" ColumnName="IsMedicalEntmnt" />
-          <ScalarProperty Name="IsOTEntmnt" ColumnName="IsOTEntmnt" />
-          <ScalarProperty Name="IsChildEduAllow" ColumnName="IsChildEduAllow" />
-          <ScalarProperty Name="EmpSignature" ColumnName="EmpSignature" />
-          <ScalarProperty Name="UploadCV" ColumnName="UploadCV" />
-          <ScalarProperty Name="UploadDocument" ColumnName="UploadDocument" />
-          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-          <ScalarProperty Name="PostingDate" ColumnName="PostingDate" />
-          <ScalarProperty Name="DateInPosition" ColumnName="DateInPosition" />
-          <ScalarProperty Name="DateInGrade" ColumnName="DateInGrade" />
-          <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
-          <ScalarProperty Name="SalPakId" ColumnName="SalPakId" />
-          <ScalarProperty Name="MPCId" ColumnName="MPCId" />
-          <ScalarProperty Name="IsPayrollStaff" ColumnName="IsPayrollStaff" />
-          <ScalarProperty Name="EmpPicLoc" ColumnName="EmpPicLoc" />
-          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
-          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
-          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-          <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
-          <ScalarProperty Name="AddResponseEndDate" ColumnName="AddResponseEndDate" />
-          <ScalarProperty Name="WeekendId" ColumnName="WeekendId" />
-          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
-          <ScalarProperty Name="IsRoaster" ColumnName="IsRoaster" />
-          <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
-          <ScalarProperty Name="EduId" ColumnName="EduId" />
-          <ScalarProperty Name="IsNotRehirable" ColumnName="IsNotRehirable" />
-          <ScalarProperty Name="NotRehireReason" ColumnName="NotRehireReason" />
-          <ScalarProperty Name="EmpImage" ColumnName="EmpImage" />
-          <ScalarProperty Name="EmpSignImage" ColumnName="EmpSignImage" />
-          <ScalarProperty Name="RelativeInfo" ColumnName="RelativeInfo" />
-          <ScalarProperty Name="EmpNatureId" ColumnName="EmpNatureId" />
-          <ScalarProperty Name="Asset" ColumnName="Asset" />
-          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
-          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
-          <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
-          <ScalarProperty Name="PosFuncId" ColumnName="PosFuncId" />
-          <ScalarProperty Name="PostingDivId" ColumnName="PostingDivId" />
-          <ScalarProperty Name="PostingDistId" ColumnName="PostingDistId" />
-          <ScalarProperty Name="PostingPlaceId" ColumnName="PostingPlaceId" />
-          <ScalarProperty Name="AppointType" ColumnName="AppointType" />
-          <ScalarProperty Name="SalSubLocId" ColumnName="SalSubLocId" />
-          <ScalarProperty Name="PerDivID" ColumnName="PerDivID" />
-          <ScalarProperty Name="PerUpzID" ColumnName="PerUpzID" />
-          <ScalarProperty Name="PerPSID" ColumnName="PerPSID" />
-          <ScalarProperty Name="PreDivID" ColumnName="PreDivID" />
-          <ScalarProperty Name="PreDistrictID" ColumnName="PreDistrictID" />
-          <ScalarProperty Name="PreUpzID" ColumnName="PreUpzID" />
-          <ScalarProperty Name="PrePSID" ColumnName="PrePSID" />
-          <ScalarProperty Name="HighDegSub" ColumnName="HighDegSub" />
-          <ScalarProperty Name="SSMMRNo" ColumnName="SSMMRNo" />
-          <ScalarProperty Name="LeaveSupervisorId" ColumnName="LeaveSupervisorId" />
-          <ScalarProperty Name="OfficeTypeID" ColumnName="OfficeTypeID" />
-          <ScalarProperty Name="SpouseName" ColumnName="SpouseName" />
-          <ScalarProperty Name="HighDegSubId" ColumnName="HighDegSubId" />
-          <ScalarProperty Name="OldEmpId" ColumnName="OldEmpId" />
-          <ScalarProperty Name="ThematicId" ColumnName="ThematicId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="EmpLeaveCTOEntitleLogs">
       <EntityTypeMapping TypeName="RDRS_RDRSModel.EmpLeaveCTOEntitleLog">
         <MappingFragment StoreEntitySet="EmpLeaveCTOEntitleLog">
@@ -258,38 +105,6 @@
           <ScalarProperty Name="DistID" ColumnName="DistID" />
           <ScalarProperty Name="UpzID" ColumnName="UpzID" />
           <ScalarProperty Name="IsPayLoc" ColumnName="IsPayLoc" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ProjectLists">
-      <EntityTypeMapping TypeName="RDRS_RDRSModel.ProjectList">
-        <MappingFragment StoreEntitySet="ProjectList">
-          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
-          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
-          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="WeekEndID" ColumnName="WeekEndID" />
-          <ScalarProperty Name="IncrementType" ColumnName="IncrementType" />
-          <ScalarProperty Name="IncrementMonth" ColumnName="IncrementMonth" />
-          <ScalarProperty Name="IncrementAfter" ColumnName="IncrementAfter" />
-          <ScalarProperty Name="IsPF" ColumnName="IsPF" />
-          <ScalarProperty Name="IsGratuity" ColumnName="IsGratuity" />
-          <ScalarProperty Name="IsEOC" ColumnName="IsEOC" />
-          <ScalarProperty Name="IsLE" ColumnName="IsLE" />
-          <ScalarProperty Name="IsInsurance" ColumnName="IsInsurance" />
-          <ScalarProperty Name="IsGSal" ColumnName="IsGSal" />
-          <ScalarProperty Name="IsBSal" ColumnName="IsBSal" />
-          <ScalarProperty Name="IsCore" ColumnName="IsCore" />
-          <ScalarProperty Name="IsProject" ColumnName="IsProject" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
-          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-          <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
-          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -565,6 +380,177 @@
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="LTypeId" ColumnName="LTypeId" />
           <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpInfoes">
+      <EntityTypeMapping TypeName="RDRS_RDRSModel.EmpInfo">
+        <MappingFragment StoreEntitySet="EmpInfo">
+          <ScalarProperty Name="SecurityMoney" ColumnName="SecurityMoney" />
+          <ScalarProperty Name="ThematicId" ColumnName="ThematicId" />
+          <ScalarProperty Name="OldEmpId" ColumnName="OldEmpId" />
+          <ScalarProperty Name="HighDegSubId" ColumnName="HighDegSubId" />
+          <ScalarProperty Name="SpouseName" ColumnName="SpouseName" />
+          <ScalarProperty Name="OfficeTypeID" ColumnName="OfficeTypeID" />
+          <ScalarProperty Name="LeaveSupervisorId" ColumnName="LeaveSupervisorId" />
+          <ScalarProperty Name="SSMMRNo" ColumnName="SSMMRNo" />
+          <ScalarProperty Name="HighDegSub" ColumnName="HighDegSub" />
+          <ScalarProperty Name="PrePSID" ColumnName="PrePSID" />
+          <ScalarProperty Name="PreUpzID" ColumnName="PreUpzID" />
+          <ScalarProperty Name="PreDistrictID" ColumnName="PreDistrictID" />
+          <ScalarProperty Name="PreDivID" ColumnName="PreDivID" />
+          <ScalarProperty Name="PerPSID" ColumnName="PerPSID" />
+          <ScalarProperty Name="PerUpzID" ColumnName="PerUpzID" />
+          <ScalarProperty Name="PerDivID" ColumnName="PerDivID" />
+          <ScalarProperty Name="AppointType" ColumnName="AppointType" />
+          <ScalarProperty Name="PostingPlaceId" ColumnName="PostingPlaceId" />
+          <ScalarProperty Name="PostingDistId" ColumnName="PostingDistId" />
+          <ScalarProperty Name="PostingDivId" ColumnName="PostingDivId" />
+          <ScalarProperty Name="PosFuncId" ColumnName="PosFuncId" />
+          <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+          <ScalarProperty Name="Asset" ColumnName="Asset" />
+          <ScalarProperty Name="EmpNatureId" ColumnName="EmpNatureId" />
+          <ScalarProperty Name="RelativeInfo" ColumnName="RelativeInfo" />
+          <ScalarProperty Name="EmpSignImage" ColumnName="EmpSignImage" />
+          <ScalarProperty Name="EmpImage" ColumnName="EmpImage" />
+          <ScalarProperty Name="NotRehireReason" ColumnName="NotRehireReason" />
+          <ScalarProperty Name="IsNotRehirable" ColumnName="IsNotRehirable" />
+          <ScalarProperty Name="EduId" ColumnName="EduId" />
+          <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+          <ScalarProperty Name="IsRoaster" ColumnName="IsRoaster" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+          <ScalarProperty Name="WeekendId" ColumnName="WeekendId" />
+          <ScalarProperty Name="AddResponseEndDate" ColumnName="AddResponseEndDate" />
+          <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="EmpPicLoc" ColumnName="EmpPicLoc" />
+          <ScalarProperty Name="IsPayrollStaff" ColumnName="IsPayrollStaff" />
+          <ScalarProperty Name="MPCId" ColumnName="MPCId" />
+          <ScalarProperty Name="SalPakId" ColumnName="SalPakId" />
+          <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+          <ScalarProperty Name="DateInGrade" ColumnName="DateInGrade" />
+          <ScalarProperty Name="DateInPosition" ColumnName="DateInPosition" />
+          <ScalarProperty Name="PostingDate" ColumnName="PostingDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UploadDocument" ColumnName="UploadDocument" />
+          <ScalarProperty Name="UploadCV" ColumnName="UploadCV" />
+          <ScalarProperty Name="EmpSignature" ColumnName="EmpSignature" />
+          <ScalarProperty Name="IsOTEntmnt" ColumnName="IsOTEntmnt" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="OtherBenefit" ColumnName="OtherBenefit" />
+          <ScalarProperty Name="SupervisorId" ColumnName="SupervisorId" />
+          <ScalarProperty Name="BankAccNo" ColumnName="BankAccNo" />
+          <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+          <ScalarProperty Name="BankCode" ColumnName="BankCode" />
+          <ScalarProperty Name="SeparateReason" ColumnName="SeparateReason" />
+          <ScalarProperty Name="SeparateDate" ColumnName="SeparateDate" />
+          <ScalarProperty Name="SeparateTypeId" ColumnName="SeparateTypeId" />
+          <ScalarProperty Name="EmpStatus" ColumnName="EmpStatus" />
+          <ScalarProperty Name="RetirementDate" ColumnName="RetirementDate" />
+          <ScalarProperty Name="SeveranceReason" ColumnName="SeveranceReason" />
+          <ScalarProperty Name="SeveranceId" ColumnName="SeveranceId" />
+          <ScalarProperty Name="IsSeveranceBenefit" ColumnName="IsSeveranceBenefit" />
+          <ScalarProperty Name="WorkAreaType" ColumnName="WorkAreaType" />
+          <ScalarProperty Name="ServiceEndDate" ColumnName="ServiceEndDate" />
+          <ScalarProperty Name="ServiceStartDate" ColumnName="ServiceStartDate" />
+          <ScalarProperty Name="IsServiceAgrmnt" ColumnName="IsServiceAgrmnt" />
+          <ScalarProperty Name="ConfirmationDate" ColumnName="ConfirmationDate" />
+          <ScalarProperty Name="ContractEndDate" ColumnName="ContractEndDate" />
+          <ScalarProperty Name="ContractInterval" ColumnName="ContractInterval" />
+          <ScalarProperty Name="ProbationPeriod" ColumnName="ProbationPeriod" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="LeavePakId" ColumnName="LeavePakId" />
+          <ScalarProperty Name="AttnPolicyID" ColumnName="AttnPolicyID" />
+          <ScalarProperty Name="BonusPakId" ColumnName="BonusPakId" />
+          <ScalarProperty Name="GrossSalary" ColumnName="GrossSalary" />
+          <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+          <ScalarProperty Name="SalLocId" ColumnName="SalLocId" />
+          <ScalarProperty Name="WorkArea" ColumnName="WorkArea" />
+          <ScalarProperty Name="ContractPurpose" ColumnName="ContractPurpose" />
+          <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+          <ScalarProperty Name="DesigId" ColumnName="DesigId" />
+          <ScalarProperty Name="JobTitleId" ColumnName="JobTitleId" />
+          <ScalarProperty Name="GradeLevelId" ColumnName="GradeLevelId" />
+          <ScalarProperty Name="GradeId" ColumnName="GradeId" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="EmpTypeID" ColumnName="EmpTypeID" />
+          <ScalarProperty Name="Nature" ColumnName="Nature" />
+          <ScalarProperty Name="IsMedical" ColumnName="IsMedical" />
+          <ScalarProperty Name="BMDCRegDate" ColumnName="BMDCRegDate" />
+          <ScalarProperty Name="BMDCRegNo" ColumnName="BMDCRegNo" />
+          <ScalarProperty Name="LandPhone" ColumnName="LandPhone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="SkypeId" ColumnName="SkypeId" />
+          <ScalarProperty Name="DOBId" ColumnName="DOBId" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="NationalId" ColumnName="NationalId" />
+          <ScalarProperty Name="PassportIssueOffice" ColumnName="PassportIssueOffice" />
+          <ScalarProperty Name="Zone" ColumnName="Zone" />
+          <ScalarProperty Name="Circle" ColumnName="Circle" />
+          <ScalarProperty Name="PassExpDate" ColumnName="PassExpDate" />
+          <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+          <ScalarProperty Name="TINNo" ColumnName="TINNo" />
+          <ScalarProperty Name="RelationId" ColumnName="RelationId" />
+          <ScalarProperty Name="IsRelativeInSC" ColumnName="IsRelativeInSC" />
+          <ScalarProperty Name="LicenseRenewDate" ColumnName="LicenseRenewDate" />
+          <ScalarProperty Name="DrivingLicense" ColumnName="DrivingLicense" />
+          <ScalarProperty Name="SpecialSkillId" ColumnName="SpecialSkillId" />
+          <ScalarProperty Name="ProffDegreeId" ColumnName="ProffDegreeId" />
+          <ScalarProperty Name="MarriageDate" ColumnName="MarriageDate" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="MailingAddrs" ColumnName="MailingAddrs" />
+          <ScalarProperty Name="PersonalEmail" ColumnName="PersonalEmail" />
+          <ScalarProperty Name="OfficeEmail" ColumnName="OfficeEmail" />
+          <ScalarProperty Name="OfficeExt" ColumnName="OfficeExt" />
+          <ScalarProperty Name="PerCountryID" ColumnName="PerCountryID" />
+          <ScalarProperty Name="PerDistrictID" ColumnName="PerDistrictID" />
+          <ScalarProperty Name="PerFax" ColumnName="PerFax" />
+          <ScalarProperty Name="PerPhone" ColumnName="PerPhone" />
+          <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
+          <ScalarProperty Name="PreFax" ColumnName="PreFax" />
+          <ScalarProperty Name="PrePhone" ColumnName="PrePhone" />
+          <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
+          <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="BloodGroupId" ColumnName="BloodGroupId" />
+          <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectLists">
+      <EntityTypeMapping TypeName="RDRS_RDRSModel.ProjectList">
+        <MappingFragment StoreEntitySet="ProjectList">
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsGratuity" ColumnName="IsGratuity" />
+          <ScalarProperty Name="IsPF" ColumnName="IsPF" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

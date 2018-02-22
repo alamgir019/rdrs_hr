@@ -47,7 +47,6 @@
     <Property Name="MarriageDate" Type="datetime" />
     <Property Name="ProffDegreeId" Type="numeric" Precision="5" Scale="0" />
     <Property Name="SpecialSkillId" Type="numeric" Precision="5" Scale="0" />
-    <Property Name="IsSpectacled" Type="char" MaxLength="1" />
     <Property Name="DrivingLicense" Type="varchar" MaxLength="50" />
     <Property Name="LicenseRenewDate" Type="datetime" />
     <Property Name="IsRelativeInSC" Type="char" MaxLength="1" />
@@ -108,9 +107,7 @@
     <Property Name="SupervisorId" Type="varchar" MaxLength="50" />
     <Property Name="OtherBenefit" Type="varchar" MaxLength="100" />
     <Property Name="Remarks" Type="varchar" MaxLength="500" />
-    <Property Name="IsMedicalEntmnt" Type="char" MaxLength="1" />
     <Property Name="IsOTEntmnt" Type="char" MaxLength="1" />
-    <Property Name="IsChildEduAllow" Type="char" MaxLength="1" />
     <Property Name="EmpSignature" Type="varchar" MaxLength="50" />
     <Property Name="UploadCV" Type="varchar" MaxLength="50" />
     <Property Name="UploadDocument" Type="varchar" MaxLength="50" />
@@ -150,7 +147,6 @@
     <Property Name="PostingDistId" Type="numeric" Precision="5" Scale="0" />
     <Property Name="PostingPlaceId" Type="numeric" Precision="5" Scale="0" />
     <Property Name="AppointType" Type="char" MaxLength="1" />
-    <Property Name="SalSubLocId" Type="numeric" Precision="5" Scale="0" />
     <Property Name="PerDivID" Type="numeric" Precision="5" Scale="0" />
     <Property Name="PerUpzID" Type="numeric" Precision="5" Scale="0" />
     <Property Name="PerPSID" Type="numeric" Precision="5" Scale="0" />
@@ -166,6 +162,7 @@
     <Property Name="HighDegSubId" Type="numeric" Precision="5" Scale="0" />
     <Property Name="OldEmpId" Type="varchar" MaxLength="20" />
     <Property Name="ThematicId" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="SecurityMoney" Type="numeric" Precision="12" Scale="2" />
   </EntityType>
   <EntityType Name="EmpLeaveCTOEntitleLog">
     <Key>
@@ -295,19 +292,8 @@
     <Property Name="ProjectCode" Type="varchar" MaxLength="100" />
     <Property Name="StartDate" Type="datetime" />
     <Property Name="EndDate" Type="datetime" />
-    <Property Name="WeekEndID" Type="numeric" Precision="5" Scale="0" Nullable="false" />
-    <Property Name="IncrementType" Type="varchar" MaxLength="15" />
-    <Property Name="IncrementMonth" Type="numeric" Precision="2" Scale="0" Nullable="false" />
-    <Property Name="IncrementAfter" Type="numeric" Precision="2" Scale="0" Nullable="false" />
     <Property Name="IsPF" Type="char" MaxLength="1" />
     <Property Name="IsGratuity" Type="char" MaxLength="1" />
-    <Property Name="IsEOC" Type="char" MaxLength="1" />
-    <Property Name="IsLE" Type="char" MaxLength="1" />
-    <Property Name="IsInsurance" Type="char" MaxLength="1" />
-    <Property Name="IsGSal" Type="char" MaxLength="1" />
-    <Property Name="IsBSal" Type="char" MaxLength="1" />
-    <Property Name="IsCore" Type="char" MaxLength="1" />
-    <Property Name="IsProject" Type="char" MaxLength="1" />
     <Property Name="IsActive" Type="char" MaxLength="1" />
     <Property Name="IsDeleted" Type="char" MaxLength="1" />
     <Property Name="InsertedBy" Type="varchar" MaxLength="40" />

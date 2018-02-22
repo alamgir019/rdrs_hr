@@ -18,9 +18,9 @@ public partial class EIS_OfficeSetup : System.Web.UI.Page
         {
             lblMsg.Text = "";
             this.EntryMode(false);
-            Common.FillDropDownListWithAll(objTMM.GetDivision(), ddlUnitSearch, "DivisionName", "DivisionID");
+            Common.FillDropDownListWithAll(objTMM.GetDivision(), ddlIntervention, "DivisionName", "DivisionID");
             Common.FillDropDownList(objTMM.SelectOfficeTypeList(0), ddlOffType, "TypeNameLvl", "TypeID", true);
-            Common.FillDropDownListWithAll(objTMM.SelectOfficeTypeList(Convert.ToDecimal(ddlUnitSearch.SelectedValue.Trim())), ddlOffTypeSearch, "TypeName", "TypeID");
+            Common.FillDropDownListWithAll(objTMM.SelectOfficeTypeList(Convert.ToDecimal(ddlIntervention.SelectedValue.Trim())), ddlOffTypeSearch, "TypeName", "TypeID");
             Common.FillDropDownList(objTMM.SelectHomeDivision(0,"Y"), ddlDivision, "DivName", "DivId", true);
             this.OpenRecord(0, 0, 0);
         }
@@ -66,9 +66,9 @@ public partial class EIS_OfficeSetup : System.Web.UI.Page
         }
     }
 
-    protected void ddlUnitSearch_SelectedIndexChanged(object sender, EventArgs e)
+    protected void ddlIntervention_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Common.FillDropDownListWithAll(objTMM.SelectOfficeTypeList(Convert.ToDecimal(ddlUnitSearch.SelectedValue.Trim())), ddlOffTypeSearch, "TypeName", "TypeID");
+        Common.FillDropDownListWithAll(objTMM.SelectOfficeTypeList(Convert.ToDecimal(ddlIntervention.SelectedValue.Trim())), ddlOffTypeSearch, "TypeName", "TypeID");
         TabContainer1.ActiveTabIndex = 1;
     }
 
@@ -162,7 +162,7 @@ public partial class EIS_OfficeSetup : System.Web.UI.Page
             
             lblMsg.Text = Common.GetMessage(hfIsUpdate.Value == "N" ? "I" : "U");
             this.EntryMode(false);
-            this.OpenRecord(0, Convert.ToDecimal(ddlUnitSearch.SelectedValue.Trim()), Convert.ToDecimal(ddlOffTypeSearch.SelectedValue.Trim()));
+            this.OpenRecord(0, Convert.ToDecimal(ddlIntervention.SelectedValue.Trim()), Convert.ToDecimal(ddlOffTypeSearch.SelectedValue.Trim()));
         }
         catch (Exception ex)
         {
@@ -175,7 +175,7 @@ public partial class EIS_OfficeSetup : System.Web.UI.Page
     protected void btnClear_Click(object sender, EventArgs e)
     {
         this.EntryMode(false);
-        this.OpenRecord(0, Convert.ToDecimal(ddlUnitSearch.SelectedValue.Trim()), Convert.ToDecimal(ddlOffTypeSearch.SelectedValue.Trim()));
+        this.OpenRecord(0, Convert.ToDecimal(ddlIntervention.SelectedValue.Trim()), Convert.ToDecimal(ddlOffTypeSearch.SelectedValue.Trim()));
     }
     protected void btnDelete_Click(object sender, EventArgs e)
     {
@@ -188,13 +188,13 @@ public partial class EIS_OfficeSetup : System.Web.UI.Page
         {
             lblMsg.Text = "Select a record first then try to delete.";
         }
-        this.OpenRecord(0, Convert.ToDecimal(ddlUnitSearch.SelectedValue.Trim()), Convert.ToDecimal(ddlOffTypeSearch.SelectedValue.Trim()));
+        this.OpenRecord(0, Convert.ToDecimal(ddlIntervention.SelectedValue.Trim()), Convert.ToDecimal(ddlOffTypeSearch.SelectedValue.Trim()));
         this.EntryMode(false);
     }
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        this.OpenRecord(0, Convert.ToDecimal(ddlUnitSearch.SelectedValue.Trim()), Convert.ToDecimal(ddlOffTypeSearch.SelectedValue.Trim()));
+        this.OpenRecord(0, Convert.ToDecimal(ddlIntervention.SelectedValue.Trim()), Convert.ToDecimal(ddlOffTypeSearch.SelectedValue.Trim()));
         TabContainer1.ActiveTabIndex = 1;
     }
 
@@ -251,6 +251,4 @@ public partial class EIS_OfficeSetup : System.Web.UI.Page
                 break;
         }
     }
-
-   
 }

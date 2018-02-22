@@ -4,12 +4,9 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <script language="javascript" type="text/javascript" src="../JScripts/datetimepicker.js">
-    //Date Time Picker script
-    </script>
+    <script language="javascript" type="text/javascript" src="../JScripts/datetimepicker.js"></script>
 
-    <script language="javascript" type="text/javascript" src="../JScripts/Confirmation.js">
-    </script>
+    <script language="javascript" type="text/javascript" src="../JScripts/Confirmation.js"></script>
 
     <script language="javascript" type="text/javascript">
     function ToUpper(ctrl)
@@ -32,16 +29,13 @@
                 <fieldset>
                     <table>
                         <tr>
-                            <td class="textlevel">
-                                Medical Fiscal Year 
-                                :</td>
+                            <td class="textlevel">Medical Fiscal Year :</td>
                             <td>
-                                <asp:DropDownList ID="ddlFiscalYr" runat="server" Width="200px" CssClass="textlevelleft">
-                        </asp:DropDownList></td>
+                                <asp:DropDownList ID="ddlFiscalYr" runat="server" Width="200px" CssClass="textlevelleft"></asp:DropDownList>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="textlevel">
-                                Emp Id :</td>
+                            <td class="textlevel">Emp Id :</td>
                             <td>
                                 <asp:TextBox ID="txtEmpID" runat="server" MaxLength="20" onkeyup="ToUpper(this)"
                                     Width="80px" ToolTip="Enter the Emp. Code"></asp:TextBox>
@@ -52,52 +46,33 @@
                     </table>
                     <table>
                         <tr>
-                            <td class="textlevel">
-                                Name :</td>
-                            <td>
-                                <asp:Label ID="lblName" runat="server"></asp:Label></td>
+                            <td class="textlevel">Name :</td>
+                            <td><asp:Label ID="lblName" runat="server"></asp:Label></td>
                         </tr>
                         <tr>
-                            <td class="textlevel">
-                                Job Title :</td>
-                            <td>
-                                <asp:Label ID="lblJobTitle" runat="server"></asp:Label></td>
+                            <td class="textlevel">Job Title :</td>
+                            <td><asp:Label ID="lblJobTitle" runat="server"></asp:Label></td>
                         </tr>
                         <tr>
-                            <td class="textlevel">
-                                Company :</td>
-                            <td>
-                                <asp:Label ID="lblCompany" runat="server"></asp:Label>
-                            </td>
+                            <td class="textlevel">Intervention :</td>
+                            <td><asp:Label ID="lblIntervention" runat="server"></asp:Label></td>
                         </tr>
 
                          <tr>
-                            <td class="textlevel">
-                                Project/Office :</td>
-                            <td>
-                                <asp:Label ID="lblProject" runat="server"></asp:Label>
-                            </td>
+                            <td class="textlevel">Office :</td>
+                            <td><asp:Label ID="lblOffice" runat="server"></asp:Label></td>
                         </tr>
                         <tr>
-                            <td class="textlevel">
-                                Department :</td>
-                            <td>
-                                <asp:Label ID="lblDept" runat="server"></asp:Label>
-                            </td>
+                            <td class="textlevel">Department :</td>
+                            <td><asp:Label ID="lblDept" runat="server"></asp:Label></td>
                         </tr>
                         <tr>
-                            <td class="textlevel">
-                                Medical Balance :</td>
-                            <td>
-                                <asp:Label ID="lblMedicalBalance" runat="server"></asp:Label>
-                            </td>
+                            <td class="textlevel">Medical Balance :</td>
+                            <td><asp:Label ID="lblMedicalBalance" runat="server"></asp:Label></td>
                         </tr>
                         <tr>
-                            <td class="textlevel">
-                                Hospital Balance :</td>
-                            <td>
-                                <asp:Label ID="lblHospitalBalance" runat="server"></asp:Label>
-                            </td>
+                            <td class="textlevel">Hospital Balance :</td>
+                            <td><asp:Label ID="lblHospitalBalance" runat="server"></asp:Label></td>
                         </tr>
                     </table>
                 </fieldset>
@@ -107,13 +82,11 @@
                 <table>
                     <tr>
                         <td class="textlevel">
-                            <asp:RadioButton ID="radMedicine" runat="server" Text="Medicine" 
-                                GroupName="Type" AutoPostBack="True" 
+                            <asp:RadioButton ID="radMedicine" runat="server" Text="Medicine" GroupName="Type" AutoPostBack="True" 
                                 oncheckedchanged="radMedicine_CheckedChanged"/></td>
                         <td>
-                            <asp:RadioButton ID="radHospital" runat="server" class="textlevel" 
-                                Text="Hospitalization" GroupName="Type" AutoPostBack="True" 
-                                oncheckedchanged="radHospital_CheckedChanged"/>
+                            <asp:RadioButton ID="radHospital" runat="server" class="textlevel" Text="Hospitalization" GroupName="Type"
+                                 AutoPostBack="True" oncheckedchanged="radHospital_CheckedChanged"/>
                         </td>                                             
                     </tr>                                      
                     <tr>
@@ -142,37 +115,29 @@
                             <asp:TextBox ID="txtLimit" runat="server" Width="80px" CssClass="TextBoxAmt60"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td class="textlevel">
-                            Requested Amount :</td>
+                        <td class="textlevel">Requested Amount :</td>
                         <td>
                             <asp:TextBox ID="txtReqAmount" runat="server" Width="80px" 
                                 CssClass="TextBoxAmt60"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td class="textlevel">
-                            Approved Amount :</td>
+                        <td class="textlevel">Approved Amount :</td>
                         <td>
                             <asp:TextBox ID="txtApproveAmount" runat="server" Width="80px" 
                                 CssClass="TextBoxAmt60"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td class="textlevel">
-                            Remarks :</td>
-                        <td>
-                            <asp:TextBox ID="txtRemarks" runat="server" TextMode="MultiLine"></asp:TextBox></td>
+                        <td class="textlevel">Medical Items :</td>
+                        <td>                            
+                            <asp:DropDownList ID="ddlMedicalItems" runat="server" Width="200px" CssClass="textlevelleft"></asp:DropDownList>
+                        </td>
                     </tr>
                      <tr>
-                            <td class="textlevel">
-                               Nominee :</td>
+                            <td class="textlevel">Nominee :</td>
                             <td>
                                 <asp:DropDownList ID="ddlMedNominee" runat="server" Width="200px" CssClass="textlevelleft">
                         </asp:DropDownList></td>
                         </tr>
-                    <%--<tr><td class="textlevel">Nominee :</td>
-                        <td>
-                        <asp:TextBox ID="txtNominee" runat="server" 
-                                TextMode="MultiLine"></asp:TextBox></td>
-                    </tr>--%>
                 </table>
                 <asp:HiddenField ID="hfIsUpdate" runat="server" />
                 <asp:HiddenField ID="hfId" runat="server" />
@@ -228,7 +193,7 @@
                             <asp:BoundField DataField="ApproveAmount" HeaderText="Approve Amount">
                                 <ItemStyle CssClass="ItemStylecssRight" Width="10%"></ItemStyle>
                             </asp:BoundField>      
-                            <asp:BoundField DataField="Remarks" HeaderText="Remarks">
+                            <asp:BoundField DataField="Remarks" HeaderText="Medical Items">
                                 <ItemStyle CssClass="ItemStylecss" Width="15%"></ItemStyle>
                             </asp:BoundField>   
                             <asp:BoundField DataField="NomineeName" HeaderText="Nominee">
@@ -241,5 +206,4 @@
             </fieldset>
             </div>
     </div>
-
 </asp:Content>

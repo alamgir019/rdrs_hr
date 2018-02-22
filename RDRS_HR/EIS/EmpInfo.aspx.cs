@@ -155,7 +155,7 @@ public partial class EmpInfoSetup : System.Web.UI.Page
                 ddlSpecialSkill.SelectedValue.ToString(),
                 chkIsRelativeSC.Checked == true ? "Y" : "N",
                 ddlRelation.SelectedValue.ToString(),
-                chkIsSpectacled.Checked == true ? "Y" : "N",
+                //chkIsSpectacled.Checked == true ? "Y" : "N",
                 txtLicenseNo.Text.Trim(),
                 txtLicenseExpDate.Text.Trim(),
                 hfEmpImage.Value.ToString(),
@@ -377,7 +377,7 @@ public partial class EmpInfoSetup : System.Web.UI.Page
                     ddlHighestEdu.SelectedValue = Common.RetrieveddL(ddlHighestEdu, dRow["EduId"].ToString(), "99999");
                     ddlProffDegree.SelectedValue = Common.RetrieveddL(ddlProffDegree, dRow["ProffDegreeId"].ToString(), "99999");
                     ddlSpecialSkill.SelectedValue = Common.RetrieveddL(ddlSpecialSkill, dRow["SpecialSkillId"].ToString(), "99999");
-                    chkIsSpectacled.Checked = dRow["IsSpectacled"].ToString().Trim() == "Y" ? true : false;
+                    //chkIsSpectacled.Checked = dRow["IsSpectacled"].ToString().Trim() == "Y" ? true : false;
 
                     txtLicenseNo.Text = Common.CheckNullString(dRow["DrivingLicense"].ToString().Trim());
                     if (Common.CheckNullString(dRow["LicenseRenewDate"].ToString().Trim()) != "")

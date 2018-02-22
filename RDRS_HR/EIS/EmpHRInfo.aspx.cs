@@ -72,6 +72,7 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
             Common.FillDropDownList(objEmpInfoMgr.SelectBankList(), ddlBankName, "BankName", "BankCode", true, "Nil");
             this.GetTaskPermissionContract();
             Common.FillDropDownList_Nil(objMasMgr.SelectEmpType(0).Select("IsActive='Y'").CopyToDataTable(), ddlEmpType);
+            Common.FillDropDownList_Nil(objMasMgr.SelectEmpNature(0), ddlEmpNature);
             //if (string.IsNullOrEmpty(Session["HREMPID"].ToString()) == false)
             //{
             //    txtEmpID.Text = Session["HREMPID"].ToString().Trim();
@@ -255,6 +256,7 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
                     txtActionDate.Text = string.IsNullOrEmpty(dRow["ActionDate"].ToString()) == false ? Common.DisplayDate(dRow["ActionDate"].ToString()) : "";
                     txtActionName.Text = dRow["ActionName"].ToString().Trim();
                     txtWorkingDays.Text = dRow["WorkingDays"].ToString().Trim();
+                    txtSecurityMoney.Text = dRow["SecurityMoney"].ToString().Trim();
 
                     lnkEmpCV.Text = dRow["UploadCV"].ToString().Trim();
                     lnkEmpSignature.Text = dRow["EmpSignature"].ToString().Trim();
@@ -356,13 +358,13 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
                 cmdFind.Focus();
                 return false;
             }
-            if (ddlEmpType.SelectedIndex == 0)
+            if (ddlEmpType.SelectedIndex <= 0)
             {
                 lblMsg.Text = "Please select employee type.";
                 ddlEmpType.Focus();
                 return false;
             }
-            if (ddlEmpNature.SelectedIndex == 0)
+            if (ddlEmpNature.SelectedIndex <= 0)
             {
                 lblMsg.Text = "Please select employee Nature.";
                 ddlEmpNature.Focus();
@@ -584,6 +586,7 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
         obj.AppointType = ddlAppointType.SelectedValue.ToString();
         obj.GrossSalary = txtGross.Text.Trim();
         obj.OfficeTypeId = ddlOffType.SelectedValue.ToString();
+        obj.SecurityMoney =String.IsNullOrEmpty(txtSecurityMoney.Text.Trim())?0:Convert.ToDecimal(txtSecurityMoney.Text.Trim());
         return obj;
     }
 
@@ -832,10 +835,6 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
     //    }
     //    return true;
     //}
-    protected void ddlSalaryLoc_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
     protected void ddlDept_SelectedIndexChanged(object sender, EventArgs e)
     {
 

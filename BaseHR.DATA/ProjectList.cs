@@ -19,19 +19,8 @@ namespace BaseHR.DATA
         public string ProjectCode { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
-        public decimal WeekEndID { get; set; }
-        public string IncrementType { get; set; }
-        public decimal IncrementMonth { get; set; }
-        public decimal IncrementAfter { get; set; }
         public string IsPF { get; set; }
         public string IsGratuity { get; set; }
-        public string IsEOC { get; set; }
-        public string IsLE { get; set; }
-        public string IsInsurance { get; set; }
-        public string IsGSal { get; set; }
-        public string IsBSal { get; set; }
-        public string IsCore { get; set; }
-        public string IsProject { get; set; }
         public string IsActive { get; set; }
         public string IsDeleted { get; set; }
         public string InsertedBy { get; set; }

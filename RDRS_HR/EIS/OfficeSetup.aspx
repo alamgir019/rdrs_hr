@@ -116,21 +116,15 @@
                     <ContentTemplate>
                         <table>
                             <tr>
-                                <td class="textlevel">
-                                    Unit
-                                </td>
+                                <td class="textlevel">Intervention</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlUnitSearch" Width="200px" runat="server" CssClass="textlevelleft"
-                                        AutoPostBack="true" OnSelectedIndexChanged="ddlUnitSearch_SelectedIndexChanged">
+                                    <asp:DropDownList ID="ddlIntervention" Width="200px" runat="server" CssClass="textlevelleft"
+                                        AutoPostBack="true" OnSelectedIndexChanged="ddlIntervention_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </td>
-                                <td class="textlevel">
-                                    Office Type
-                                </td>
+                                <td class="textlevel">Office Type</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlOffTypeSearch" Width="200px" runat="server" CssClass="textlevelleft"
-                                        AutoPostBack="false">
-                                    </asp:DropDownList>
+                                    <asp:DropDownList ID="ddlOffTypeSearch" Width="200px" runat="server" CssClass="textlevelleft" AutoPostBack="false"></asp:DropDownList>
                                 </td>
                                 <td>
                                     <asp:Button ID="btnSearch" runat="server" Text="Search" Width="70px" UseSubmitBehavior="False"
@@ -155,7 +149,7 @@
                                     <asp:BoundField DataField="TypeName" HeaderText="Type">
                                         <ItemStyle CssClass="ItemStylecss" Width="15%"></ItemStyle>
                                     </asp:BoundField>
-                                    <asp:BoundField DataField="DivisionName" HeaderText="Unit">
+                                    <asp:BoundField DataField="DivisionName" HeaderText="Intervention">
                                         <ItemStyle CssClass="ItemStylecss" Width="20%"></ItemStyle>
                                     </asp:BoundField>
                                     <asp:BoundField DataField="ParentOffice" HeaderText="Parent Office">

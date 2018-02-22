@@ -23,7 +23,9 @@ public partial class EIS_MedicalBenefit : System.Web.UI.Page
         if (!IsPostBack)
         {
             Common.FillDropDownList(objPayMgr.SelectFiscalYear(0, "M"), ddlFiscalYr, "FISCALYRTITLE", "FISCALYRID", false);
-            Common.FillDropDownList_Nil(objMasMgr.SelectMedNominee(0, txtEmpID.Text.ToString().Trim()), ddlMedNominee);              
+            Common.FillDropDownList_Nil(objMasMgr.SelectMedNominee(0, txtEmpID.Text.ToString().Trim()), ddlMedNominee);
+            ddlMedicalItems.DataSource= Enum.GetNames(typeof(MedicalItems));
+            ddlMedicalItems.DataBind();
             this.EntryMode(false); 
         }
     }
@@ -62,8 +64,8 @@ public partial class EIS_MedicalBenefit : System.Web.UI.Page
             {
                 lblName.Text = dRow["FullName"].ToString();
                 lblJobTitle.Text = dRow["DesigName"].ToString().Trim();
-                lblCompany.Text = dRow["CompanyName"].ToString().Trim();
-                lblProject.Text = dRow["ProjectName"].ToString().Trim();
+                lblIntervention.Text = dRow["DivisionName"].ToString().Trim();
+                lblOffice.Text = dRow["OfficeTitle"].ToString().Trim();
                 lblDept.Text = dRow["DeptName"].ToString().Trim();
             }
             lblMedicalBalance.Text = objEmpMgr.SelectMedicalHospitalBalance(txtEmpID.Text.Trim(), ddlFiscalYr.SelectedValue.ToString(), "M");
@@ -100,7 +102,8 @@ public partial class EIS_MedicalBenefit : System.Web.UI.Page
         lblName.Text = "";
         lblJobTitle.Text = "";
         lblDept.Text = "";
-        lblCompany.Text = "";
+        lblIntervention.Text = "";
+        lblOffice.Text = "";
         Common.EmptyTextBoxValues(this);
         this.EntryMode(false);
         this.OpenRecord();
@@ -116,7 +119,7 @@ public partial class EIS_MedicalBenefit : System.Web.UI.Page
         txtLimit.Text = "";
         txtReqAmount.Text = "";
         txtApproveAmount.Text = "";       
-        txtRemarks.Text = "";
+        ddlMedicalItems.SelectedIndex = -1;
     } 
 
     protected bool ValidateAndSave()
@@ -171,13 +174,13 @@ public partial class EIS_MedicalBenefit : System.Web.UI.Page
                 hfId.Value = Common.getMaxId("MedicalBenefit", "BenefitId");
 
             objEmpMgr.InsertMedicalBenefit(hfId.Value.ToString(), txtEmpID.Text.Trim(), ddlFiscalYr.SelectedValue.ToString(), strBenefitType, chkIsSpHospital.Checked == true ? "Y" : "N",
-                 strMedicalDate,txtLimit.Text.Trim(), txtReqAmount.Text.Trim(), txtApproveAmount.Text.Trim(), txtRemarks.Text.Trim(), ddlMedNominee.SelectedValue.ToString().Trim(),
+                 strMedicalDate,txtLimit.Text.Trim(), txtReqAmount.Text.Trim(), txtApproveAmount.Text.Trim(), ddlMedicalItems.SelectedValue.Trim(), ddlMedNominee.SelectedValue.ToString().Trim(),
                 Session["USERID"].ToString(), Common.SetDateTime(DateTime.Now.ToString()), hfIsUpdate.Value.ToString(), strIsDelete);
 
             if (hfIsUpdate.Value == "N")
-                lblMsg.Text = "Record Saved Successfully";
+                lblMsg.Text = Common.GetMessage("I");
             else
-                lblMsg.Text = "Record Updated Successfully";
+                lblMsg.Text = Common.GetMessage("U");
             this.OpenRecord();
             this.EntryMode(false);
             this.ClearControl();
@@ -212,7 +215,7 @@ public partial class EIS_MedicalBenefit : System.Web.UI.Page
                 txtLimit.Text = Common.CheckNullString(grMBenefit.SelectedRow.Cells[4].Text.Trim());
                 txtReqAmount.Text = Common.CheckNullString(grMBenefit.SelectedRow.Cells[5].Text.Trim());
                 txtApproveAmount.Text = Common.CheckNullString(grMBenefit.SelectedRow.Cells[6].Text.Trim());
-                txtRemarks.Text = Common.CheckNullString(grMBenefit.SelectedRow.Cells[7].Text.Trim());
+                ddlMedicalItems.SelectedValue = String.IsNullOrEmpty(Common.CheckNullString(grMBenefit.SelectedRow.Cells[7].Text.Trim())) ? MedicalItems.NA.ToString() : grMBenefit.SelectedRow.Cells[7].Text.Trim();
                 if (grMBenefit.DataKeys[_gridView.SelectedIndex].Values[2].ToString() != "")
                     ddlMedNominee.SelectedValue = grMBenefit.DataKeys[_gridView.SelectedIndex].Values[2].ToString();             
                 this.EntryMode(true);
@@ -241,4 +244,12 @@ public partial class EIS_MedicalBenefit : System.Web.UI.Page
         else
             txtLimit.Text = ""; 
     }
+}
+
+public enum MedicalItems
+{
+    NA,
+    Item1,
+    Item2,
+    Item3
 }

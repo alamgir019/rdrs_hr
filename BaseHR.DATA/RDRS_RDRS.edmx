@@ -52,7 +52,6 @@
           <Property Name="MarriageDate" Type="datetime" />
           <Property Name="ProffDegreeId" Type="numeric" Precision="5" Scale="0" />
           <Property Name="SpecialSkillId" Type="numeric" Precision="5" Scale="0" />
-          <Property Name="IsSpectacled" Type="char" MaxLength="1" />
           <Property Name="DrivingLicense" Type="varchar" MaxLength="50" />
           <Property Name="LicenseRenewDate" Type="datetime" />
           <Property Name="IsRelativeInSC" Type="char" MaxLength="1" />
@@ -113,9 +112,7 @@
           <Property Name="SupervisorId" Type="varchar" MaxLength="50" />
           <Property Name="OtherBenefit" Type="varchar" MaxLength="100" />
           <Property Name="Remarks" Type="varchar" MaxLength="500" />
-          <Property Name="IsMedicalEntmnt" Type="char" MaxLength="1" />
           <Property Name="IsOTEntmnt" Type="char" MaxLength="1" />
-          <Property Name="IsChildEduAllow" Type="char" MaxLength="1" />
           <Property Name="EmpSignature" Type="varchar" MaxLength="50" />
           <Property Name="UploadCV" Type="varchar" MaxLength="50" />
           <Property Name="UploadDocument" Type="varchar" MaxLength="50" />
@@ -155,7 +152,6 @@
           <Property Name="PostingDistId" Type="numeric" Precision="5" Scale="0" />
           <Property Name="PostingPlaceId" Type="numeric" Precision="5" Scale="0" />
           <Property Name="AppointType" Type="char" MaxLength="1" />
-          <Property Name="SalSubLocId" Type="numeric" Precision="5" Scale="0" />
           <Property Name="PerDivID" Type="numeric" Precision="5" Scale="0" />
           <Property Name="PerUpzID" Type="numeric" Precision="5" Scale="0" />
           <Property Name="PerPSID" Type="numeric" Precision="5" Scale="0" />
@@ -171,6 +167,7 @@
           <Property Name="HighDegSubId" Type="numeric" Precision="5" Scale="0" />
           <Property Name="OldEmpId" Type="varchar" MaxLength="20" />
           <Property Name="ThematicId" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="SecurityMoney" Type="numeric" Precision="12" Scale="2" />
         </EntityType>
         <EntityType Name="EmpLeaveCTOEntitleLog">
           <Key>
@@ -300,19 +297,8 @@
           <Property Name="ProjectCode" Type="varchar" MaxLength="100" />
           <Property Name="StartDate" Type="datetime" />
           <Property Name="EndDate" Type="datetime" />
-          <Property Name="WeekEndID" Type="numeric" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="IncrementType" Type="varchar" MaxLength="15" />
-          <Property Name="IncrementMonth" Type="numeric" Precision="2" Scale="0" Nullable="false" />
-          <Property Name="IncrementAfter" Type="numeric" Precision="2" Scale="0" Nullable="false" />
           <Property Name="IsPF" Type="char" MaxLength="1" />
           <Property Name="IsGratuity" Type="char" MaxLength="1" />
-          <Property Name="IsEOC" Type="char" MaxLength="1" />
-          <Property Name="IsLE" Type="char" MaxLength="1" />
-          <Property Name="IsInsurance" Type="char" MaxLength="1" />
-          <Property Name="IsGSal" Type="char" MaxLength="1" />
-          <Property Name="IsBSal" Type="char" MaxLength="1" />
-          <Property Name="IsCore" Type="char" MaxLength="1" />
-          <Property Name="IsProject" Type="char" MaxLength="1" />
           <Property Name="IsActive" Type="char" MaxLength="1" />
           <Property Name="IsDeleted" Type="char" MaxLength="1" />
           <Property Name="InsertedBy" Type="varchar" MaxLength="40" />
@@ -548,161 +534,6 @@
           <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="UserPrivs" Relationship="Self.FK_UserPrivs_DivisionList" FromRole="DivisionList" ToRole="UserPrivs" />
         </EntityType>
-        <EntityType Name="EmpInfo">
-          <Key>
-            <PropertyRef Name="EmpId" />
-          </Key>
-          <Property Name="EmpId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="MiddleName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Gender" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="ReligionId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="BloodGroupId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="DOB" Type="DateTime" Precision="3" />
-          <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MotherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PreAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="PrePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PreFax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PerAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="PerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PerFax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PerDistrictID" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="PerCountryID" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="OfficeExt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="OfficeEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PersonalEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MailingAddrs" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="MaritalStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="MarriageDate" Type="DateTime" Precision="3" />
-          <Property Name="ProffDegreeId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="SpecialSkillId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="IsSpectacled" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="DrivingLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LicenseRenewDate" Type="DateTime" Precision="3" />
-          <Property Name="IsRelativeInSC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="RelationId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="TINNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="PassportNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="PassExpDate" Type="DateTime" Precision="3" />
-          <Property Name="Circle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PassportIssueOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="NationalId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DOBId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="SkypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CellPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LandPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="BMDCRegNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="BMDCRegDate" Type="DateTime" Precision="3" />
-          <Property Name="IsMedical" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Nature" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="EmpTypeID" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="DivisionId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="OfficeId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="ProjectID" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="GradeId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="GradeLevelId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="JobTitleId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="DesigId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="DeptId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="ContractPurpose" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="WorkArea" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="SalLocId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="BasicSalary" Type="Decimal" Precision="12" Scale="2" />
-          <Property Name="GrossSalary" Type="Decimal" Precision="12" Scale="2" />
-          <Property Name="BonusPakId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="AttnPolicyID" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="LeavePakId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="JoiningDate" Type="DateTime" Precision="3" />
-          <Property Name="ProbationPeriod" Type="Decimal" Precision="3" Scale="0" />
-          <Property Name="ContractInterval" Type="Decimal" Precision="2" Scale="0" />
-          <Property Name="ContractEndDate" Type="DateTime" Precision="3" />
-          <Property Name="ConfirmationDate" Type="DateTime" Precision="3" />
-          <Property Name="IsServiceAgrmnt" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="ServiceStartDate" Type="DateTime" Precision="3" />
-          <Property Name="ServiceEndDate" Type="DateTime" Precision="3" />
-          <Property Name="WorkAreaType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="IsSeveranceBenefit" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="SeveranceId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SeveranceReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="RetirementDate" Type="DateTime" Precision="3" />
-          <Property Name="EmpStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="SeparateTypeId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="SeparateDate" Type="DateTime" Precision="3" />
-          <Property Name="SeparateReason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="BankCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="RoutingNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="BankAccNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SupervisorId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="OtherBenefit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="IsMedicalEntmnt" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="IsOTEntmnt" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="IsChildEduAllow" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="EmpSignature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UploadCV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UploadDocument" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="PostingDate" Type="DateTime" Precision="3" />
-          <Property Name="DateInPosition" Type="DateTime" Precision="3" />
-          <Property Name="DateInGrade" Type="DateTime" Precision="3" />
-          <Property Name="ActionDate" Type="DateTime" Precision="3" />
-          <Property Name="SalPakId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="MPCId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="IsPayrollStaff" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="EmpPicLoc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ActionId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="InsertedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="AddResponseEndDate" Type="DateTime" Precision="3" />
-          <Property Name="WeekendId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="CardNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="IsRoaster" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="WorkingDays" Type="Decimal" Precision="2" Scale="0" />
-          <Property Name="EduId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="IsNotRehirable" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="NotRehireReason" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="EmpImage" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="EmpSignImage" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="RelativeInfo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="EmpNatureId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="Asset" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="SectorId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="UnitId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="ComponentId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="PosFuncId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="PostingDivId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="PostingDistId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="PostingPlaceId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="AppointType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="SalSubLocId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="PerDivID" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="PerUpzID" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="PerPSID" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="PreDivID" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="PreDistrictID" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="PreUpzID" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="PrePSID" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="HighDegSub" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="SSMMRNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LeaveSupervisorId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="OfficeTypeID" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="SpouseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="HighDegSubId" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="OldEmpId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ThematicId" Type="Decimal" Precision="5" Scale="0" />
-          <NavigationProperty Name="EmpInfo1" Relationship="Self.FK_EmpInfo_EmpInfo" FromRole="EmpInfo" ToRole="EmpInfo1" />
-          <NavigationProperty Name="EmpInfo2" Relationship="Self.FK_EmpInfo_EmpInfo" FromRole="EmpInfo1" ToRole="EmpInfo" />
-          <NavigationProperty Name="EmpLeaveProfiles" Relationship="RDRS_RDRSModel.FK_EmpLeaveProfile_EmpInfo" FromRole="EmpInfo" ToRole="EmpLeaveProfile" />
-        </EntityType>
         <EntityType Name="EmpLeaveCTOEntitleLog">
           <Key>
             <PropertyRef Name="LogId" />
@@ -795,37 +626,6 @@
           <NavigationProperty Name="OfficeList1" Relationship="Self.FK_OfficeList_OfficeList" FromRole="OfficeList" ToRole="OfficeList1" />
           <NavigationProperty Name="OfficeList2" Relationship="Self.FK_OfficeList_OfficeList" FromRole="OfficeList1" ToRole="OfficeList" />
         </EntityType>
-        <EntityType Name="ProjectList">
-          <Key>
-            <PropertyRef Name="ProjectId" />
-          </Key>
-          <Property Name="ProjectId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="ProjectName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="ProjectCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="StartDate" Type="DateTime" Precision="3" />
-          <Property Name="EndDate" Type="DateTime" Precision="3" />
-          <Property Name="WeekEndID" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="IncrementType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="IncrementMonth" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
-          <Property Name="IncrementAfter" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
-          <Property Name="IsPF" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="IsGratuity" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="IsEOC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="IsLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="IsInsurance" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="IsGSal" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="IsBSal" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="IsCore" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="IsProject" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="InsertedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="ShortName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="SectorList">
           <Key>
             <PropertyRef Name="SectorId" />
@@ -915,18 +715,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EmpInfo_EmpInfo">
-          <End Role="EmpInfo" Type="Self.EmpInfo" Multiplicity="1" />
-          <End Role="EmpInfo1" Type="Self.EmpInfo" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="EmpInfo">
-              <PropertyRef Name="EmpId" />
-            </Principal>
-            <Dependent Role="EmpInfo1">
-              <PropertyRef Name="EmpId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__EmpLeaveC__LType__14A88507">
           <End Role="LeaveTypeList" Type="Self.LeaveTypeList" Multiplicity="0..1" />
           <End Role="EmpLeaveCTOEntitleLog" Type="Self.EmpLeaveCTOEntitleLog" Multiplicity="*" />
@@ -965,12 +753,10 @@
         </Association>
         <EntityContainer Name="RDRS_RDRSEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="DivisionLists" EntityType="Self.DivisionList" />
-          <EntitySet Name="EmpInfoes" EntityType="Self.EmpInfo" />
           <EntitySet Name="EmpLeaveCTOEntitleLogs" EntityType="Self.EmpLeaveCTOEntitleLog" />
           <EntitySet Name="GradeLists" EntityType="Self.GradeList" />
           <EntitySet Name="LeaveTypeLists" EntityType="Self.LeaveTypeList" />
           <EntitySet Name="OfficeLists" EntityType="Self.OfficeList" />
-          <EntitySet Name="ProjectLists" EntityType="Self.ProjectList" />
           <EntitySet Name="SectorLists" EntityType="Self.SectorList" />
           <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
           <EntitySet Name="UserPrivs" EntityType="Self.UserPriv" />
@@ -978,10 +764,6 @@
           <AssociationSet Name="FK_UserPrivs_DivisionList" Association="Self.FK_UserPrivs_DivisionList">
             <End Role="DivisionList" EntitySet="DivisionLists" />
             <End Role="UserPrivs" EntitySet="UserPrivs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmpInfo_EmpInfo" Association="Self.FK_EmpInfo_EmpInfo">
-            <End Role="EmpInfo" EntitySet="EmpInfoes" />
-            <End Role="EmpInfo1" EntitySet="EmpInfoes" />
           </AssociationSet>
           <AssociationSet Name="FK__EmpLeaveC__LType__14A88507" Association="Self.FK__EmpLeaveC__LType__14A88507">
             <End Role="LeaveTypeList" EntitySet="LeaveTypeLists" />
@@ -999,15 +781,21 @@
           <Parameter Name="EmpId" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="EmpLeaveProfiles" EntityType="RDRS_RDRSModel.EmpLeaveProfile" />
-          <AssociationSet Name="FK_EmpLeaveProfile_EmpInfo" Association="RDRS_RDRSModel.FK_EmpLeaveProfile_EmpInfo">
-            <End Role="EmpInfo" EntitySet="EmpInfoes" />
-            <End Role="EmpLeaveProfile" EntitySet="EmpLeaveProfiles" />
-          </AssociationSet>
           <AssociationSet Name="FK_EmpLeaveProfile_LeaveTypeList" Association="RDRS_RDRSModel.FK_EmpLeaveProfile_LeaveTypeList">
             <End Role="LeaveTypeList" EntitySet="LeaveTypeLists" />
             <End Role="EmpLeaveProfile" EntitySet="EmpLeaveProfiles" />
           </AssociationSet>
           <EntitySet Name="LeavePlans" EntityType="RDRS_RDRSModel.LeavePlan" />
+          <EntitySet Name="EmpInfoes" EntityType="RDRS_RDRSModel.EmpInfo" />
+          <AssociationSet Name="FK_EmpInfo_EmpInfo" Association="RDRS_RDRSModel.FK_EmpInfo_EmpInfo">
+            <End Role="EmpInfo" EntitySet="EmpInfoes" />
+            <End Role="EmpInfo1" EntitySet="EmpInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpLeaveProfile_EmpInfo" Association="RDRS_RDRSModel.FK_EmpLeaveProfile_EmpInfo">
+            <End Role="EmpInfo" EntitySet="EmpInfoes" />
+            <End Role="EmpLeaveProfile" EntitySet="EmpLeaveProfiles" />
+          </AssociationSet>
+          <EntitySet Name="ProjectLists" EntityType="RDRS_RDRSModel.ProjectList" />
         </EntityContainer>
         <ComplexType Name="proc_select_EmpInfo_Result">
           <Property Type="String" Name="EmpId" Nullable="false" MaxLength="20" />
@@ -1188,23 +976,9 @@
           <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="lvOpening" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="lvPrevYearCarry" Type="Decimal" Precision="5" Scale="0" />
-          <NavigationProperty Name="EmpInfo" Relationship="RDRS_RDRSModel.FK_EmpLeaveProfile_EmpInfo" FromRole="EmpLeaveProfile" ToRole="EmpInfo" />
           <NavigationProperty Name="LeaveTypeList" Relationship="RDRS_RDRSModel.FK_EmpLeaveProfile_LeaveTypeList" FromRole="EmpLeaveProfile" ToRole="LeaveTypeList" />
+          <NavigationProperty Name="EmpInfo" Relationship="RDRS_RDRSModel.FK_EmpLeaveProfile_EmpInfo" FromRole="EmpLeaveProfile" ToRole="EmpInfo" />
         </EntityType>
-        <Association Name="FK_EmpLeaveProfile_EmpInfo">
-          <End Type="RDRS_RDRSModel.EmpInfo" Role="EmpInfo" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="RDRS_RDRSModel.EmpLeaveProfile" Role="EmpLeaveProfile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmpInfo">
-              <PropertyRef Name="EmpId" />
-            </Principal>
-            <Dependent Role="EmpLeaveProfile">
-              <PropertyRef Name="EmpId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_EmpLeaveProfile_LeaveTypeList">
           <End Type="RDRS_RDRSModel.LeaveTypeList" Role="LeaveTypeList" Multiplicity="1" />
           <End Type="RDRS_RDRSModel.EmpLeaveProfile" Role="EmpLeaveProfile" Multiplicity="*" />
@@ -1229,6 +1003,204 @@
           <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="EmpId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="EmpInfo">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ReligionId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="BloodGroupId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MotherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PreAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PrePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PreFax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PerAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PerFax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PerDistrictID" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="PerCountryID" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="OfficeExt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OfficeEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PersonalEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MailingAddrs" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MarriageDate" Type="DateTime" Precision="3" />
+          <Property Name="ProffDegreeId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="SpecialSkillId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="DrivingLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseRenewDate" Type="DateTime" Precision="3" />
+          <Property Name="IsRelativeInSC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="RelationId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="TINNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PassportNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PassExpDate" Type="DateTime" Precision="3" />
+          <Property Name="Circle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PassportIssueOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NationalId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOBId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SkypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CellPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LandPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BMDCRegNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BMDCRegDate" Type="DateTime" Precision="3" />
+          <Property Name="IsMedical" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Nature" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="EmpTypeID" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="DivisionId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="OfficeId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="ProjectID" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="GradeId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="GradeLevelId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="JobTitleId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="DesigId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="DeptId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="ContractPurpose" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="WorkArea" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SalLocId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="BasicSalary" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="GrossSalary" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="BonusPakId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="AttnPolicyID" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="LeavePakId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="JoiningDate" Type="DateTime" Precision="3" />
+          <Property Name="ProbationPeriod" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="ContractInterval" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="ContractEndDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationDate" Type="DateTime" Precision="3" />
+          <Property Name="IsServiceAgrmnt" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ServiceStartDate" Type="DateTime" Precision="3" />
+          <Property Name="ServiceEndDate" Type="DateTime" Precision="3" />
+          <Property Name="WorkAreaType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsSeveranceBenefit" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="SeveranceId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SeveranceReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RetirementDate" Type="DateTime" Precision="3" />
+          <Property Name="EmpStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="SeparateTypeId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="SeparateDate" Type="DateTime" Precision="3" />
+          <Property Name="SeparateReason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BankCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="RoutingNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BankAccNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupervisorId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OtherBenefit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsOTEntmnt" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="EmpSignature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UploadCV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UploadDocument" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PostingDate" Type="DateTime" Precision="3" />
+          <Property Name="DateInPosition" Type="DateTime" Precision="3" />
+          <Property Name="DateInGrade" Type="DateTime" Precision="3" />
+          <Property Name="ActionDate" Type="DateTime" Precision="3" />
+          <Property Name="SalPakId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="MPCId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="IsPayrollStaff" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="EmpPicLoc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ActionId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="AddResponseEndDate" Type="DateTime" Precision="3" />
+          <Property Name="WeekendId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="CardNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsRoaster" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="WorkingDays" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="EduId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="IsNotRehirable" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NotRehireReason" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="EmpImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="EmpSignImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="RelativeInfo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="EmpNatureId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="Asset" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="SectorId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="UnitId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="ComponentId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="PosFuncId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="PostingDivId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="PostingDistId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="PostingPlaceId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="AppointType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PerDivID" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="PerUpzID" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="PerPSID" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="PreDivID" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="PreDistrictID" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="PreUpzID" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="PrePSID" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="HighDegSub" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SSMMRNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LeaveSupervisorId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="OfficeTypeID" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="SpouseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HighDegSubId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="OldEmpId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ThematicId" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="SecurityMoney" Type="Decimal" Precision="12" Scale="2" />
+          <NavigationProperty Name="EmpInfo1" Relationship="RDRS_RDRSModel.FK_EmpInfo_EmpInfo" FromRole="EmpInfo" ToRole="EmpInfo1" />
+          <NavigationProperty Name="EmpInfo2" Relationship="RDRS_RDRSModel.FK_EmpInfo_EmpInfo" FromRole="EmpInfo1" ToRole="EmpInfo" />
+          <NavigationProperty Name="EmpLeaveProfiles" Relationship="RDRS_RDRSModel.FK_EmpLeaveProfile_EmpInfo" FromRole="EmpInfo" ToRole="EmpLeaveProfile" />
+        </EntityType>
+        <Association Name="FK_EmpInfo_EmpInfo">
+          <End Type="RDRS_RDRSModel.EmpInfo" Role="EmpInfo" Multiplicity="1" />
+          <End Type="RDRS_RDRSModel.EmpInfo" Role="EmpInfo1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EmpInfo">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="EmpInfo1">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpLeaveProfile_EmpInfo">
+          <End Type="RDRS_RDRSModel.EmpInfo" Role="EmpInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="RDRS_RDRSModel.EmpLeaveProfile" Role="EmpLeaveProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmpInfo">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="EmpLeaveProfile">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ProjectList">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="ProjectName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="IsPF" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsGratuity" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ShortName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1248,159 +1220,6 @@
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EmpInfoes">
-            <EntityTypeMapping TypeName="RDRS_RDRSModel.EmpInfo">
-              <MappingFragment StoreEntitySet="EmpInfo">
-                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
-                <ScalarProperty Name="BloodGroupId" ColumnName="BloodGroupId" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
-                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
-                <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
-                <ScalarProperty Name="PrePhone" ColumnName="PrePhone" />
-                <ScalarProperty Name="PreFax" ColumnName="PreFax" />
-                <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
-                <ScalarProperty Name="PerPhone" ColumnName="PerPhone" />
-                <ScalarProperty Name="PerFax" ColumnName="PerFax" />
-                <ScalarProperty Name="PerDistrictID" ColumnName="PerDistrictID" />
-                <ScalarProperty Name="PerCountryID" ColumnName="PerCountryID" />
-                <ScalarProperty Name="OfficeExt" ColumnName="OfficeExt" />
-                <ScalarProperty Name="OfficeEmail" ColumnName="OfficeEmail" />
-                <ScalarProperty Name="PersonalEmail" ColumnName="PersonalEmail" />
-                <ScalarProperty Name="MailingAddrs" ColumnName="MailingAddrs" />
-                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
-                <ScalarProperty Name="MarriageDate" ColumnName="MarriageDate" />
-                <ScalarProperty Name="ProffDegreeId" ColumnName="ProffDegreeId" />
-                <ScalarProperty Name="SpecialSkillId" ColumnName="SpecialSkillId" />
-                <ScalarProperty Name="IsSpectacled" ColumnName="IsSpectacled" />
-                <ScalarProperty Name="DrivingLicense" ColumnName="DrivingLicense" />
-                <ScalarProperty Name="LicenseRenewDate" ColumnName="LicenseRenewDate" />
-                <ScalarProperty Name="IsRelativeInSC" ColumnName="IsRelativeInSC" />
-                <ScalarProperty Name="RelationId" ColumnName="RelationId" />
-                <ScalarProperty Name="TINNo" ColumnName="TINNo" />
-                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
-                <ScalarProperty Name="PassExpDate" ColumnName="PassExpDate" />
-                <ScalarProperty Name="Circle" ColumnName="Circle" />
-                <ScalarProperty Name="Zone" ColumnName="Zone" />
-                <ScalarProperty Name="PassportIssueOffice" ColumnName="PassportIssueOffice" />
-                <ScalarProperty Name="NationalId" ColumnName="NationalId" />
-                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
-                <ScalarProperty Name="DOBId" ColumnName="DOBId" />
-                <ScalarProperty Name="SkypeId" ColumnName="SkypeId" />
-                <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
-                <ScalarProperty Name="LandPhone" ColumnName="LandPhone" />
-                <ScalarProperty Name="BMDCRegNo" ColumnName="BMDCRegNo" />
-                <ScalarProperty Name="BMDCRegDate" ColumnName="BMDCRegDate" />
-                <ScalarProperty Name="IsMedical" ColumnName="IsMedical" />
-                <ScalarProperty Name="Nature" ColumnName="Nature" />
-                <ScalarProperty Name="EmpTypeID" ColumnName="EmpTypeID" />
-                <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
-                <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
-                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
-                <ScalarProperty Name="GradeId" ColumnName="GradeId" />
-                <ScalarProperty Name="GradeLevelId" ColumnName="GradeLevelId" />
-                <ScalarProperty Name="JobTitleId" ColumnName="JobTitleId" />
-                <ScalarProperty Name="DesigId" ColumnName="DesigId" />
-                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
-                <ScalarProperty Name="ContractPurpose" ColumnName="ContractPurpose" />
-                <ScalarProperty Name="WorkArea" ColumnName="WorkArea" />
-                <ScalarProperty Name="SalLocId" ColumnName="SalLocId" />
-                <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
-                <ScalarProperty Name="GrossSalary" ColumnName="GrossSalary" />
-                <ScalarProperty Name="BonusPakId" ColumnName="BonusPakId" />
-                <ScalarProperty Name="AttnPolicyID" ColumnName="AttnPolicyID" />
-                <ScalarProperty Name="LeavePakId" ColumnName="LeavePakId" />
-                <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
-                <ScalarProperty Name="ProbationPeriod" ColumnName="ProbationPeriod" />
-                <ScalarProperty Name="ContractInterval" ColumnName="ContractInterval" />
-                <ScalarProperty Name="ContractEndDate" ColumnName="ContractEndDate" />
-                <ScalarProperty Name="ConfirmationDate" ColumnName="ConfirmationDate" />
-                <ScalarProperty Name="IsServiceAgrmnt" ColumnName="IsServiceAgrmnt" />
-                <ScalarProperty Name="ServiceStartDate" ColumnName="ServiceStartDate" />
-                <ScalarProperty Name="ServiceEndDate" ColumnName="ServiceEndDate" />
-                <ScalarProperty Name="WorkAreaType" ColumnName="WorkAreaType" />
-                <ScalarProperty Name="IsSeveranceBenefit" ColumnName="IsSeveranceBenefit" />
-                <ScalarProperty Name="SeveranceId" ColumnName="SeveranceId" />
-                <ScalarProperty Name="SeveranceReason" ColumnName="SeveranceReason" />
-                <ScalarProperty Name="RetirementDate" ColumnName="RetirementDate" />
-                <ScalarProperty Name="EmpStatus" ColumnName="EmpStatus" />
-                <ScalarProperty Name="SeparateTypeId" ColumnName="SeparateTypeId" />
-                <ScalarProperty Name="SeparateDate" ColumnName="SeparateDate" />
-                <ScalarProperty Name="SeparateReason" ColumnName="SeparateReason" />
-                <ScalarProperty Name="BankCode" ColumnName="BankCode" />
-                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
-                <ScalarProperty Name="BankAccNo" ColumnName="BankAccNo" />
-                <ScalarProperty Name="SupervisorId" ColumnName="SupervisorId" />
-                <ScalarProperty Name="OtherBenefit" ColumnName="OtherBenefit" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="IsMedicalEntmnt" ColumnName="IsMedicalEntmnt" />
-                <ScalarProperty Name="IsOTEntmnt" ColumnName="IsOTEntmnt" />
-                <ScalarProperty Name="IsChildEduAllow" ColumnName="IsChildEduAllow" />
-                <ScalarProperty Name="EmpSignature" ColumnName="EmpSignature" />
-                <ScalarProperty Name="UploadCV" ColumnName="UploadCV" />
-                <ScalarProperty Name="UploadDocument" ColumnName="UploadDocument" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="PostingDate" ColumnName="PostingDate" />
-                <ScalarProperty Name="DateInPosition" ColumnName="DateInPosition" />
-                <ScalarProperty Name="DateInGrade" ColumnName="DateInGrade" />
-                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
-                <ScalarProperty Name="SalPakId" ColumnName="SalPakId" />
-                <ScalarProperty Name="MPCId" ColumnName="MPCId" />
-                <ScalarProperty Name="IsPayrollStaff" ColumnName="IsPayrollStaff" />
-                <ScalarProperty Name="EmpPicLoc" ColumnName="EmpPicLoc" />
-                <ScalarProperty Name="ActionId" ColumnName="ActionId" />
-                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
-                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
-                <ScalarProperty Name="AddResponseEndDate" ColumnName="AddResponseEndDate" />
-                <ScalarProperty Name="WeekendId" ColumnName="WeekendId" />
-                <ScalarProperty Name="CardNo" ColumnName="CardNo" />
-                <ScalarProperty Name="IsRoaster" ColumnName="IsRoaster" />
-                <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
-                <ScalarProperty Name="EduId" ColumnName="EduId" />
-                <ScalarProperty Name="IsNotRehirable" ColumnName="IsNotRehirable" />
-                <ScalarProperty Name="NotRehireReason" ColumnName="NotRehireReason" />
-                <ScalarProperty Name="EmpImage" ColumnName="EmpImage" />
-                <ScalarProperty Name="EmpSignImage" ColumnName="EmpSignImage" />
-                <ScalarProperty Name="RelativeInfo" ColumnName="RelativeInfo" />
-                <ScalarProperty Name="EmpNatureId" ColumnName="EmpNatureId" />
-                <ScalarProperty Name="Asset" ColumnName="Asset" />
-                <ScalarProperty Name="SectorId" ColumnName="SectorId" />
-                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
-                <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
-                <ScalarProperty Name="PosFuncId" ColumnName="PosFuncId" />
-                <ScalarProperty Name="PostingDivId" ColumnName="PostingDivId" />
-                <ScalarProperty Name="PostingDistId" ColumnName="PostingDistId" />
-                <ScalarProperty Name="PostingPlaceId" ColumnName="PostingPlaceId" />
-                <ScalarProperty Name="AppointType" ColumnName="AppointType" />
-                <ScalarProperty Name="SalSubLocId" ColumnName="SalSubLocId" />
-                <ScalarProperty Name="PerDivID" ColumnName="PerDivID" />
-                <ScalarProperty Name="PerUpzID" ColumnName="PerUpzID" />
-                <ScalarProperty Name="PerPSID" ColumnName="PerPSID" />
-                <ScalarProperty Name="PreDivID" ColumnName="PreDivID" />
-                <ScalarProperty Name="PreDistrictID" ColumnName="PreDistrictID" />
-                <ScalarProperty Name="PreUpzID" ColumnName="PreUpzID" />
-                <ScalarProperty Name="PrePSID" ColumnName="PrePSID" />
-                <ScalarProperty Name="HighDegSub" ColumnName="HighDegSub" />
-                <ScalarProperty Name="SSMMRNo" ColumnName="SSMMRNo" />
-                <ScalarProperty Name="LeaveSupervisorId" ColumnName="LeaveSupervisorId" />
-                <ScalarProperty Name="OfficeTypeID" ColumnName="OfficeTypeID" />
-                <ScalarProperty Name="SpouseName" ColumnName="SpouseName" />
-                <ScalarProperty Name="HighDegSubId" ColumnName="HighDegSubId" />
-                <ScalarProperty Name="OldEmpId" ColumnName="OldEmpId" />
-                <ScalarProperty Name="ThematicId" ColumnName="ThematicId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1492,38 +1311,6 @@
                 <ScalarProperty Name="DistID" ColumnName="DistID" />
                 <ScalarProperty Name="UpzID" ColumnName="UpzID" />
                 <ScalarProperty Name="IsPayLoc" ColumnName="IsPayLoc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProjectLists">
-            <EntityTypeMapping TypeName="RDRS_RDRSModel.ProjectList">
-              <MappingFragment StoreEntitySet="ProjectList">
-                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
-                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
-                <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-                <ScalarProperty Name="WeekEndID" ColumnName="WeekEndID" />
-                <ScalarProperty Name="IncrementType" ColumnName="IncrementType" />
-                <ScalarProperty Name="IncrementMonth" ColumnName="IncrementMonth" />
-                <ScalarProperty Name="IncrementAfter" ColumnName="IncrementAfter" />
-                <ScalarProperty Name="IsPF" ColumnName="IsPF" />
-                <ScalarProperty Name="IsGratuity" ColumnName="IsGratuity" />
-                <ScalarProperty Name="IsEOC" ColumnName="IsEOC" />
-                <ScalarProperty Name="IsLE" ColumnName="IsLE" />
-                <ScalarProperty Name="IsInsurance" ColumnName="IsInsurance" />
-                <ScalarProperty Name="IsGSal" ColumnName="IsGSal" />
-                <ScalarProperty Name="IsBSal" ColumnName="IsBSal" />
-                <ScalarProperty Name="IsCore" ColumnName="IsCore" />
-                <ScalarProperty Name="IsProject" ColumnName="IsProject" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
-                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
-                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1799,6 +1586,177 @@
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
                 <ScalarProperty Name="LTypeId" ColumnName="LTypeId" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpInfoes">
+            <EntityTypeMapping TypeName="RDRS_RDRSModel.EmpInfo">
+              <MappingFragment StoreEntitySet="EmpInfo">
+                <ScalarProperty Name="SecurityMoney" ColumnName="SecurityMoney" />
+                <ScalarProperty Name="ThematicId" ColumnName="ThematicId" />
+                <ScalarProperty Name="OldEmpId" ColumnName="OldEmpId" />
+                <ScalarProperty Name="HighDegSubId" ColumnName="HighDegSubId" />
+                <ScalarProperty Name="SpouseName" ColumnName="SpouseName" />
+                <ScalarProperty Name="OfficeTypeID" ColumnName="OfficeTypeID" />
+                <ScalarProperty Name="LeaveSupervisorId" ColumnName="LeaveSupervisorId" />
+                <ScalarProperty Name="SSMMRNo" ColumnName="SSMMRNo" />
+                <ScalarProperty Name="HighDegSub" ColumnName="HighDegSub" />
+                <ScalarProperty Name="PrePSID" ColumnName="PrePSID" />
+                <ScalarProperty Name="PreUpzID" ColumnName="PreUpzID" />
+                <ScalarProperty Name="PreDistrictID" ColumnName="PreDistrictID" />
+                <ScalarProperty Name="PreDivID" ColumnName="PreDivID" />
+                <ScalarProperty Name="PerPSID" ColumnName="PerPSID" />
+                <ScalarProperty Name="PerUpzID" ColumnName="PerUpzID" />
+                <ScalarProperty Name="PerDivID" ColumnName="PerDivID" />
+                <ScalarProperty Name="AppointType" ColumnName="AppointType" />
+                <ScalarProperty Name="PostingPlaceId" ColumnName="PostingPlaceId" />
+                <ScalarProperty Name="PostingDistId" ColumnName="PostingDistId" />
+                <ScalarProperty Name="PostingDivId" ColumnName="PostingDivId" />
+                <ScalarProperty Name="PosFuncId" ColumnName="PosFuncId" />
+                <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+                <ScalarProperty Name="Asset" ColumnName="Asset" />
+                <ScalarProperty Name="EmpNatureId" ColumnName="EmpNatureId" />
+                <ScalarProperty Name="RelativeInfo" ColumnName="RelativeInfo" />
+                <ScalarProperty Name="EmpSignImage" ColumnName="EmpSignImage" />
+                <ScalarProperty Name="EmpImage" ColumnName="EmpImage" />
+                <ScalarProperty Name="NotRehireReason" ColumnName="NotRehireReason" />
+                <ScalarProperty Name="IsNotRehirable" ColumnName="IsNotRehirable" />
+                <ScalarProperty Name="EduId" ColumnName="EduId" />
+                <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+                <ScalarProperty Name="IsRoaster" ColumnName="IsRoaster" />
+                <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+                <ScalarProperty Name="WeekendId" ColumnName="WeekendId" />
+                <ScalarProperty Name="AddResponseEndDate" ColumnName="AddResponseEndDate" />
+                <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+                <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+                <ScalarProperty Name="EmpPicLoc" ColumnName="EmpPicLoc" />
+                <ScalarProperty Name="IsPayrollStaff" ColumnName="IsPayrollStaff" />
+                <ScalarProperty Name="MPCId" ColumnName="MPCId" />
+                <ScalarProperty Name="SalPakId" ColumnName="SalPakId" />
+                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+                <ScalarProperty Name="DateInGrade" ColumnName="DateInGrade" />
+                <ScalarProperty Name="DateInPosition" ColumnName="DateInPosition" />
+                <ScalarProperty Name="PostingDate" ColumnName="PostingDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UploadDocument" ColumnName="UploadDocument" />
+                <ScalarProperty Name="UploadCV" ColumnName="UploadCV" />
+                <ScalarProperty Name="EmpSignature" ColumnName="EmpSignature" />
+                <ScalarProperty Name="IsOTEntmnt" ColumnName="IsOTEntmnt" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="OtherBenefit" ColumnName="OtherBenefit" />
+                <ScalarProperty Name="SupervisorId" ColumnName="SupervisorId" />
+                <ScalarProperty Name="BankAccNo" ColumnName="BankAccNo" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="BankCode" ColumnName="BankCode" />
+                <ScalarProperty Name="SeparateReason" ColumnName="SeparateReason" />
+                <ScalarProperty Name="SeparateDate" ColumnName="SeparateDate" />
+                <ScalarProperty Name="SeparateTypeId" ColumnName="SeparateTypeId" />
+                <ScalarProperty Name="EmpStatus" ColumnName="EmpStatus" />
+                <ScalarProperty Name="RetirementDate" ColumnName="RetirementDate" />
+                <ScalarProperty Name="SeveranceReason" ColumnName="SeveranceReason" />
+                <ScalarProperty Name="SeveranceId" ColumnName="SeveranceId" />
+                <ScalarProperty Name="IsSeveranceBenefit" ColumnName="IsSeveranceBenefit" />
+                <ScalarProperty Name="WorkAreaType" ColumnName="WorkAreaType" />
+                <ScalarProperty Name="ServiceEndDate" ColumnName="ServiceEndDate" />
+                <ScalarProperty Name="ServiceStartDate" ColumnName="ServiceStartDate" />
+                <ScalarProperty Name="IsServiceAgrmnt" ColumnName="IsServiceAgrmnt" />
+                <ScalarProperty Name="ConfirmationDate" ColumnName="ConfirmationDate" />
+                <ScalarProperty Name="ContractEndDate" ColumnName="ContractEndDate" />
+                <ScalarProperty Name="ContractInterval" ColumnName="ContractInterval" />
+                <ScalarProperty Name="ProbationPeriod" ColumnName="ProbationPeriod" />
+                <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+                <ScalarProperty Name="LeavePakId" ColumnName="LeavePakId" />
+                <ScalarProperty Name="AttnPolicyID" ColumnName="AttnPolicyID" />
+                <ScalarProperty Name="BonusPakId" ColumnName="BonusPakId" />
+                <ScalarProperty Name="GrossSalary" ColumnName="GrossSalary" />
+                <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+                <ScalarProperty Name="SalLocId" ColumnName="SalLocId" />
+                <ScalarProperty Name="WorkArea" ColumnName="WorkArea" />
+                <ScalarProperty Name="ContractPurpose" ColumnName="ContractPurpose" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="DesigId" ColumnName="DesigId" />
+                <ScalarProperty Name="JobTitleId" ColumnName="JobTitleId" />
+                <ScalarProperty Name="GradeLevelId" ColumnName="GradeLevelId" />
+                <ScalarProperty Name="GradeId" ColumnName="GradeId" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
+                <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+                <ScalarProperty Name="EmpTypeID" ColumnName="EmpTypeID" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="IsMedical" ColumnName="IsMedical" />
+                <ScalarProperty Name="BMDCRegDate" ColumnName="BMDCRegDate" />
+                <ScalarProperty Name="BMDCRegNo" ColumnName="BMDCRegNo" />
+                <ScalarProperty Name="LandPhone" ColumnName="LandPhone" />
+                <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+                <ScalarProperty Name="SkypeId" ColumnName="SkypeId" />
+                <ScalarProperty Name="DOBId" ColumnName="DOBId" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="NationalId" ColumnName="NationalId" />
+                <ScalarProperty Name="PassportIssueOffice" ColumnName="PassportIssueOffice" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="Circle" ColumnName="Circle" />
+                <ScalarProperty Name="PassExpDate" ColumnName="PassExpDate" />
+                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+                <ScalarProperty Name="TINNo" ColumnName="TINNo" />
+                <ScalarProperty Name="RelationId" ColumnName="RelationId" />
+                <ScalarProperty Name="IsRelativeInSC" ColumnName="IsRelativeInSC" />
+                <ScalarProperty Name="LicenseRenewDate" ColumnName="LicenseRenewDate" />
+                <ScalarProperty Name="DrivingLicense" ColumnName="DrivingLicense" />
+                <ScalarProperty Name="SpecialSkillId" ColumnName="SpecialSkillId" />
+                <ScalarProperty Name="ProffDegreeId" ColumnName="ProffDegreeId" />
+                <ScalarProperty Name="MarriageDate" ColumnName="MarriageDate" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="MailingAddrs" ColumnName="MailingAddrs" />
+                <ScalarProperty Name="PersonalEmail" ColumnName="PersonalEmail" />
+                <ScalarProperty Name="OfficeEmail" ColumnName="OfficeEmail" />
+                <ScalarProperty Name="OfficeExt" ColumnName="OfficeExt" />
+                <ScalarProperty Name="PerCountryID" ColumnName="PerCountryID" />
+                <ScalarProperty Name="PerDistrictID" ColumnName="PerDistrictID" />
+                <ScalarProperty Name="PerFax" ColumnName="PerFax" />
+                <ScalarProperty Name="PerPhone" ColumnName="PerPhone" />
+                <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
+                <ScalarProperty Name="PreFax" ColumnName="PreFax" />
+                <ScalarProperty Name="PrePhone" ColumnName="PrePhone" />
+                <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="BloodGroupId" ColumnName="BloodGroupId" />
+                <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectLists">
+            <EntityTypeMapping TypeName="RDRS_RDRSModel.ProjectList">
+              <MappingFragment StoreEntitySet="ProjectList">
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsGratuity" ColumnName="IsGratuity" />
+                <ScalarProperty Name="IsPF" ColumnName="IsPF" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

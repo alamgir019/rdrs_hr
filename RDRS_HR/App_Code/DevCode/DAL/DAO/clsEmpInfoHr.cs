@@ -90,5 +90,5 @@ public class clsEmpInfoHr
     public string GrossSalary { get; set; }
     public string LeaveSupervisorId { get; set; }
     public string OfficeTypeId { get; set; }
-
+    public decimal SecurityMoney { get; set; }
 }

@@ -29,7 +29,7 @@ namespace BaseHR.DATA
         public Nullable<decimal> lvOpening { get; set; }
         public Nullable<decimal> lvPrevYearCarry { get; set; }
     
-        public virtual EmpInfo EmpInfo { get; set; }
         public virtual LeaveTypeList LeaveTypeList { get; set; }
+        public virtual EmpInfo EmpInfo { get; set; }
     }
 }

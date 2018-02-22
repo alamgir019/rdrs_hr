@@ -47,7 +47,6 @@ namespace BaseHR.DATA
         public Nullable<System.DateTime> MarriageDate { get; set; }
         public Nullable<decimal> ProffDegreeId { get; set; }
         public Nullable<decimal> SpecialSkillId { get; set; }
-        public string IsSpectacled { get; set; }
         public string DrivingLicense { get; set; }
         public Nullable<System.DateTime> LicenseRenewDate { get; set; }
         public string IsRelativeInSC { get; set; }
@@ -108,9 +107,7 @@ namespace BaseHR.DATA
         public string SupervisorId { get; set; }
         public string OtherBenefit { get; set; }
         public string Remarks { get; set; }
-        public string IsMedicalEntmnt { get; set; }
         public string IsOTEntmnt { get; set; }
-        public string IsChildEduAllow { get; set; }
         public string EmpSignature { get; set; }
         public string UploadCV { get; set; }
         public string UploadDocument { get; set; }
@@ -150,7 +147,6 @@ namespace BaseHR.DATA
         public Nullable<decimal> PostingDistId { get; set; }
         public Nullable<decimal> PostingPlaceId { get; set; }
         public string AppointType { get; set; }
-        public Nullable<decimal> SalSubLocId { get; set; }
         public Nullable<decimal> PerDivID { get; set; }
         public Nullable<decimal> PerUpzID { get; set; }
         public Nullable<decimal> PerPSID { get; set; }
@@ -166,6 +162,7 @@ namespace BaseHR.DATA
         public Nullable<decimal> HighDegSubId { get; set; }
         public string OldEmpId { get; set; }
         public Nullable<decimal> ThematicId { get; set; }
+        public Nullable<decimal> SecurityMoney { get; set; }
     
         public virtual EmpInfo EmpInfo1 { get; set; }
         public virtual EmpInfo EmpInfo2 { get; set; }

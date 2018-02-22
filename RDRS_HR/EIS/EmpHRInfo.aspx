@@ -319,14 +319,9 @@
                                 </td>
                                 <td class="textlevel">Salary Location :</td>
                                 <td style="height: 15px">
-                                    <asp:DropDownList ID="ddlSalaryLoc" runat="server" Width="300px" CssClass="textlevelleft"
-                                        OnSelectedIndexChanged="ddlSalaryLoc_SelectedIndexChanged">
-                                    </asp:DropDownList>
+                                    <asp:DropDownList ID="ddlSalaryLoc" runat="server" Width="300px" CssClass="textlevelleft"></asp:DropDownList>
                                 </td>
-                                <td>
-                                    <asp:CompareValidator ID="CompareValidator12" runat="server" ErrorMessage="*" ControlToValidate="ddlSalarySubLoc"
-                                        Operator="NotEqual" ValueToCompare="99999"></asp:CompareValidator>
-                                </td>
+                                <td></td>
                                 <td class="textlevel">Emp Nature:</td>
                                 <td>
                                     <asp:DropDownList ID="ddlEmpNature" runat="server" Width="150px" CssClass="textlevelleft"></asp:DropDownList>
@@ -653,18 +648,13 @@
                 <div style="background-color: #F2DBDB;">
                     <table>
                         <tr>
-                            <td class="textlevel">
+                            <td class="textlevel"></td>
+                            <td class="textlevelleft" colspan="2">
+                                <asp:CheckBox ID="chkIsServiceAgrmnt" runat="server" CssClass="textlevelleft" Text="Is Service Agreement" />
                             </td>
-                            <td class="textlevelleft" colspan="1" style="width: 128px">
-                                <asp:CheckBox ID="chkIsServiceAgrmnt" runat="server" CssClass="textlevelleft" Text="Is Service Agreement"
-                                    Width="146px" />
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td class="textlevel">
@@ -692,6 +682,10 @@
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator12" runat="server"
                                     Width="60px" ErrorMessage="Invalid" ControlToValidate="txtTrainSerEndDt" CssClass="validator"
                                     ValidationExpression="^(?=\d)(?:(?:31(?!.(?:0?[2469]|11))|(?:30|29)(?!.0?2)|29(?=.0?2.(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(?:\x20|$))|(?:2[0-8]|1\d|0?[1-9]))([-./])(?:1[012]|0?[1-9])\1(?:1[6-9]|[2-9]\d)?\d\d(?:(?=\x20\d)\x20|$))?(((0?[1-9]|1[012])(:[0-5]\d){0,2}(\x20[AP]M))|([01]\d|2[0-3])(:[0-5]\d){1,2})?$"></asp:RegularExpressionValidator>
+                            </td>
+                             <td class="textlevel">Security Money :</td>
+                            <td class="textlevelleft">
+                                <asp:TextBox ID="txtSecurityMoney" runat="server" Width="89px"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
