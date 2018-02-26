@@ -1229,15 +1229,15 @@ public class EmpInfoManager
 
         return objDC.GetScalarVal(command);
     }
-    public DataTable SelectSupervisor()
-    {
-        string strSQL = "SELECT FULLNAME + ' [' + EMPID + ']' AS EMPNAME,EMPID FROM EMPINFO ORDER BY EMPID";
-        SqlCommand command = new SqlCommand(strSQL);
-        command.CommandType = CommandType.Text;
+    //public DataTable SelectSupervisor()
+    //{
+    //    string strSQL = "SELECT FULLNAME + ' [' + EMPID + ']' AS EMPNAME,EMPID FROM EMPINFO ORDER BY EMPID";
+    //    SqlCommand command = new SqlCommand(strSQL);
+    //    command.CommandType = CommandType.Text;
 
-        objDC.CreateDT(command, "SupervisorEmp");
-        return objDC.ds.Tables["SupervisorEmp"];
-    }
+    //    objDC.CreateDT(command, "SupervisorEmp");
+    //    return objDC.ds.Tables["SupervisorEmp"];
+    //}
 
     public DataTable SelectEmpNameWithID(string strStatus)
     {

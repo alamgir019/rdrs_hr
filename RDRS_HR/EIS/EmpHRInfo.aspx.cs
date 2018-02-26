@@ -4,6 +4,7 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Linq;
 using BaseHR.Repository;
+using System.Text.RegularExpressions;
 
 public partial class EIS_EmpHRInfo : System.Web.UI.Page
 {
@@ -68,7 +69,7 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
             Common.FillDropDownList_Nil(objSalaryManager.SelectSalaryPackage(0), ddlSalaryPak);
             Common.FillDropDownList_Nil(objPayOptMgr.GetMonthlyPayrollCycleData(), ddlMPC);
 
-            Common.FillDropDownList(objEmpInfoMgr.SelectSupervisor(), ddlSupervisor, "EMPNAME", "EMPID", true, "Nil");
+            //Common.FillDropDownList(objEmpInfoMgr.SelectSupervisor(), ddlSupervisor, "EMPNAME", "EMPID", true, "Nil");
             Common.FillDropDownList(objEmpInfoMgr.SelectBankList(), ddlBankName, "BankName", "BankCode", true, "Nil");
             this.GetTaskPermissionContract();
             Common.FillDropDownList_Nil(objMasMgr.SelectEmpType(0).Select("IsActive='Y'").CopyToDataTable(), ddlEmpType);
@@ -278,8 +279,8 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
                     ddlStatus.SelectedValue = Common.RetrieveddL(ddlStatus, dRow["EmpStatus"].ToString(), "99999");
                     chkIsNotRehire.Checked = dRow["IsNotRehirable"].ToString() == "Y" ? true : false;
                     txtNotRehireReason.Text = dRow["NotRehireReason"].ToString().Trim();
-
-                    ddlSupervisor.SelectedValue = Common.RetrieveddL(ddlSupervisor, dRow["SupervisorId"].ToString(), "-1");
+                    txtSupervisor.Text = dRow["SupervisorId"].ToString().Trim();
+                    //ddlSupervisor.SelectedValue = Common.RetrieveddL(ddlSupervisor, dRow["SupervisorId"].ToString(), "-1");
                     txtLeaveSupervisor.Text = dRow["LeaveSupervisorId"].ToString().Trim();
                     ddlUnit.SelectedValue = Common.RetrieveddL(ddlUnit, dRow["UnitId"].ToString(), "99999");
                     ddlComponent.SelectedValue = Common.RetrieveddL(ddlComponent, dRow["ComponentId"].ToString(), "99999");
@@ -552,9 +553,19 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
         obj.SeveranceId = txtSeveranceId.Text.Trim();
         obj.SeveranceReason = txtSeveranceReason.Text.Trim();
         obj.SubDesigId = ddlJobTitle.SelectedValue.ToString();
-        obj.SupervisorId = ddlSupervisor.SelectedValue.ToString();
-        obj.LeaveSupervisorId = txtLeaveSupervisor.Text.Trim();  
-      
+        //if (!string.IsNullOrEmpty(txtSupervisor.Text.Trim()))
+        //{
+            var match = Regex.Match(txtSupervisor.Text.Trim(), "(^(\\w+\\s)+\\[)*(\\w+)");
+            string spid = match.Groups[match.Groups.Count - 1].Value;
+            obj.SupervisorId = spid;
+        //}
+        //if (!string.IsNullOrEmpty(txtSupervisor.Text.Trim()))
+        //{
+            var matchr = Regex.Match(txtLeaveSupervisor.Text.Trim(), "(^(\\w+\\s)+\\[)*(\\w+)");
+            string spidr = matchr.Groups[matchr.Groups.Count - 1].Value;
+            obj.LeaveSupervisorId = spidr;
+        //}
+
         if (string.IsNullOrEmpty(fileEmpCV.PostedFile.FileName) == false)
             obj.EmpCV = txtEmpID.Text.Trim() + "-" + fileEmpCV.PostedFile.FileName;
         else
@@ -585,7 +596,7 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
         obj.Asset = txtAsset.Text.Trim();  
         obj.AppointType = ddlAppointType.SelectedValue.ToString();
         obj.GrossSalary = txtGross.Text.Trim();
-        obj.OfficeTypeId = ddlOffType.SelectedValue.ToString();
+        obj.OfficeTypeId = ddlOffType.SelectedValue.ToString();        
         obj.SecurityMoney =String.IsNullOrEmpty(txtSecurityMoney.Text.Trim())?0:Convert.ToDecimal(txtSecurityMoney.Text.Trim());
         return obj;
     }

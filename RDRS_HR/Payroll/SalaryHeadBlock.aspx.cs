@@ -21,7 +21,7 @@ public partial class Payroll_SalaryHeadBlock : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            Common.FillDropDownList(objEmpInfoMgr.SelectSupervisor(), ddlSupervisor, "EMPNAME", "EMPID", true, "Select");
+            Common.FillDropDownList(objEmpInfoMgr.SelectEmpNameWithID("A"), ddlSupervisor, "EMPNAME", "EMPID", true, "Select");
             Common.FillDropDownList(objSalaryHeadMgr2.SelectSalaryHeadCategoryWise("S"), ddlSalHead, true);
             hfIsUpadate.Value = "N";   
             this.EntryMode(false);

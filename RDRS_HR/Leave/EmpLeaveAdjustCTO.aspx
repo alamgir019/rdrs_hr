@@ -3,7 +3,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <script language="javascript" type="text/javascript" src="../Script/datetimepicker.js"></script>
+    <script language="javascript" type="text/javascript" src="../JScripts/datetimepicker.js"></script>
     <script type="text/javascript" language="javascript">
         function ToUpper(ctrl) {
             var t = ctrl.value;

@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <%@ register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
-    <%-- <script src="../JScripts/jquery-1.2.3.min.js" type="text/javascript"></script>
+    <%-- <script src="../JScripts/jquery-1.4.2.min.js" type="text/javascript"></script>
   <script type="text/javascript" src="../JScripts/ui.datepicker.js"></script>--%>
     <script language="javascript" type="text/javascript" src="../../JScripts/datetimepicker.js">
         //Date Time Picker script

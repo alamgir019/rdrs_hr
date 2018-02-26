@@ -1,24 +1,64 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterBTMS.master" AutoEventWireup="true"
     CodeFile="EmpHRInfo.aspx.cs" Inherits="EIS_EmpHRInfo" Title="Employee HR Information" %>
-
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <script src="../JScripts/jquery-1.2.3.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="../JScripts/ui.datepicker.js"></script>
-    <script language="javascript" type="text/javascript" src="../JScripts/datetimepicker.js">
-        //Date Time Picker script
-    </script>
-    <script language="javascript" type="text/javascript" src="../JScripts/Confirmation.js">
-        //Delete Confirmation Message
-    </script>
+    <script language="javascript" type="text/javascript" src="../JScripts/datetimepicker.js"></script>
+    <script language="javascript" type="text/javascript" src="../JScripts/Confirmation.js"></script>
     <script language="javascript" type="text/javascript">
+        $(function () {
+            $(".tb").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "employeelist.asmx/GetEmployee",
+                        data: "{ 'empname': '" + request.term + "' }",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        dataFilter: function (data) { return data; },
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    value: item.EmpNameWithId
+                                }
+                            }))
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            alert(textStatus);
+                        }
+                    });
+                },
+                minLength: 2
+            });
+
+            $(".leavesp").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "employeelist.asmx/GetEmployee",
+                        data: "{ 'empname': '" + request.term + "' }",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        dataFilter: function (data) { return data; },
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    value: item.EmpNameWithId
+                                }
+                            }))
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            alert(textStatus);
+                        }
+                    });
+                },
+                minLength: 2
+            });
+        });
         function ToUpper(ctrl) {
             var t = ctrl.value;
             ctrl.value = t.toUpperCase();
         }
-    </script>
-    <script language="javascript" type="text/javascript">
-
     </script>
     <div class="formStyle">
         <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -88,26 +128,17 @@
                                     <asp:CompareValidator ID="CompareValidator16" runat="server" ErrorMessage="*" ControlToValidate="ddlCompany"
                                         Operator="NotEqual" ValueToCompare="-1"></asp:CompareValidator>
                                 </td>
-                                <td class="textlevel">
-                                    &nbsp;</td>
-                                <td>
-                                    &nbsp;</td>
-                                <td>
-                                    &nbsp;</td>
-                                <td class="textlevel">
-                                    &nbsp;</td>
-                                <td>
-                                    &nbsp;</td>
+                                <td class="textlevel">&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td class="textlevel">&nbsp;</td>
+                                <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td class="textlevel">
-                                    Office Type :</td>
+                                <td class="textlevel">Office Type :</td>
                                 <td>
                                     <asp:DropDownList runat="server" AutoPostBack="True" CssClass="textlevelleft" 
-                                        Width="300px" ID="ddlOffType" 
-                                        onselectedindexchanged=
-                                        "ddlOffType_SelectedIndexChanged" ></asp:DropDownList>
-
+                                        Width="300px" ID="ddlOffType" onselectedindexchanged="ddlOffType_SelectedIndexChanged" ></asp:DropDownList>
                                 </td>
                                 <td>
                                     <asp:CompareValidator ID="CompareValidator19" runat="server" ErrorMessage="*" ControlToValidate="ddlCompany"
@@ -135,9 +166,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="textlevel">
-                                    Sector :
-                                </td>
+                                <td class="textlevel">Sector :</td>
                                 <td>
                                     <asp:DropDownList ID="ddlSector" runat="server" Width="300px" AutoPostBack="true"
                                         OnSelectedIndexChanged="ddlSector_SelectedIndexChanged" CssClass="textlevelleft">
@@ -147,24 +176,18 @@
                                     <asp:CompareValidator ID="CompareValidator7" runat="server" ErrorMessage="*" ControlToValidate="ddlSector"
                                         Operator="NotEqual" ValueToCompare="99999"></asp:CompareValidator>
                                 </td>
-                                <td class="textlevel">
-                                    Department :
-                                </td>
+                                <td class="textlevel">Department :</td>
                                 <td>
                                     <asp:DropDownList ID="ddlDept" CssClass="textlevelleft" runat="server" Width="300px"
-                                        OnSelectedIndexChanged="ddlDept_SelectedIndexChanged">
-                                    </asp:DropDownList>
+                                        OnSelectedIndexChanged="ddlDept_SelectedIndexChanged"></asp:DropDownList>
                                 </td>
                                 <td>
                                     <asp:CompareValidator ID="CompareValidator8" runat="server" ErrorMessage="*" ControlToValidate="ddlDept"
                                         Operator="NotEqual" ValueToCompare="99999"></asp:CompareValidator>
                                 </td>
-                                <td class="textlevel">
-                                    Posting Date :
-                                </td>
+                                <td class="textlevel">Posting Date :</td>
                                 <td>
-                                    <asp:TextBox ID="txtPostingDate" runat="server" Width="89px">
-                                    </asp:TextBox>
+                                    <asp:TextBox ID="txtPostingDate" runat="server" Width="89px"></asp:TextBox>
                                     <a href="javascript:NewCal('<%= txtPostingDate.ClientID %>','ddmmyyyy')">
                                         <img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px"
                                             height="16" alt="Pick a date" src="../images/cal.gif" width="16" /></a>
@@ -174,36 +197,26 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="textlevel">
-                                    Unit:
-                                </td>
+                                <td class="textlevel">Unit:</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlUnit" CssClass="textlevelleft" runat="server" Width="300px">
-                                    </asp:DropDownList>
+                                    <asp:DropDownList ID="ddlUnit" CssClass="textlevelleft" runat="server" Width="300px"></asp:DropDownList>
                                 </td>
                                 <td>
                                     <%--<asp:CompareValidator ID="CompareValidator9" runat="server" ErrorMessage="*" ControlToValidate="ddlUnit"
                                         Operator="NotEqual" ValueToCompare="99999"></asp:CompareValidator>--%>
                                 </td>
-                                <td class="textlevel">
-                                    Component:
-                                </td>
+                                <td class="textlevel">Component:</td>
                                 <td>                                
                                  <asp:DropDownList ID="ddlComponent" CssClass="textlevelleft" runat="server" Width="300px"></asp:DropDownList>
                                 </td>
-                                <td>
-                                </td>
-                                <td class="textlevel">
-                                    Function :
-                                </td>
+                                <td></td>
+                                <td class="textlevel">Function :</td>
                                 <td>
                                     <asp:DropDownList ID="ddlPosByFunction" runat="server" Width="300px" CssClass="textlevelleft"></asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="textlevel">
-                                    Date in Position :
-                                </td>
+                                <td class="textlevel">Date in Position :</td>
                                 <td>
                                     <asp:TextBox ID="txtDateInPosition" runat="server" Width="89px"></asp:TextBox>
                                     <a href="javascript:NewCal('<%= txtDateInPosition.ClientID %>','ddmmyyyy')">
@@ -226,8 +239,7 @@
                                 <td class="textlevel">Grade Step :</td>
                                 <td>
                                     <asp:DropDownList ID="ddlGradeLevel" CssClass="textlevelleft" runat="server" Width="300px" AutoPostBack="true"
-                                    OnSelectedIndexChanged="ddlGradeLevel_SelectedIndexChanged">
-                                    </asp:DropDownList>
+                                    OnSelectedIndexChanged="ddlGradeLevel_SelectedIndexChanged"></asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
@@ -244,8 +256,7 @@
                                 <td class="textlevel">HR Designation :</td>
                                 <td>
                                     <asp:DropDownList ID="ddlDesignation" runat="server" Width="300px" CssClass="textlevelleft"
-                                        OnSelectedIndexChanged="ddlDesignation_SelectedIndexChanged" AutoPostBack="true">
-                                    </asp:DropDownList>
+                                        OnSelectedIndexChanged="ddlDesignation_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                                 </td>
                                 <td>
                                     <asp:CompareValidator ID="CompareValidator4" runat="server" ErrorMessage="*" ControlToValidate="ddlDesignation"
@@ -271,8 +282,7 @@
                                 <td class="textlevel">Posting Division :</td>
                                 <td>
                                     <asp:DropDownList ID="ddlPostDivision" runat="server" Width="300px" CssClass="textlevelleft"
-                                        OnSelectedIndexChanged="ddlPostDivision_SelectedIndexChanged" AutoPostBack="true">
-                                    </asp:DropDownList>
+                                        OnSelectedIndexChanged="ddlPostDivision_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                                 </td>
                                 <td><%--
                                     <asp:CompareValidator ID="CompareValidator10" runat="server" ErrorMessage="*" ControlToValidate="ddlPostDivision"
@@ -386,12 +396,13 @@
                             <tr>
                                 <td class="textlevel">Supervisor Approver:</td>
                                 <td class="textlevelleft">
-                                     <asp:DropDownList ID="ddlSupervisor" runat="server" Width="300px" CssClass="textlevelleft"></asp:DropDownList>
+                                    <asp:TextBox ID="txtSupervisor" class="tb textlevelleft" runat="server"></asp:TextBox>
+                                     <%--<asp:DropDownList ID="ddlSupervisor" runat="server" Width="300px" CssClass="textlevelleft"></asp:DropDownList>--%>
                                 </td>
                                 <td></td>
                                 <td class="textlevel">Supervisor Recommender :</td>
                                 <td class="textlevelleft">
-                                   <asp:TextBox ID="txtLeaveSupervisor" runat="server" Width="130px"></asp:TextBox>
+                                   <asp:TextBox ID="txtLeaveSupervisor" class="leavesp textlevelleft" runat="server" Width="130px"></asp:TextBox>
                                 </td>
                                 <td></td>
                                 <td class="textlevel">Notification Receivers</td>

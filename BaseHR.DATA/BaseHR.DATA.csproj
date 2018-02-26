@@ -53,6 +53,7 @@
     <Compile Include="DivisionList.cs">
       <DependentUpon>RDRS_RDRS.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTOs\EmpInfoDTO.cs" />
     <Compile Include="DTOs\LeavePlanDTO.cs" />
     <Compile Include="DTOs\UserPrivDTO.cs" />
     <Compile Include="EmpInfo.cs">

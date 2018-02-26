@@ -1,7 +1,7 @@
 D:\Development\VS-2015\RDRSHR_Repo\BaseHR.DATA\bin\Debug\BaseHR.DATA.dll.config
 D:\Development\VS-2015\RDRSHR_Repo\BaseHR.DATA\bin\Debug\BaseHR.DATA.dll
 D:\Development\VS-2015\RDRSHR_Repo\BaseHR.DATA\bin\Debug\BaseHR.DATA.pdb
-D:\Development\VS-2015\RDRSHR_Repo\BaseHR.DATA\obj\Debug\BaseHR.DATA.dll
-D:\Development\VS-2015\RDRSHR_Repo\BaseHR.DATA\obj\Debug\BaseHR.DATA.pdb
 D:\Development\VS-2015\RDRSHR_Repo\BaseHR.DATA\bin\Debug\EntityFramework.dll
 D:\Development\VS-2015\RDRSHR_Repo\BaseHR.DATA\bin\Debug\EntityFramework.xml
+D:\Development\VS-2015\RDRSHR_Repo\BaseHR.DATA\obj\Debug\BaseHR.DATA.dll
+D:\Development\VS-2015\RDRSHR_Repo\BaseHR.DATA\obj\Debug\BaseHR.DATA.pdb

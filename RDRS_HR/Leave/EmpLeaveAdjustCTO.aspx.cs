@@ -19,7 +19,7 @@ public partial class EmpLeaveAdjustCTO : System.Web.UI.Page
     //DBConnector objDB = new DBConnector();
     DLeavePlan objLeaveMgr = new DLeavePlan();
     DEmployee objEmpInfoMgr = new DEmployee();
-    List<proc_select_EmpInfo_Result> objEmpinfo = new List<proc_select_EmpInfo_Result>();
+    List<EmpInfoDTO> objEmpinfo = new List<EmpInfoDTO>();
     List<EmpLeaveCTOEntitleLog> lvLogs = new List<EmpLeaveCTOEntitleLog>();
     protected void Page_Load(object sender, EventArgs e)
     {

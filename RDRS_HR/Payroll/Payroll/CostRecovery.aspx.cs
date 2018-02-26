@@ -30,7 +30,7 @@ public partial class Payroll_Payroll_CostRecovery : System.Web.UI.Page
             this.EntryMode(false);
             Common.FillDropDownList(objPayMstMgr.SelectFiscalYear(0), ddlFiscalYear, "FISCALYRTITLE", "FISCALYRID", false);
             ddlFiscalYear.SelectedValue = Session["FISCALYRID"].ToString().Trim();
-            Common.FillDropDownList(objEmpMgr.SelectSupervisor(), ddlEmployee, "EMPNAME", "EMPID", true, "Select");
+            Common.FillDropDownList(objEmpMgr.SelectEmpNameWithID("A"), ddlEmployee, "EMPNAME", "EMPID", true, "Select");
             //Common.FillDropDownList(objMasMgr.SelectGAD("Y"), ddlGAD, "GADTITLE", "GADCODE", true, "Select GAD");
             Common.FillDropDownList(objAccMgr.SelectAccLineData("0", "Y"), ddlAccLine, "ACCLINE", "ACCLINEID", true, "Select Acc. Line");
             //this.OpenRecord("0");

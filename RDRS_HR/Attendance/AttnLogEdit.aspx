@@ -2,7 +2,7 @@
     CodeFile="AttnLogEdit.aspx.cs" Inherits="Attendance_AttnLogEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <script language="javascript" type="text/javascript" src="../Script/datetimepicker.js">
+    <script language="javascript" type="text/javascript" src="../JScripts/datetimepicker.js">
     </script>
     <script language="javascript" type="text/javascript">
         function ToUpper(ctrl) {

@@ -3,13 +3,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:Panel ID="pnlDashBoard" runat="server">
-        <script type="text/javascript" src="../JScripts/jquery.min.js"></script>
+        <%--<script type="text/javascript" src="../JScripts/jquery-1.4.2.min.js"></script>--%>
         <script type="text/javascript">
-            jQuery(document).ready(function () {
-                jQuery(".content").hide();
+            $(function () {
+                $(".content").hide();
                 //toggle the componenet with class msg_body
-                jQuery(".heading").click(function () {
-                    jQuery(this).next(".content").slideToggle(1000);
+                $(".heading").click(function () {
+                    $(this).next(".content").slideToggle(1000);
                     return false;
                 });
             });

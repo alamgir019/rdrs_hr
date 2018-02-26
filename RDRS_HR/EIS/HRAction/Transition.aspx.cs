@@ -38,7 +38,7 @@ public partial class EIS_HRAction_Transition : System.Web.UI.Page
             Common.FillDropDownList_Nil(objMasMgr.SelectLocation(0), ddlPostingPlace);
             Common.FillDropDownList_Nil(objMasMgr.SelectSalaryLocation(0), ddlSalaryLoc);
             Common.FillDropDownList(objMasMgr.SelectPoistingDivision(0), ddlDivision, "PostingDivName", "PostingDivId", true);
-            Common.FillDropDownList(objEmpInfoMgr.SelectSupervisor(), ddlSupervisor, "EMPNAME", "EMPID", true, "Nil");
+            Common.FillDropDownList(objEmpInfoMgr.SelectEmpNameWithID("A"), ddlSupervisor, "EMPNAME", "EMPID", true, "Nil");
             hfIsUpdate.Value = "N";
             this.EntryMode(false);
         }

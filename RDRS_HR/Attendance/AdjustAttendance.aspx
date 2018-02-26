@@ -2,11 +2,7 @@
     CodeFile="AdjustAttendance.aspx.cs" Inherits="Attendance_AdjustAttendance" Title="Adjust Attendance" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-
-    <script language="javascript" type="text/javascript" src="../Script/datetimepicker.js">
-    //Date Time Picker script
-    </script>
-
+    <script type="text/javascript" src="../JScripts/datetimepicker.js"></script>
     <script language="javascript" type="text/javascript">
     function ToUpper(ctrl)
     {   

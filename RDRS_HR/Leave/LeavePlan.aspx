@@ -3,7 +3,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <script language="javascript" type="text/javascript" src="../JScripts/Confirmation.js"></script>
-    <script language="javascript" type="text/javascript" src="../Script/datetimepicker.js"></script>
+    <script language="javascript" type="text/javascript" src="../JScripts/datetimepicker.js"></script>
     
     <div class="EmpMainDivStyle" style="text-align: left;">
         <div id='formhead4'>Employee Leave Plan</div>

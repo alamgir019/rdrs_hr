@@ -1,4 +1,3 @@
-D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\obj\Debug\BaseHR.Repository.csprojResolveAssemblyReference.cache
 D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\bin\Debug\BaseHR.Repository.dll.config
 D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\bin\Debug\BaseHR.Repository.dll
 D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\bin\Debug\BaseHR.Repository.pdb
@@ -6,5 +5,6 @@ D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\bin\Debug\BaseHR.DATA.dll
 D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\bin\Debug\EntityFramework.dll
 D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\bin\Debug\BaseHR.DATA.pdb
 D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\bin\Debug\EntityFramework.xml
+D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\obj\Debug\BaseHR.Repository.csprojResolveAssemblyReference.cache
 D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\obj\Debug\BaseHR.Repository.dll
 D:\Development\VS-2015\RDRSHR_Repo\BaseHR.Repository\obj\Debug\BaseHR.Repository.pdb

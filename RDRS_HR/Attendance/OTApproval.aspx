@@ -2,7 +2,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-  <script language="javascript" type="text/javascript" src="../Script/datetimepicker.js">
+  <script language="javascript" type="text/javascript" src="../JScripts/datetimepicker.js">
     //Date Time Picker script
 </script>
   <script language="javascript" type="text/javascript">
