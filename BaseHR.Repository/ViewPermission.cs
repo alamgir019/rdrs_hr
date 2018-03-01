@@ -41,6 +41,7 @@ namespace BaseHR.Repository
             GradeId,
             SectorId
         }
+
         public DataTable ExistSelection(DataTable selections, Enum field, decimal pageid)
         {
             DataTable sublist = null;

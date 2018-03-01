@@ -167,5 +167,6 @@ namespace BaseHR.DATA
         public virtual EmpInfo EmpInfo1 { get; set; }
         public virtual EmpInfo EmpInfo2 { get; set; }
         public virtual ICollection<EmpLeaveProfile> EmpLeaveProfiles { get; set; }
+        public virtual ComponentList ComponentList { get; set; }
     }
 }

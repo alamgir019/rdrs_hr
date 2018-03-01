@@ -3310,19 +3310,7 @@ public class MasterTablesManager
         objDC.CreateDSFromProc(command, "SelectUnit");
         return objDC.ds.Tables["SelectUnit"];
     }
-
-    public DataTable SelectComponent(Int32 component)
-    {
-        SqlCommand command = new SqlCommand("proc_Select_ComponentList");
-
-        SqlParameter p_CompId = command.Parameters.Add("ComponentId", SqlDbType.BigInt);
-        p_CompId.Direction = ParameterDirection.Input;
-        p_CompId.Value = component;
-
-        objDC.CreateDSFromProc(command, "SelectComponent");
-        return objDC.ds.Tables["SelectComponent"];
-    }
-    
+        
     public DataTable SelectLeavePeriodddl()
     {
         SqlCommand command = new SqlCommand("proc_Select_LeavePeriodddl");

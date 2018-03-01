@@ -25,6 +25,8 @@
         <AssociationConnector Association="RDRS_RDRSModel.FK_EmpInfo_EmpInfo" />
         <AssociationConnector Association="RDRS_RDRSModel.FK_EmpLeaveProfile_EmpInfo" />
         <EntityTypeShape EntityType="RDRS_RDRSModel.ProjectList" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="RDRS_RDRSModel.ComponentList" Width="1.5" PointX="10.125" PointY="14.5" />
+        <AssociationConnector Association="RDRS_RDRSModel.FK_EmpInfo_ComponentList" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

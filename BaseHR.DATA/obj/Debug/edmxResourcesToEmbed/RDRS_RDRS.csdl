@@ -278,6 +278,11 @@
     <FunctionImport Name="proc_select_EmpInfo" ReturnType="Collection(RDRS_RDRSModel.proc_select_EmpInfo_Result)">
       <Parameter Name="EmpId" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="ComponentLists" EntityType="RDRS_RDRSModel.ComponentList" />
+    <AssociationSet Name="FK_EmpInfo_ComponentList" Association="RDRS_RDRSModel.FK_EmpInfo_ComponentList">
+      <End Role="ComponentList" EntitySet="ComponentLists" />
+      <End Role="EmpInfo" EntitySet="EmpInfoes" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="EmpLeaveProfile">
     <Key>
@@ -476,6 +481,7 @@
     <NavigationProperty Name="EmpInfo1" Relationship="RDRS_RDRSModel.FK_EmpInfo_EmpInfo" FromRole="EmpInfo" ToRole="EmpInfo1" />
     <NavigationProperty Name="EmpInfo2" Relationship="RDRS_RDRSModel.FK_EmpInfo_EmpInfo" FromRole="EmpInfo1" ToRole="EmpInfo" />
     <NavigationProperty Name="EmpLeaveProfiles" Relationship="RDRS_RDRSModel.FK_EmpLeaveProfile_EmpInfo" FromRole="EmpInfo" ToRole="EmpLeaveProfile" />
+    <NavigationProperty Name="ComponentList" Relationship="RDRS_RDRSModel.FK_EmpInfo_ComponentList" FromRole="EmpInfo" ToRole="ComponentList" />
   </EntityType>
   <Association Name="FK_EmpInfo_EmpInfo">
     <End Type="RDRS_RDRSModel.EmpInfo" Role="EmpInfo" Multiplicity="1" />
@@ -680,4 +686,31 @@
     <Property Type="DateTime" Name="LeaveStartPeriod" Nullable="true" Precision="23" />
     <Property Type="DateTime" Name="LeaveEndPeriod" Nullable="true" Precision="23" />
   </ComplexType>
+  <EntityType Name="ComponentList">
+    <Key>
+      <PropertyRef Name="ComponentId" />
+    </Key>
+    <Property Name="ComponentId" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+    <Property Name="ComponentName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EmpInfoes" Relationship="RDRS_RDRSModel.FK_EmpInfo_ComponentList" FromRole="ComponentList" ToRole="EmpInfo" />
+  </EntityType>
+  <Association Name="FK_EmpInfo_ComponentList">
+    <End Type="RDRS_RDRSModel.ComponentList" Role="ComponentList" Multiplicity="0..1" />
+    <End Type="RDRS_RDRSModel.EmpInfo" Role="EmpInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComponentList">
+        <PropertyRef Name="ComponentId" />
+      </Principal>
+      <Dependent Role="EmpInfo">
+        <PropertyRef Name="ComponentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -5,19 +5,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
     <script language="javascript" type="text/javascript" src="../JScripts/datetimepicker.js"></script>
-
     <script language="javascript" type="text/javascript">
-function printDiv(divName) 
-{
-     var printContents = document.getElementById(divName).innerHTML;
-     var originalContents = document.body.innerHTML;
+        function printDiv(divName) 
+        {
+             var printContents = document.getElementById(divName).innerHTML;
+             var originalContents = document.body.innerHTML;
 
-     document.body.innerHTML = printContents;
+             document.body.innerHTML = printContents;
 
-     window.print();
+             window.print();
 
-     document.body.innerHTML = originalContents;
-}
+             document.body.innerHTML = originalContents;
+        }
     </script>
 
     <div class="formStyle">

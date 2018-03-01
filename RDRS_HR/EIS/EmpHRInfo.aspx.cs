@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using BaseHR.Repository;
 using System.Text.RegularExpressions;
+using BaseHR.Repository.DAL;
 
 public partial class EIS_EmpHRInfo : System.Web.UI.Page
 {
@@ -14,6 +15,7 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
     Payroll_PaySlipOptionMgr objPayOptMgr = new Payroll_PaySlipOptionMgr();
     UserManager objUserMgr = new UserManager();
     ViewPermission objViewPerm = new ViewPermission();
+    DComponent objCmp = new DComponent();
 
     DataTable dtEmpInfo = new DataTable();
     DataTable dtEmpAction = new DataTable();
@@ -48,7 +50,10 @@ public partial class EIS_EmpHRInfo : System.Web.UI.Page
             }
             Common.FillDropDownList_Nil(objMasMgr.SelectDepartment(0), ddlDept);
             Common.FillDropDownList_Nil(objMasMgr.SelectUnit(0), ddlUnit);
-            Common.FillDropDownList_Nil(objMasMgr.SelectComponent(0), ddlComponent);
+            ddlComponent.DataSource=objCmp.getComponents().Where(cc => cc.IsActive == "Y" && cc.IsDeleted=="N").ToList();
+            ddlComponent.DataTextField = "ComponentName";
+            ddlComponent.DataValueField = "ComponentId";
+            ddlComponent.DataBind();
             Common.FillDropDownList_Nil(objMasMgr.SelectPoistingDivision(0), ddlPostDivision);
             Common.FillDropDownList_Nil(objMasMgr.SelectDivisionWiseDistrict2(Convert.ToInt32(ddlPostDivision.SelectedValue)), ddlPostDistrict);
             Common.FillDropDownList_Nil(objMasMgr.SelectLocation(0), ddlPostingPlace);

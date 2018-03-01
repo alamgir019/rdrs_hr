@@ -41,6 +41,7 @@ namespace BaseHR.DATA
         public DbSet<LeavePlan> LeavePlans { get; set; }
         public DbSet<EmpInfo> EmpInfoes { get; set; }
         public DbSet<ProjectList> ProjectLists { get; set; }
+        public DbSet<ComponentList> ComponentLists { get; set; }
     
         public virtual ObjectResult<proc_select_EmpInfo_Result> proc_select_EmpInfo(string empId)
         {

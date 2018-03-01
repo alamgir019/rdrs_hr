@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonData\Extension.cs" />
+    <Compile Include="DAL\DComponent.cs" />
     <Compile Include="DAL\DEmployee.cs" />
     <Compile Include="DAL\DLeavePlan.cs" />
     <Compile Include="DAL\DUserPrivilege.cs" />

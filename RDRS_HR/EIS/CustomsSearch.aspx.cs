@@ -60,7 +60,7 @@ public partial class EIS_CustomsSearch : System.Web.UI.Page
 
         txtQuery.Text = strColumns;
         //txtQuery.Text = strColumns + " FROM " + lblSchema.Text.Trim() + strCond + " ORDER BY EMPID";
-        txtQuery.Text = strColumns + " FROM View_CustomSearch " + strCond + " ORDER BY EMPID";
+        txtQuery.Text = strColumns + " FROM VW_EmpInfo " + strCond + " ORDER BY EMPID";
         lblSchema.Text = "";
 
         this.GetData();
@@ -98,7 +98,7 @@ public partial class EIS_CustomsSearch : System.Web.UI.Page
     protected void btnVWEmployeeReport_Click(object sender, EventArgs e)
     {
         ModalPopupTree.Show();
-        DataTable dtDesc = objMgr.GetSchemaDescription("View_CustomSearch");
+        DataTable dtDesc = objMgr.GetSchemaDescription("VW_EmpInfo");
         if (dtDesc.Rows.Count > 0)
         {
             grColumns.DataSource = dtDesc;

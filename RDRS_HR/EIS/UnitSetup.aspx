@@ -8,7 +8,7 @@
     <div class="setup">
         <div id='formhead1'>
             <div style="width: 96%; float: left;">
-                Component/Unit Setup</div>
+                Unit Setup</div>
             <div style="margin: 2px; float: left; padding-right: 3px;">
                 <a href="../Default.aspx">
                     <img src="../Images/close_icon.gif" /></a></div>
@@ -26,7 +26,7 @@
                 <table>
                     <tr>
                         <td class="textlevel">
-                            Component/Unit Name :
+                            Unit Name :
                         </td>
                         <td>
                             <asp:TextBox ID="txtSbu" runat="server" Width="309px"></asp:TextBox>
@@ -80,7 +80,7 @@
                 </cc1:TabPanel>
                 <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="TabPanel1" Width="100%">
                     <HeaderTemplate>
-                        Component/Unit List
+                        Unit List
                     </HeaderTemplate>
                     <ContentTemplate>
                     <div style="width: 100%; height: 240px; overflow: scroll;">

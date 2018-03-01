@@ -1,5 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="RDRS_RDRSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ComponentList">
+    <Key>
+      <PropertyRef Name="ComponentId" />
+    </Key>
+    <Property Name="ComponentId" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ComponentName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="char" MaxLength="1" />
+    <Property Name="IsDeleted" Type="char" MaxLength="1" />
+    <Property Name="InsertedBy" Type="varchar" MaxLength="40" />
+    <Property Name="InsertedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="40" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="LastUpdatedFrom" Type="varchar" MaxLength="40" />
+  </EntityType>
   <EntityType Name="DivisionList">
     <Key>
       <PropertyRef Name="DivisionId" />
@@ -389,6 +403,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_EmpInfo_ComponentList">
+    <End Role="ComponentList" Type="Self.ComponentList" Multiplicity="0..1" />
+    <End Role="EmpInfo" Type="Self.EmpInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComponentList">
+        <PropertyRef Name="ComponentId" />
+      </Principal>
+      <Dependent Role="EmpInfo">
+        <PropertyRef Name="ComponentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_EmpInfo_EmpInfo">
     <End Role="EmpInfo" Type="Self.EmpInfo" Multiplicity="1" />
     <End Role="EmpInfo1" Type="Self.EmpInfo" Multiplicity="0..1" />
@@ -467,6 +493,7 @@
     <Parameter Name="EmpId" Type="varchar" Mode="In" />
   </Function>
   <EntityContainer Name="RDRS_RDRSModelStoreContainer">
+    <EntitySet Name="ComponentList" EntityType="Self.ComponentList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DivisionList" EntityType="Self.DivisionList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmpInfo" EntityType="Self.EmpInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmpLeaveCTOEntitleLog" EntityType="Self.EmpLeaveCTOEntitleLog" Schema="dbo" store:Type="Tables" />
@@ -483,6 +510,10 @@
     <AssociationSet Name="FK__EmpLeaveC__LType__14A88507" Association="Self.FK__EmpLeaveC__LType__14A88507">
       <End Role="LeaveTypeList" EntitySet="LeaveTypeList" />
       <End Role="EmpLeaveCTOEntitleLog" EntitySet="EmpLeaveCTOEntitleLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpInfo_ComponentList" Association="Self.FK_EmpInfo_ComponentList">
+      <End Role="ComponentList" EntitySet="ComponentList" />
+      <End Role="EmpInfo" EntitySet="EmpInfo" />
     </AssociationSet>
     <AssociationSet Name="FK_EmpInfo_EmpInfo" Association="Self.FK_EmpInfo_EmpInfo">
       <End Role="EmpInfo" EntitySet="EmpInfo" />

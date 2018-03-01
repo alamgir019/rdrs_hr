@@ -5,6 +5,20 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="RDRS_RDRSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ComponentList">
+          <Key>
+            <PropertyRef Name="ComponentId" />
+          </Key>
+          <Property Name="ComponentId" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="ComponentName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" />
+          <Property Name="IsDeleted" Type="char" MaxLength="1" />
+          <Property Name="InsertedBy" Type="varchar" MaxLength="40" />
+          <Property Name="InsertedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="40" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="LastUpdatedFrom" Type="varchar" MaxLength="40" />
+        </EntityType>
         <EntityType Name="DivisionList">
           <Key>
             <PropertyRef Name="DivisionId" />
@@ -394,6 +408,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_EmpInfo_ComponentList">
+          <End Role="ComponentList" Type="Self.ComponentList" Multiplicity="0..1" />
+          <End Role="EmpInfo" Type="Self.EmpInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComponentList">
+              <PropertyRef Name="ComponentId" />
+            </Principal>
+            <Dependent Role="EmpInfo">
+              <PropertyRef Name="ComponentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_EmpInfo_EmpInfo">
           <End Role="EmpInfo" Type="Self.EmpInfo" Multiplicity="1" />
           <End Role="EmpInfo1" Type="Self.EmpInfo" Multiplicity="0..1" />
@@ -472,6 +498,7 @@
           <Parameter Name="EmpId" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="RDRS_RDRSModelStoreContainer">
+          <EntitySet Name="ComponentList" EntityType="Self.ComponentList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DivisionList" EntityType="Self.DivisionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmpInfo" EntityType="Self.EmpInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmpLeaveCTOEntitleLog" EntityType="Self.EmpLeaveCTOEntitleLog" Schema="dbo" store:Type="Tables" />
@@ -488,6 +515,10 @@
           <AssociationSet Name="FK__EmpLeaveC__LType__14A88507" Association="Self.FK__EmpLeaveC__LType__14A88507">
             <End Role="LeaveTypeList" EntitySet="LeaveTypeList" />
             <End Role="EmpLeaveCTOEntitleLog" EntitySet="EmpLeaveCTOEntitleLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpInfo_ComponentList" Association="Self.FK_EmpInfo_ComponentList">
+            <End Role="ComponentList" EntitySet="ComponentList" />
+            <End Role="EmpInfo" EntitySet="EmpInfo" />
           </AssociationSet>
           <AssociationSet Name="FK_EmpInfo_EmpInfo" Association="Self.FK_EmpInfo_EmpInfo">
             <End Role="EmpInfo" EntitySet="EmpInfo" />
@@ -794,8 +825,13 @@
           </AssociationSet>
           <EntitySet Name="ProjectLists" EntityType="RDRS_RDRSModel.ProjectList" />
           <FunctionImport Name="proc_select_EmpInfo" ReturnType="Collection(RDRS_RDRSModel.proc_select_EmpInfo_Result)">
-            <Parameter Name="EmpId" Mode="In" Type="String" />
+          <Parameter Name="EmpId" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="ComponentLists" EntityType="RDRS_RDRSModel.ComponentList" />
+          <AssociationSet Name="FK_EmpInfo_ComponentList" Association="RDRS_RDRSModel.FK_EmpInfo_ComponentList">
+            <End Role="ComponentList" EntitySet="ComponentLists" />
+            <End Role="EmpInfo" EntitySet="EmpInfoes" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="EmpLeaveProfile">
           <Key>
@@ -994,6 +1030,7 @@
           <NavigationProperty Name="EmpInfo1" Relationship="RDRS_RDRSModel.FK_EmpInfo_EmpInfo" FromRole="EmpInfo" ToRole="EmpInfo1" />
           <NavigationProperty Name="EmpInfo2" Relationship="RDRS_RDRSModel.FK_EmpInfo_EmpInfo" FromRole="EmpInfo1" ToRole="EmpInfo" />
           <NavigationProperty Name="EmpLeaveProfiles" Relationship="RDRS_RDRSModel.FK_EmpLeaveProfile_EmpInfo" FromRole="EmpInfo" ToRole="EmpLeaveProfile" />
+          <NavigationProperty Name="ComponentList" Relationship="RDRS_RDRSModel.FK_EmpInfo_ComponentList" FromRole="EmpInfo" ToRole="ComponentList" />
         </EntityType>
         <Association Name="FK_EmpInfo_EmpInfo">
           <End Type="RDRS_RDRSModel.EmpInfo" Role="EmpInfo" Multiplicity="1" />
@@ -1198,6 +1235,33 @@
           <Property Type="DateTime" Name="LeaveStartPeriod" Nullable="true" Precision="23" />
           <Property Type="DateTime" Name="LeaveEndPeriod" Nullable="true" Precision="23" />
         </ComplexType>
+        <EntityType Name="ComponentList">
+          <Key>
+            <PropertyRef Name="ComponentId" />
+          </Key>
+          <Property Name="ComponentId" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="ComponentName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="InsertedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdatedFrom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EmpInfoes" Relationship="RDRS_RDRSModel.FK_EmpInfo_ComponentList" FromRole="ComponentList" ToRole="EmpInfo" />
+        </EntityType>
+        <Association Name="FK_EmpInfo_ComponentList">
+          <End Type="RDRS_RDRSModel.ComponentList" Role="ComponentList" Multiplicity="0..1" />
+          <End Type="RDRS_RDRSModel.EmpInfo" Role="EmpInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComponentList">
+              <PropertyRef Name="ComponentId" />
+            </Principal>
+            <Dependent Role="EmpInfo">
+              <PropertyRef Name="ComponentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1754,6 +1818,21 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="ComponentLists">
+            <EntityTypeMapping TypeName="RDRS_RDRSModel.ComponentList">
+              <MappingFragment StoreEntitySet="ComponentList">
+                <ScalarProperty Name="LastUpdatedFrom" ColumnName="LastUpdatedFrom" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ComponentName" ColumnName="ComponentName" />
+                <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
